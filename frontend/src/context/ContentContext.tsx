@@ -4,36 +4,45 @@ import { contentApi, authApi } from '../lib/api';
 // Default content for the website (fallback)
 const defaultContent = {
   hero: {
-    headline: "CREATIVE / STUDIO / BUILT FOR SMALL BRANDS",
-    subheadline: "We design identities, sites, and campaigns that turn small teams into memorable brands.",
-    cta: "Explore work",
-    microLabel: "XYROSOLUTIONS — 2026"
+    headline: "CRAFTING HIGH-PERFORMANCE SITES, APPS & GROWTH SYSTEMS",
+    subheadline: "We partner with ambitious founders and businesses to design, engineer, and scale custom web platforms, mobile apps, and high-ROI digital marketing campaigns.",
+    cta: "Start a project",
+    microLabel: "XELOXSOLUTIONS — 2026"
   },
   about: {
-    eyebrow: "WHO WE ARE",
-    headline: "A small team with big craft.",
-    body: "We're designers, developers, and writers who partner with founders, creators, and small teams. We keep the process simple—and the work sharp.",
-    statement: "CLARITY FIRST. THEN THE FUN STUFF.",
+    eyebrow: "WHO WE ARE — THE XELOX STUDIO",
+    headline: "A focused crew of senior builders & growth specialists.",
+    body: "We are an engineering-led digital agency. We partner directly with founders and ambitious brands to architect custom web platforms, mobile applications, and high-ROI acquisition systems—eliminating agency bureaucracy to ship faster and sharper.",
+    statement: "NO ACCOUNT MANAGERS IN THE MIDDLE. SENIOR BUILDERS ONLY.",
     cta: "Meet the studio"
   },
   services: {
-    headline: "WHAT WE DO",
-    body: "Brand systems, web design, and campaigns—built to launch fast and grow with you.",
-    cta: "See services",
+    headline: "CORE CAPABILITIES",
+    body: "Three specialized pillars engineered to design, engineer, and scale custom digital products and growth engines.",
+    cta: "Explore all services",
     items: [
-      { title: "Brand Identity", description: "Logo, type, color, guidelines." },
-      { title: "Web Design", description: "Responsive, fast, accessible." },
-      { title: "Campaign Kits", description: "Social, email, landing pages." }
+      { 
+        title: "Digital Marketing & Growth", 
+        description: "Data-driven SEO, performance marketing, high-ROI paid acquisition, and content systems that convert visitors into revenue." 
+      },
+      { 
+        title: "Website Design & Development", 
+        description: "Ultra-fast, accessible, and responsive custom web applications, SaaS platforms, and modern corporate websites." 
+      },
+      { 
+        title: "Mobile App Design & Development", 
+        description: "High-performance iOS and Android applications crafted with seamless UX, robust APIs, and scalable architectures." 
+      }
     ]
   },
   portfolio: {
     headline: "SELECTED WORK",
-    body: "A few recent launches—designed to move fast and feel human.",
+    body: "Engineered digital flagships, high-conversion growth engines, and verified innovation credentials.",
     cta: "View all projects",
     projects: [
-      { title: "Web Design", subtitle: "Design + Branding", image: "https://res.cloudinary.com/dr4w6ordx/image/upload/v1779460343/ChatGPT_Image_May_22_2026_07_43_23_PM_gvldqm.png" },
-      { title: "IOT Solutions", subtitle: "Innovation + Manufacturing", image: "https://res.cloudinary.com/dr4w6ordx/image/upload/v1779559829/nexgen-studio/wzygtdqcuaakv3nsytsb.png" },
-      { title: "App Development", subtitle: "Development + Integration", image: "https://res.cloudinary.com/dr4w6ordx/image/upload/v1779559150/nexgen-studio/vksseodnsre0tcepekgh.png" }
+      { title: "Web Platform Architecture", subtitle: "Website Design & Development", image: "https://res.cloudinary.com/dr4w6ordx/image/upload/v1779460343/ChatGPT_Image_May_22_2026_07_43_23_PM_gvldqm.png" },
+      { title: "Full-Funnel Growth Engine", subtitle: "Digital Marketing & Growth", image: "https://res.cloudinary.com/dr4w6ordx/image/upload/v1779559829/nexgen-studio/wzygtdqcuaakv3nsytsb.png" },
+      { title: "Multi-Platform Mobile App", subtitle: "Mobile App Development", image: "https://res.cloudinary.com/dr4w6ordx/image/upload/v1779559150/nexgen-studio/vksseodnsre0tcepekgh.png" }
     ]
   },
   process: {
@@ -54,7 +63,7 @@ const defaultContent = {
       { value: "100%", label: "Remote-friendly process" }
     ],
     testimonial: {
-      quote: "XyroSolutions turned our rough idea into a brand we're proud to show investors—in under a month.",
+      quote: "Xelox Solutions turned our rough idea into a brand we're proud to show investors—in under a month.",
       author: "Founded By SCOR7"
     }
   },
@@ -73,7 +82,7 @@ const defaultContent = {
     body: "Tell us what you're building. We'll reply within 2 business days.",
     cta: "Get in touch",
     email: "xyrosolutions1@gmail.com",
-    location: "Based everywhere / UTC±2",
+    location: "working remotely from everywhere",
     form: {
       emailPlaceholder: "you@company.com",
       messagePlaceholder: "What are you launching?",
@@ -256,7 +265,7 @@ export function ContentProvider({ children }: { children: React.ReactNode }) {
       console.error('Failed to fetch content:', err);
       setError(err instanceof Error ? err.message : 'Failed to load content');
       // Use cached content from localStorage as fallback
-      const cached = localStorage.getItem('xyro-content');
+      const cached = localStorage.getItem('xelox-content') || localStorage.getItem('xyro-content');
       if (cached) {
         setContent(JSON.parse(cached));
       }
@@ -270,8 +279,9 @@ export function ContentProvider({ children }: { children: React.ReactNode }) {
     // During local development, clear cached content so code changes appear immediately
     if (import.meta.env && import.meta.env.DEV) {
       try {
+        localStorage.removeItem('xelox-content');
         localStorage.removeItem('xyro-content');
-      } catch (e) {
+      } catch {
         // ignore
       }
     }
@@ -282,7 +292,7 @@ export function ContentProvider({ children }: { children: React.ReactNode }) {
   // Cache content locally
   useEffect(() => {
     if (!loading) {
-      localStorage.setItem('xyro-content', JSON.stringify(content));
+      localStorage.setItem('xelox-content', JSON.stringify(content));
     }
   }, [content, loading]);
 

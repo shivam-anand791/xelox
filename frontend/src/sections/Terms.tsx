@@ -22,16 +22,16 @@ export default function TermsPage({ onBack }: { onBack?: () => void }) {
         </div>
 
         <div className="bg-white/95 rounded-2xl p-8 shadow-lg">
-          <p className="mb-4 text-gray-700">These Terms & Conditions govern your use of the XyroSolutions website and services. By using the site you agree to these terms.</p>
+          <p className="mb-4 text-gray-700">These Terms & Conditions govern your use of the Xelox Solutions website and services. By using the site you agree to these terms.</p>
 
           <h2 className="font-semibold mt-6 mb-2 text-dark">1. Use of site</h2>
           <p className="mb-4 text-gray-700">You may use the site for lawful purposes only. Prohibited uses include infringing content, abuse, or interfering with site operations.</p>
 
           <h2 className="font-semibold mt-6 mb-2 text-dark">2. Intellectual property</h2>
-          <p className="mb-4 text-gray-700">All content on the site is owned by or licensed to XyroSolutions. You may not reproduce or distribute site content without permission.</p>
+          <p className="mb-4 text-gray-700">All content on the site is owned by or licensed to Xelox Solutions. You may not reproduce or distribute site content without permission.</p>
 
           <h2 className="font-semibold mt-6 mb-2 text-dark">3. Disclaimers & liability</h2>
-          <p className="mb-4 text-gray-700">The site is provided "as is" without warranties. XyroSolutions limits liability to the maximum extent permitted by law.</p>
+          <p className="mb-4 text-gray-700">The site is provided "as is" without warranties. Xelox Solutions limits liability to the maximum extent permitted by law.</p>
 
           <h2 className="font-semibold mt-6 mb-2 text-dark">4. Termination</h2>
           <p className="mb-4 text-gray-700">We may suspend or terminate access for violations of these terms or for other lawful reasons.</p>

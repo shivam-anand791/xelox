@@ -40,9 +40,9 @@ export const createInquiry = async (req, res) => {
     // Send confirmation email to user
     sendEmail({
       to: inquiry.contactInfo.email,
-      subject: 'Thank you for your inquiry - XyroSolutions',
+      subject: 'Thank you for your inquiry - Xelox Solutions',
       html: `
-        <h2>Thank you for contacting XyroSolutions!</h2>
+        <h2>Thank you for contacting Xelox Solutions!</h2>
         <p>Dear ${inquiry.contactInfo.name},</p>
         <p>We have received your service inquiry and our team will review it shortly.</p>
         <p>Here's a summary of your request:</p>
@@ -53,7 +53,7 @@ export const createInquiry = async (req, res) => {
           <li><strong>Timeline:</strong> ${inquiry.timeline}</li>
         </ul>
         <p>We typically respond within 24-48 hours. In the meantime, feel free to explore our portfolio at our website.</p>
-        <p>Best regards,<br>XyroSolutions Team</p>
+        <p>Best regards,<br>Xelox Solutions Team</p>
       `
     }).catch(err => console.error('Failed to send user confirmation:', err));
     

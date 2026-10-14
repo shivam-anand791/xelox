@@ -6,6 +6,7 @@ import PortfolioSection from './sections/PortfolioSection';
 import WorkPage from './sections/WorkPage';
 import WorkCategoryPage from './sections/WorkCategoryPage';
 import ServicesPage from './sections/ServicesPage';
+import ServicesSection from './sections/ServicesSection';
 import ServiceInquiryPage from './sections/ServiceInquiryPage';
 import PrivacyPage from './sections/Privacy';
 import TermsPage from './sections/Terms';
@@ -15,12 +16,12 @@ import BlogSection from './sections/BlogSection';
 import ContactSection from './sections/ContactSection';
 import AdminLogin from './sections/AdminLogin';
 import AdminDashboard from './sections/AdminDashboard';
-import XyroAiPage from './sections/XyroAiPage';
+import XeloxAiPage from './sections/XeloxAiPage';
 import { ContentProvider } from './context/ContentContext';
 import { useContent } from './hooks/useContent';
 import { authApi } from './lib/api';
 
-type Page = 'home' | 'work' | 'work-category' | 'services' | 'service-inquiry' | 'admin-login' | 'admin-dashboard' | 'privacy' | 'terms' | 'xyro-ai';
+type Page = 'home' | 'work' | 'work-category' | 'services' | 'service-inquiry' | 'admin-login' | 'admin-dashboard' | 'privacy' | 'terms' | 'xelox-ai' | 'xyro-ai';
 
 function MainWebsite({ 
   onAdminClick, 
@@ -29,7 +30,7 @@ function MainWebsite({
   currentPage 
 }: { 
   onAdminClick: () => void;
-  onPageChange: (page: string) => void;
+  onPageChange: (page: string, category?: string) => void;
   onAiClick: () => void;
   currentPage: string;
 }) {
@@ -60,18 +61,23 @@ function MainWebsite({
         type="button"
         onClick={onAiClick}
         className="fixed bottom-4 right-4 z-40 inline-flex items-center gap-2 rounded-full border border-white/20 bg-gradient-to-r from-fuchsia-500 via-amber-400 to-cyan-400 px-3 py-2 text-xs font-semibold text-white shadow-[0_14px_36px_rgba(236,72,153,0.24)] backdrop-blur-md transition-transform hover:-translate-y-0.5 hover:shadow-[0_18px_44px_rgba(34,211,238,0.24)] dark:border-white/10 dark:text-white sm:px-4 sm:py-2.5 sm:text-sm"
-        aria-label="Open Xyro AI"
+        aria-label="Open Xelox AI"
       >
         <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-white/25 text-white shadow-sm backdrop-blur-sm sm:h-8 sm:w-8">
           <BotIcon />
         </span>
-        <span className="hidden sm:inline">XYRO AI</span>
+        <span className="hidden sm:inline">Xelox AI</span>
       </button>
       
       {/* Main Content */}
       <main>
         <HeroSection onNavigate={onPageChange} />
         <AboutSection />
+        <ServicesSection 
+          onStartInquiry={(category: string) => onPageChange('service-inquiry', category)}
+          onNavigate={onPageChange}
+          showDeepDive={false}
+        />
         <PortfolioSection onNavigate={onPageChange} />
         <ProcessSection />
         <ResultsSection />
@@ -134,8 +140,9 @@ function AppContent() {
       return <PrivacyPage onBack={() => navigateTo('home')} />;
     case 'terms':
       return <TermsPage onBack={() => navigateTo('home')} />;
+    case 'xelox-ai':
     case 'xyro-ai':
-      return <XyroAiPage onBack={() => navigateTo('home')} />;
+      return <XeloxAiPage onBack={() => navigateTo('home')} />;
     case 'work-category':
       return <WorkCategoryPage category={selectedWorkCategory} onBackToWork={() => navigateTo('work')} onGoHome={() => navigateTo('home')} />;
     case 'services':
@@ -148,7 +155,7 @@ function AppContent() {
         <MainWebsite 
           onAdminClick={() => navigateTo('admin-login')} 
           onPageChange={handlePageChange}
-          onAiClick={() => navigateTo('xyro-ai')}
+          onAiClick={() => navigateTo('xelox-ai')}
           currentPage={currentPage}
         />
       );

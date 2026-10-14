@@ -1,7 +1,7 @@
 {
-  "name": "nexgen-studio-backend",
+  "name": "xelox-solutions-backend",
   "version": "1.0.0",
-  "description": "Backend API for NexGen Studio website",
+  "description": "Backend API for Xelox Solutions website",
   "main": "server.js",
   "type": "module",
   "scripts": {

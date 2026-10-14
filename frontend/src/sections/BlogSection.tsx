@@ -161,7 +161,7 @@ export default function BlogSection() {
                   >
                     <div className="h-40 bg-gradient-to-br from-gray-100 to-gray-200 dark:from-[#0F172A] dark:to-[#111827] relative overflow-hidden">
                       {post.image ? (
-                        <img src={post.image} alt={post.title} className="w-full h-full object-cover" />
+                        <img src={post.image} alt={post.title} className="w-full h-full object-cover" loading="lazy" decoding="async" />
                       ) : (
                         <div className="absolute inset-0 flex items-center justify-center">
                           <span className="font-display text-4xl text-gray-300 dark:text-slate-600 font-bold">📝</span>
@@ -216,7 +216,7 @@ export default function BlogSection() {
               </button>
             </div>
             {selectedPost.image && (
-              <img src={selectedPost.image} alt={selectedPost.title} className="w-full h-64 object-cover" />
+              <img src={selectedPost.image} alt={selectedPost.title} className="w-full h-64 object-cover" loading="lazy" decoding="async" />
             )}
             <div className="p-6 md:p-8">
               <h1 className="font-display font-bold text-2xl md:text-3xl text-dark dark:text-[#F8FAFC] mb-4">

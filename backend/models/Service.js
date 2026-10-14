@@ -26,7 +26,7 @@ const serviceSchema = new mongoose.Schema({
   category: {
     type: String,
     required: [true, 'Service category is required'],
-    enum: ['web-development', 'mobile-apps', 'ai-ml', 'consulting', 'design', 'iot-projects', 'other'],
+    enum: ['digital-marketing', 'web-development', 'mobile-apps', 'ai-ml', 'consulting', 'design', 'iot-projects', 'other'],
     trim: true
   },
   image: {

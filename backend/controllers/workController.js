@@ -9,7 +9,11 @@ export const getWork = async (req, res) => {
     
     let query = { isActive: true };
     if (category && category !== 'all') {
-      query.category = category;
+      if (category === 'innovation') {
+        query.category = { $in: ['innovation', 'sih-alumni', 'amity-innovation', 'hackathons', 'cybercubs'] };
+      } else {
+        query.category = category;
+      }
     }
 
     const work = await Work.find(query)
@@ -36,8 +40,12 @@ export const getWorkByCategory = async (req, res) => {
   try {
     const { category } = req.params;
     
+    const categoryQuery = category === 'innovation'
+      ? { $in: ['innovation', 'sih-alumni', 'amity-innovation', 'hackathons', 'cybercubs'] }
+      : category;
+
     const work = await Work.find({ 
-      category: category, 
+      category: categoryQuery, 
       isActive: true 
     }).sort({ order: 1, createdAt: -1 });
 

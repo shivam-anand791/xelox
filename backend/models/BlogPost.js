@@ -27,7 +27,7 @@ const blogPostSchema = new mongoose.Schema({
   },
   author: {
     type: String,
-    default: 'XyroSolutions'
+    default: 'Xelox Solutions'
   },
   tags: [{
     type: String

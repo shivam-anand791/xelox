@@ -139,7 +139,7 @@ export default function WorkSection() {
     };
 
     const storageHandler = (e: StorageEvent) => {
-      if (e.key === 'xyro-work-update') handler();
+      if (e.key === 'xelox-work-update' || e.key === 'xyro-work-update') handler();
     };
 
     window.addEventListener('work-updated', handler as EventListener);
@@ -185,7 +185,7 @@ export default function WorkSection() {
           const featured = (showAllWork ? filteredWorkItems : filteredWorkItems).slice(0, 3);
           const fallbacks = ['/portfolio_top_left.jpg', '/portfolio_bottom_left.jpg', '/portfolio_bottom_right.jpg'];
           const cards = [0, 1, 2].map((i) => ({
-            title: featured[i]?.title || (i === 0 ? 'PropertiesProfessor' : i === 1 ? 'Xyro AI Agent' : 'Daybreak'),
+            title: featured[i]?.title || (i === 0 ? 'PropertiesProfessor' : i === 1 ? 'Xelox AI Agent' : 'Daybreak'),
             subtitle: featured[i]?.subtitle || (i === 0 ? 'Full Stack Platform' : i === 1 ? 'AI Automation' : 'Mobile Application'),
             image: featured[i]?.image || fallbacks[i],
             id: featured[i]?._id || `fallback-${i}`

@@ -1,10 +1,10 @@
 import { useContent } from '../hooks/useContent';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, TrendingUp, Code2, Smartphone } from 'lucide-react';
 import { useState, useEffect } from 'react';
 
 const heroImages = {
-  primary: 'https://res.cloudinary.com/dr4w6ordx/image/upload/v1773202634/group-photo.png',
-  secondary: 'https://res.cloudinary.com/dr4w6ordx/image/upload/v1773596421/f48bf7a6-fd0e-4e29-89fb-5d425336f46b_ukczim.png',
+  primary: '/hero_mobile_mockup.jpg',
+  secondary: '/hero_web_platform.jpg',
 } as const;
 
 type HeroSectionProps = {
@@ -48,7 +48,9 @@ export default function HeroSection({ onNavigate }: HeroSectionProps) {
   };
 
   const renderHeadline = (headline: string) => {
-    const match = headline.match(/\bbrands?\b/i);
+    // Highlight key agency terms: "GROWTH SYSTEMS", "SITES, APPS", or "BRANDS"
+    const pattern = /(growth systems|sites, apps|brands?)/i;
+    const match = headline.match(pattern);
 
     if (!match || match.index === undefined) {
       return headline;
@@ -71,8 +73,9 @@ export default function HeroSection({ onNavigate }: HeroSectionProps) {
       {/* Enhanced animated gradient overlay that becomes more prominent when text floats */}
       <div className={`absolute inset-0 transition-all duration-1500 ${textFloating ? 'opacity-20' : 'opacity-10'}`}>
         <div
-          className="absolute inset-0 transition-all duration-[10s] ease-in-out"
+          className="absolute inset-0 transition-all ease-in-out"
           style={{
+            transitionDuration: '10s',
             background: loaded
               ? textFloating
                 ? 'radial-gradient(circle at 20% 30%, #B8FF3D33 0%, transparent 60%), radial-gradient(circle at 80% 70%, #B8FF3D22 0%, transparent 60%), radial-gradient(circle at 50% 50%, #00000022 0%, transparent 70%)'
@@ -94,12 +97,12 @@ export default function HeroSection({ onNavigate }: HeroSectionProps) {
           <div className="hidden md:block absolute top-[80%] left-[40%] w-1.5 h-1.5 bg-white rounded-full" style={{ animation: 'floatSide 6.5s ease-in-out infinite reverse, sparkle 3.2s ease-in-out infinite 0.7s' }} />
         </>
       )}
-      {/* Decorative Elements - Show on all devices */}
+      {/* Decorative Elements - In soft background */}
       <div
-        className={`decor-circle w-12 h-12 md:w-20 md:h-20 lg:w-40 lg:h-40 absolute left-[75%] md:left-[48%] top-[8%] md:top-[16%] z-0 transition-all duration-800 ${
-          loaded ? 'opacity-100 scale-100 blur-0' : 'opacity-0 scale-0 blur-sm'
+        className={`decor-circle w-12 h-12 md:w-20 md:h-20 lg:w-36 lg:h-36 absolute left-[75%] md:left-[48%] top-[8%] md:top-[14%] z-0 pointer-events-none transition-all duration-800 ${
+          loaded ? 'opacity-30 scale-100 blur-0' : 'opacity-0 scale-0 blur-sm'
         } ${
-          textFloating ? 'bg-gradient-to-br from-lime via-yellow-300 to-lime shadow-lime/50 shadow-2xl' : 'bg-lime'
+          textFloating ? 'bg-gradient-to-br from-lime via-yellow-300 to-lime shadow-lime/50 shadow-2xl' : 'bg-lime/40'
         }`}
         style={{
           transitionDelay: '300ms',
@@ -107,10 +110,10 @@ export default function HeroSection({ onNavigate }: HeroSectionProps) {
         }}
       />
       <div
-        className={`decor-ring w-10 h-10 md:w-16 md:h-16 lg:w-36 lg:h-36 absolute left-[5%] md:left-[44%] top-[85%] md:top-[68%] z-10 transition-all duration-800 ${
-          loaded ? 'opacity-100 scale-100 rotate-0' : 'opacity-0 scale-0 rotate-180'
+        className={`decor-ring w-10 h-10 md:w-16 md:h-16 lg:w-32 lg:h-32 absolute left-[5%] md:left-[44%] top-[85%] md:top-[72%] z-0 pointer-events-none transition-all duration-800 ${
+          loaded ? 'opacity-30 scale-100 rotate-0' : 'opacity-0 scale-0 rotate-180'
         } ${
-          textFloating ? 'border-white shadow-white/30 shadow-lg' : 'border-dark'
+          textFloating ? 'border-white/40 shadow-white/30 shadow-lg' : 'border-dark/20 dark:border-white/20'
         }`}
         style={{
           transitionDelay: '400ms',
@@ -118,203 +121,205 @@ export default function HeroSection({ onNavigate }: HeroSectionProps) {
         }}
       />
 
-      {/* Desktop Layout - Show on ALL devices */}
-      <div className="min-h-screen relative flex flex-col">
-        {/* Mobile Layout: Clear stacked version matching desktop style */}
-        <div className="md:hidden relative z-10 px-4 pt-20 pb-12">
-          <div className="mx-auto w-full">
-            <p
-              className={`font-mono text-[11px] tracking-[0.14em] mb-3 transition-all duration-600 uppercase text-cyan-600 dark:text-cyan-400 ${
-                loaded ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'
-              }`}
-              style={{ transitionDelay: '200ms' }}
-            >
-              {content.hero.microLabel}
-            </p>
-
-            <h1
-              className={`font-display font-bold text-4xl leading-[1.05] tracking-tight mb-4 transition-all duration-800 text-dark dark:text-white ${
-                loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
-              }`}
-              style={{ transitionDelay: '280ms' }}
-            >
-              {renderHeadline(content.hero.headline)}
-            </h1>
-
-            <p
-              className={`text-sm leading-relaxed text-gray-700 dark:text-gray-300 mb-6 transition-all duration-800 ${
-                loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
-              }`}
-              style={{ transitionDelay: '360ms' }}
-            >
-              {content.hero.subheadline}
-            </p>
-
-            <button
-              onClick={scrollToWork}
-              className={`group btn-primary inline-flex items-center gap-2 px-5 py-2.5 rounded-full transition-all duration-700 ${
-                loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
-              }`}
-              style={{ transitionDelay: '440ms' }}
-            >
-              <span>{content.hero.cta}</span>
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </button>
-
-            <div
-              className={`relative mt-10 w-full h-96 transition-all duration-900 ${
-                loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-              }`}
-              style={{ transitionDelay: '520ms' }}
-            >
-              <div className="absolute left-0 top-1/2 -translate-y-1/2 w-64 h-64 rounded-full bg-gradient-to-r from-cyan-200 to-cyan-100 opacity-40 blur-3xl" />
-
-              <div
-                className="absolute right-0 top-0 w-72 h-72 rounded-3xl overflow-hidden shadow-2xl z-[3] border-4 border-cyan-400"
-                style={{ clipPath: 'polygon(5% 0, 100% 0, 100% 100%, 0 100%)' }}
-              >
-                <img
-                  src={heroImages.secondary}
-                  alt="Team member at monument"
-                  className="w-full h-full object-cover img-mono"
-                />
-              </div>
-
-              <div className="absolute right-0 bottom-0 w-32 h-32 bg-gradient-to-tl from-cyan-500 to-teal-400 rounded-tl-3xl z-[1]" />
-
-              <div className="absolute left-0 bottom-0 w-40 h-40 rounded-2xl overflow-hidden shadow-2xl z-[4] border-4 border-cyan-400">
-                <img
-                  src={heroImages.primary}
-                  alt="Our team"
-                  className="w-full h-full object-cover img-mono"
-                />
-              </div>
-            </div>
-
-            <div
-              className={`mt-6 flex items-center justify-center gap-2 transition-all duration-700 ${
-                loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-              }`}
-              style={{ transitionDelay: '620ms' }}
-              onClick={scrollToWork}
-            >
-              <div className="w-5 h-8 border-2 border-dark dark:border-gray-400 rounded-full flex justify-center pt-1">
-                <div className="w-0.5 h-1.5 bg-dark dark:bg-gray-400 rounded-full animate-bounce" />
-              </div>
-              <span className="text-xs text-gray-600 dark:text-gray-400">Scroll down</span>
-            </div>
-          </div>
-        </div>
-
-        {/* Desktop: Left-aligned text + Right-aligned images layout */}
-        <div className="hidden md:flex flex-1 items-center justify-between gap-12 px-12 lg:px-16 relative z-10">
-          {/* Left: Text Content */}
-          <div className="flex-1 max-w-md">
-            <p
-              className={`font-mono text-xs lg:text-sm tracking-[0.15em] mb-4 transition-all duration-600 ${
-                loaded ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'
-              } text-cyan-600 dark:text-cyan-400 uppercase`}
-              style={{ transitionDelay: '200ms' }}
-            >
-              {content.hero.microLabel}
-            </p>
-
-            <h1
-              className={`font-display font-bold text-4xl lg:text-5xl xl:text-6xl leading-[1.1] tracking-tight mb-5 transition-all duration-800 text-dark dark:text-white ${
-                loaded ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'
-              }`}
-              style={{ transitionDelay: '300ms' }}
-            >
-              {renderHeadline(content.hero.headline)}
-            </h1>
-
-            <p
-              className={`text-base lg:text-lg mb-8 leading-relaxed transition-all duration-800 text-gray-700 dark:text-gray-300 ${
-                loaded ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'
-              }`}
-              style={{ transitionDelay: '400ms' }}
-            >
-              {content.hero.subheadline}
-            </p>
-
-            <button
-              onClick={scrollToWork}
-              className={`group btn-primary inline-flex items-center gap-2 px-6 py-3 rounded-full transition-all duration-600 ${
-                loaded ? 'opacity-100 translate-x-0 blur-0' : 'opacity-0 -translate-x-8 blur-sm'
-              }`}
-              style={{ transitionDelay: '500ms' }}
-            >
-              <span>{content.hero.cta}</span>
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </button>
-
-            {/* Scroll indicator on left */}
-            <div
-              className={`mt-12 flex items-center gap-2 cursor-pointer transition-all duration-800 ${
-                loaded ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'
-              }`}
-              style={{ transitionDelay: '700ms' }}
-              onClick={scrollToWork}
-            >
-              <div className="w-5 h-8 border-2 border-dark dark:border-gray-400 rounded-full flex justify-center pt-1">
-                <div className="w-0.5 h-1.5 bg-dark dark:bg-gray-400 rounded-full animate-bounce" />
-              </div>
-              <span className="text-sm text-gray-600 dark:text-gray-400">Scroll down</span>
-            </div>
-          </div>
-
-          {/* Right: Images with decorative elements - matching screenshot exactly */}
-          <div className="flex-1 relative h-[75vh] min-w-0 flex items-center justify-end">
+      {/* Hero Content Stage */}
+      <div className="relative min-h-[calc(100vh-50px)] flex flex-col justify-between">
+        <div className="flex-1 flex items-center w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 sm:pt-32 md:pt-36 lg:pt-40 pb-12 sm:pb-16 relative z-10">
+          <div className="w-full grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 xl:gap-12 items-center">
             
-            {/* Light cyan gradient wave (left background) */}
-            <div
-              className={`absolute left-0 top-1/2 -translate-y-1/2 w-96 h-96 rounded-full bg-gradient-to-r from-cyan-200 to-cyan-100 opacity-40 transition-all duration-800 z-0 blur-3xl ${
-                loaded ? 'scale-100 opacity-40' : 'scale-0 opacity-0'
-              }`}
-              style={{ transitionDelay: '250ms' }}
-            />
-
-            {/* Images container */}
-            <div className="relative w-full h-full flex items-center justify-end pr-8">
-              
-              {/* Larger image - Single boy (RIGHT, center-right) */}
+            {/* Left Column: Headline, Subheadline, CTAs */}
+            <div className="lg:col-span-6 xl:col-span-6 flex flex-col items-start text-left">
+              {/* Micro-label */}
               <div
-                className={`absolute right-0 top-1/2 -translate-y-1/2 w-full max-w-lg h-96 rounded-3xl overflow-hidden shadow-2xl transition-all duration-800 z-[3] border-4 border-cyan-400 ${
-                  loaded ? 'opacity-100 translate-x-0 scale-100' : 'opacity-0 translate-x-20 scale-90'
+                className={`inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/25 mb-4 sm:mb-5 transition-all duration-600 ${
+                  loaded ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'
                 }`}
-                style={{
-                  transitionDelay: '300ms',
-                  clipPath: 'polygon(5% 0, 100% 0, 100% 100%, 0 100%)',
-                }}
+                style={{ transitionDelay: '180ms' }}
               >
-                <img
-                  src={heroImages.secondary}
-                  alt="Team member at monument"
-                  className="w-full h-full object-cover img-mono transition-all duration-700 hover:scale-110"
-                />
+                <span className="w-2 h-2 rounded-full bg-[#19D5D0] animate-pulse" />
+                <span className="font-mono text-xs sm:text-[13px] tracking-[0.16em] uppercase text-cyan-600 dark:text-cyan-400 font-semibold">
+                  {content.hero?.microLabel || 'XELOXSOLUTIONS — 2026'}
+                </span>
               </div>
 
-              {/* Smaller image - Group photo (BOTTOM LEFT, deeply overlapping) */}
-              <div
-                className={`absolute left-1/2 bottom-0 -translate-x-1/2 w-56 h-64 rounded-3xl overflow-hidden shadow-2xl transition-all duration-800 z-[4] border-4 border-cyan-400 ${
-                  loaded ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-12 scale-90'
+              {/* Main Headline */}
+              <h1
+                className={`font-display font-black text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] xl:text-[3.75rem] leading-[1.08] tracking-tight mb-5 text-dark dark:text-white transition-all duration-800 ${
+                  loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
                 }`}
-                style={{ transitionDelay: '400ms' }}
+                style={{ transitionDelay: '260ms' }}
               >
-                <img
-                  src={heroImages.primary}
-                  alt="Our team"
-                  className="w-full h-full object-cover img-mono transition-all duration-700 hover:scale-110"
-                />
+                {renderHeadline(
+                  content.hero?.headline && !content.hero.headline.toLowerCase().includes('small brands')
+                    ? content.hero.headline
+                    : 'CRAFTING HIGH-PERFORMANCE SITES, APPS & GROWTH SYSTEMS'
+                )}
+              </h1>
+
+              {/* Subheadline */}
+              <p
+                className={`text-sm sm:text-base md:text-lg leading-relaxed text-gray-700 dark:text-gray-300 mb-8 max-w-xl transition-all duration-800 ${
+                  loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+                }`}
+                style={{ transitionDelay: '340ms' }}
+              >
+                {content.hero?.subheadline && !content.hero.subheadline.toLowerCase().includes('identities, sites')
+                  ? content.hero.subheadline
+                  : 'We partner with ambitious founders and businesses to design, engineer, and scale custom web platforms, mobile apps, and high-ROI digital marketing campaigns.'}
+              </p>
+
+              {/* Dual CTAs */}
+              <div
+                className={`flex flex-wrap items-center gap-4 transition-all duration-700 ${
+                  loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+                }`}
+                style={{ transitionDelay: '420ms' }}
+              >
+                <button
+                  onClick={() => onNavigate ? onNavigate('service-inquiry') : scrollToWork()}
+                  className="group btn-primary inline-flex items-center gap-2.5 px-6 sm:px-7 py-3 sm:py-3.5 rounded-full font-semibold shadow-lg shadow-lime/20 hover:shadow-lime/35 transition-all text-sm sm:text-base"
+                >
+                  <span>
+                    {content.hero?.cta && content.hero.cta.toLowerCase() !== 'explore work'
+                      ? content.hero.cta
+                      : 'Start a project'}
+                  </span>
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </button>
+
+                <button
+                  onClick={scrollToWork}
+                  className="btn-outline inline-flex items-center gap-2 px-6 sm:px-7 py-3 sm:py-3.5 rounded-full text-sm sm:text-base font-semibold transition-all hover:bg-black/5 dark:hover:bg-white/5"
+                >
+                  <span>Explore work</span>
+                </button>
               </div>
 
-              {/* Solid turquoise shape (bottom right corner) */}
+              {/* Scroll Indicator */}
               <div
-                className={`absolute bottom-0 right-0 w-56 h-56 bg-gradient-to-tl from-cyan-500 to-teal-400 transition-all duration-800 z-[1] rounded-tl-3xl ${
-                  loaded ? 'opacity-100 scale-100' : 'opacity-0 scale-0'
+                className={`mt-10 sm:mt-12 flex items-center gap-2.5 cursor-pointer text-gray-600 dark:text-gray-400 hover:text-dark dark:hover:text-white transition-all duration-700 ${
+                  loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
                 }`}
                 style={{ transitionDelay: '500ms' }}
-              />
+                onClick={scrollToWork}
+              >
+                <div className="w-5 h-8 border-2 border-dark/60 dark:border-gray-400 rounded-full flex justify-center pt-1.5">
+                  <div className="w-1 h-2 bg-dark dark:bg-gray-300 rounded-full animate-bounce" />
+                </div>
+                <span className="font-mono text-xs uppercase tracking-wider">Scroll down</span>
+              </div>
+            </div>
+
+            {/* Right Column: High-Craft Showcase Composition */}
+            <div className="lg:col-span-6 xl:col-span-6 relative w-full pt-4 pb-8 sm:pb-12 flex justify-center lg:justify-end">
+              
+              {/* Soft Ambient Radial Light */}
+              <div className="absolute -inset-4 sm:-inset-8 bg-gradient-to-tr from-[#19D5D0]/15 via-transparent to-[#B8FF3D]/15 rounded-full blur-3xl pointer-events-none" />
+
+              {/* Showcase Stage Wrapper */}
+              <div className="relative w-full max-w-lg lg:max-w-xl">
+                
+                {/* Primary Card: Web Platform & Growth Systems */}
+                <div
+                  className={`relative w-full rounded-2xl sm:rounded-3xl overflow-hidden border border-black/10 dark:border-white/15 bg-[#050608] shadow-[0_20px_50px_rgba(0,0,0,0.35)] dark:shadow-[0_20px_50px_rgba(25,213,208,0.12)] transition-all duration-800 group ${
+                    loaded ? 'opacity-100 scale-100 translate-y-0' : 'opacity-0 scale-95 translate-y-8'
+                  }`}
+                  style={{ transitionDelay: '300ms' }}
+                >
+                  {/* Browser Mockup Chrome */}
+                  <div className="flex items-center justify-between px-4 py-2.5 bg-black/70 border-b border-white/10 backdrop-blur-md">
+                    <div className="flex items-center gap-1.5">
+                      <div className="w-2.5 h-2.5 rounded-full bg-rose-500/80" />
+                      <div className="w-2.5 h-2.5 rounded-full bg-amber-500/80" />
+                      <div className="w-2.5 h-2.5 rounded-full bg-emerald-500/80" />
+                    </div>
+                    <div className="flex items-center gap-2 px-3 py-0.5 rounded-full bg-white/5 border border-white/10 font-mono text-[10px] text-gray-300 tracking-wider">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#19D5D0] animate-pulse" />
+                      <span>cloud.xelox.solutions</span>
+                    </div>
+                    <span className="font-mono text-[9px] uppercase tracking-wider text-cyan-400 font-semibold px-2 py-0.5 rounded bg-cyan-950/70 border border-cyan-800/40">
+                      Live Production
+                    </span>
+                  </div>
+
+                  {/* Dashboard Visual */}
+                  <div className="relative aspect-[16/10] overflow-hidden bg-slate-950">
+                    <img
+                      src={heroImages.secondary}
+                      alt="Xelox High-Performance Web Platform & Telemetry"
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      decoding="async"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none" />
+                  </div>
+                </div>
+
+                {/* Accent Companion Card: Mobile App Suite */}
+                <div
+                  className={`absolute -bottom-6 -left-3 sm:-bottom-8 sm:-left-6 md:-bottom-10 md:-left-8 w-40 sm:w-52 md:w-56 lg:w-52 xl:w-60 rounded-2xl sm:rounded-3xl overflow-hidden border-2 border-white/20 dark:border-white/20 bg-[#050608] shadow-[0_20px_50px_rgba(0,0,0,0.55)] z-20 transition-all duration-800 hover:-translate-y-1 hover:shadow-cyan-500/20 group/mobile ${
+                    loaded ? 'opacity-100 scale-100 translate-y-0' : 'opacity-0 scale-90 translate-y-10'
+                  }`}
+                  style={{ transitionDelay: '420ms' }}
+                >
+                  <div className="relative aspect-square overflow-hidden bg-black">
+                    <img
+                      src={heroImages.primary}
+                      alt="Xelox Mobile Application Development"
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover/mobile:scale-105"
+                      decoding="async"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none" />
+                    
+                    {/* Badge */}
+                    <div className="absolute bottom-2.5 inset-x-2.5 sm:bottom-3 sm:inset-x-3 text-center z-10">
+                      <span className="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1 rounded-full font-mono text-[9px] sm:text-[10px] tracking-wider uppercase bg-black/90 text-[#B8FF3D] border border-[#B8FF3D]/40 backdrop-blur-md shadow-xl">
+                        <Smartphone className="w-3 h-3 text-[#B8FF3D]" />
+                        <span>Mobile Apps</span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Performance Stat Metric Pill */}
+                <div
+                  className={`hidden sm:flex absolute -top-3 -right-3 z-20 items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/85 border border-[#19D5D0]/30 backdrop-blur-md shadow-xl transition-all duration-800 ${
+                    loaded ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'
+                  }`}
+                  style={{ transitionDelay: '500ms' }}
+                >
+                  <TrendingUp className="w-3.5 h-3.5 text-lime" />
+                  <span className="font-mono text-[10px] uppercase tracking-wider text-white">
+                    +142% Avg. Conversion
+                  </span>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      {/* Slim "What We Deliver" Capabilities Strip */}
+      <div className="w-full border-t border-black/5 dark:border-white/10 bg-white/60 dark:bg-black/30 backdrop-blur-md py-3.5 px-6 lg:px-16 relative z-20">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-3 text-xs">
+          <span className="font-mono uppercase tracking-[0.15em] text-cyan-600 dark:text-cyan-400 font-semibold flex items-center gap-2">
+            <span className="inline-block w-2 h-2 rounded-full bg-lime animate-pulse" />
+            Core Capabilities
+          </span>
+          <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-8">
+            <div className="flex items-center gap-2 font-mono uppercase tracking-wider text-dark/85 dark:text-slate-300">
+              <TrendingUp className="w-3.5 h-3.5 text-lime" />
+              <span>Digital Marketing &amp; Growth</span>
+            </div>
+            <span className="hidden sm:inline text-black/20 dark:text-white/20">•</span>
+            <div className="flex items-center gap-2 font-mono uppercase tracking-wider text-dark/85 dark:text-slate-300">
+              <Code2 className="w-3.5 h-3.5 text-cyan-400" />
+              <span>Website Design &amp; Development</span>
+            </div>
+            <span className="hidden sm:inline text-black/20 dark:text-white/20">•</span>
+            <div className="flex items-center gap-2 font-mono uppercase tracking-wider text-dark/85 dark:text-slate-300">
+              <Smartphone className="w-3.5 h-3.5 text-lime" />
+              <span>Mobile App Development</span>
             </div>
           </div>
         </div>

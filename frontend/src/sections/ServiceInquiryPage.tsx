@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ArrowLeft, ArrowRight, Check, Send, Globe, Smartphone, Brain, Users, Palette, Cpu, HelpCircle } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Check, Send, Globe, Smartphone, Brain, Users, Palette, Cpu, HelpCircle, TrendingUp } from 'lucide-react';
 import { toast } from 'sonner';
 
 const API_URL = import.meta.env.VITE_API_URL || 'https://xyrosolutions.onrender.com/api';
@@ -11,6 +11,28 @@ const categoryConfig: Record<string, {
   projectTypes: { value: string; label: string; description: string }[];
   features: { value: string; label: string }[];
 }> = {
+  'digital-marketing': {
+    label: 'Digital Marketing & Growth',
+    icon: TrendingUp,
+    projectTypes: [
+      { value: 'seo-content', label: 'SEO & Content Strategy', description: 'Organic search ranking & authority' },
+      { value: 'paid-ads', label: 'Performance Paid Ads', description: 'Meta, Google & LinkedIn ad campaigns' },
+      { value: 'social-growth', label: 'Social Media Management', description: 'Content creation & audience engagement' },
+      { value: 'lead-generation', label: 'Lead Generation & Funnels', description: 'High-converting sales funnels' },
+      { value: 'growth-retainer', label: 'Full-Service Growth Retainer', description: 'Comprehensive marketing management' },
+      { value: 'other', label: 'Other', description: 'Custom marketing project' }
+    ],
+    features: [
+      { value: 'seo-audit', label: 'Technical SEO Audit' },
+      { value: 'keyword-research', label: 'Keyword Research' },
+      { value: 'ad-creatives', label: 'Ad Creative Design' },
+      { value: 'landing-pages', label: 'Conversion Landing Pages' },
+      { value: 'tracking-analytics', label: 'Analytics & Attribution' },
+      { value: 'email-flows', label: 'Email Marketing Automations' },
+      { value: 'competitor-analysis', label: 'Competitor Intelligence' },
+      { value: 'monthly-reporting', label: 'Bi-Weekly Reporting' }
+    ]
+  },
   'web-development': {
     label: 'Web Development',
     icon: Globe,
@@ -186,7 +208,7 @@ export default function ServiceInquiryPage({ category: initialCategory, onBackTo
   
   // Form data
   const [formData, setFormData] = useState({
-    category: initialCategory || 'web-development',
+    category: initialCategory || 'digital-marketing',
     projectType: '',
     projectDescription: '',
     budget: '',

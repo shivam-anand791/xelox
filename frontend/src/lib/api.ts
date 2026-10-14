@@ -1,4 +1,4 @@
-// API Service for XyroSolutions
+// API Service for Xelox Solutions
 const API_URL = import.meta.env.VITE_API_URL || 'https://xyrosolutions.onrender.com/api';
 
 // Types
@@ -22,14 +22,17 @@ interface LoginResponse {
   };
 }
 
-interface ContactFormData {
+export interface ContactFormData {
+  name?: string;
   email: string;
+  service?: string;
+  budget?: string;
   message: string;
 }
 
 // Helper function to get auth headers
 const getAuthHeaders = (): HeadersInit => {
-  const token = localStorage.getItem('xyro-token');
+  const token = localStorage.getItem('xelox-token') || localStorage.getItem('xyro-token');
   return {
     'Content-Type': 'application/json',
     ...(token && { Authorization: `Bearer ${token}` })
@@ -64,13 +67,14 @@ export const authApi = {
     
     // Backend returns token directly on data object, not nested in data.data
     if (data.success && data.token) {
-      localStorage.setItem('xyro-token', data.token);
+      localStorage.setItem('xelox-token', data.token);
     }
     
     return data;
   },
 
   logout: () => {
+    localStorage.removeItem('xelox-token');
     localStorage.removeItem('xyro-token');
   },
 
@@ -82,7 +86,7 @@ export const authApi = {
   },
 
   isAuthenticated: (): boolean => {
-    return !!localStorage.getItem('xyro-token');
+    return !!(localStorage.getItem('xelox-token') || localStorage.getItem('xyro-token'));
   }
 };
 
@@ -198,7 +202,7 @@ export const uploadApi = {
     const formData = new FormData();
     formData.append('image', file);
 
-    const token = localStorage.getItem('xyro-token');
+    const token = localStorage.getItem('xelox-token') || localStorage.getItem('xyro-token');
     const response = await fetch(`${API_URL}/upload`, {
       method: 'POST',
       headers: {

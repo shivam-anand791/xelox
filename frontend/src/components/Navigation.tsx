@@ -65,30 +65,31 @@ export default function Navigation({ scrolled, onAdminClick, onPageChange, curre
   return (
     <>
       <nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           scrolled
-            ? 'bg-[#F6F6F2]/90 backdrop-blur-md py-2 shadow-sm'
-            : 'bg-transparent py-4'
+            ? 'bg-[#F6F6F2]/95 dark:bg-[#050608]/95 backdrop-blur-md py-2.5 shadow-md border-b border-black/5 dark:border-white/10'
+            : 'bg-transparent py-3 sm:py-4'
         }`}
       >
-        <div className="w-full px-3 lg:px-8 flex items-center justify-between">
+        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
           {/* Logo */}
           <button
             onClick={() => onPageChange('home')}
-            className="h-[70px] md:h-[68px] flex shrink-0 items-center hover:opacity-80 transition-opacity"
-            title="Xyro Solutions"
+            className="h-10 sm:h-11 flex shrink-0 items-center hover:opacity-80 transition-opacity"
+            title="Xelox Solutions"
           >
-              <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2.5">
               <img
                 src={logoSrc}
-                alt="Xyro Solutions"
-                className="h-[24px] w-auto" /* slightly smaller display size */
+                alt="Xelox Solutions"
+                className="h-[26px] w-auto"
+                decoding="async"
                 onLoad={() => setLogoLoaded(true)}
                 style={{ opacity: mounted && logoLoaded ? 1 : 0, transition: 'opacity 160ms ease' }}
               />
               <span className="inline-flex items-baseline select-none">
-                <span className="font-display font-extrabold text-[22px] text-[#19D5D0]">Xyro</span>
-                <span className="font-display font-extrabold text-[22px] ml-1 text-dark dark:text-white">Solutions</span>
+                <span className="font-display font-extrabold text-[20px] sm:text-[22px] text-[#19D5D0]">Xelox</span>
+                <span className="font-display font-extrabold text-[20px] sm:text-[22px] ml-1 text-dark dark:text-white">Solutions</span>
               </span>
             </div>
           </button>

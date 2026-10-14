@@ -61,6 +61,8 @@ export default function ProcessSection() {
             alt="Design process"
             className="w-full h-auto object-contain object-center img-mono"
             style={{ maxHeight: '48vh' }}
+            loading="lazy"
+            decoding="async"
           />
         </div>
 
@@ -166,6 +168,8 @@ export default function ProcessSection() {
             alt="Design process"
             className="w-full h-auto object-contain object-center img-mono"
             style={{ maxHeight: '80vh' }}
+            loading="lazy"
+            decoding="async"
           />
         </div>
 

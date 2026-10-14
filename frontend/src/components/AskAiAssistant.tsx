@@ -34,7 +34,7 @@ function createReply(question: string, email: string, location: string) {
   }
 
   if (/^(hi|hello|hey|help)\b/.test(normalized)) {
-    return "I can answer public questions about XyroSolutions: email, WhatsApp, services, process, location, and what we do. Try asking one of the suggestions below.";
+    return "I can answer public questions about Xelox Solutions: email, WhatsApp, services, process, location, and what we do. Try asking one of the suggestions below.";
   }
 
   if (normalized.includes('email') || normalized.includes('mail')) {
@@ -62,7 +62,7 @@ function createReply(question: string, email: string, location: string) {
   }
 
   if (normalized.includes('about') || normalized.includes('who are you') || normalized.includes('who we are')) {
-    return 'XyroSolutions is a creative agency focused on brand identity, web design, and digital campaigns for ambitious startups and growing businesses.';
+    return 'Xelox Solutions is a digital agency focused on digital marketing, website development, and mobile apps for ambitious startups and growing businesses.';
   }
 
   if (normalized.includes('pricing') || normalized.includes('cost') || normalized.includes('budget')) {
@@ -73,7 +73,7 @@ function createReply(question: string, email: string, location: string) {
     return 'You can find us on Instagram from the contact section. If you want, I can also help summarize the best way to reach us.';
   }
 
-  return 'I can help with public questions about XyroSolutions, including email, WhatsApp, services, process, location, pricing, and who we are. Ask something like “What is your email?” or “How do you work?”';
+  return 'I can help with public questions about Xelox Solutions, including email, WhatsApp, services, process, location, pricing, and who we are. Ask something like “What is your email?” or “How do you work?”';
 }
 
 export default function AskAiAssistant() {
@@ -119,7 +119,7 @@ export default function AskAiAssistant() {
           <Bot size={20} />
         </div>
         <div>
-          <p className="font-mono text-xs tracking-[0.14em] text-lime uppercase">Ask Xyro AI</p>
+          <p className="font-mono text-xs tracking-[0.14em] text-lime uppercase">Ask Xelox AI</p>
           <h3 className="mt-1 text-2xl font-display font-bold text-white">Public answers only</h3>
           <p className="mt-1 text-sm text-white/60 max-w-2xl">
             Ask about our contact details, services, workflow, or general information. Sensitive items like passwords, admin access, and private credentials are blocked.

@@ -3,26 +3,26 @@ import mongoose from 'mongoose';
 const contentSchema = new mongoose.Schema({
   // Hero Section
   hero: {
-    headline: { type: String, default: "CREATIVE / STUDIO / BUILT FOR SMALL BRANDS" },
-    subheadline: { type: String, default: "We design identities, sites, and campaigns that turn small teams into memorable brands." },
-    cta: { type: String, default: "Explore work" },
-    microLabel: { type: String, default: "XYROSOLUTIONS — 2026" }
+    headline: { type: String, default: "CRAFTING HIGH-PERFORMANCE SITES, APPS & GROWTH SYSTEMS" },
+    subheadline: { type: String, default: "We partner with ambitious founders and businesses to design, engineer, and scale custom web platforms, mobile apps, and high-ROI digital marketing campaigns." },
+    cta: { type: String, default: "Start a project" },
+    microLabel: { type: String, default: "XELOXSOLUTIONS — 2026" }
   },
   
   // About Section
   about: {
-    eyebrow: { type: String, default: "WHO WE ARE" },
-    headline: { type: String, default: "A small team with big craft." },
-    body: { type: String, default: "We're designers, developers, and writers who partner with founders, creators, and small teams. We keep the process simple—and the work sharp." },
-    statement: { type: String, default: "CLARITY FIRST. THEN THE FUN STUFF." },
+    eyebrow: { type: String, default: "WHO WE ARE — THE XELOX STUDIO" },
+    headline: { type: String, default: "A focused crew of senior builders & growth specialists." },
+    body: { type: String, default: "We are an engineering-led digital agency. We partner directly with founders and ambitious brands to architect custom web platforms, mobile applications, and high-ROI acquisition systems—eliminating agency bureaucracy to ship faster and sharper." },
+    statement: { type: String, default: "NO ACCOUNT MANAGERS IN THE MIDDLE. SENIOR BUILDERS ONLY." },
     cta: { type: String, default: "Meet the studio" }
   },
   
   // Services Section
   services: {
-    headline: { type: String, default: "WHAT WE DO" },
-    body: { type: String, default: "Brand systems, web design, and campaigns—built to launch fast and grow with you." },
-    cta: { type: String, default: "See services" },
+    headline: { type: String, default: "CORE CAPABILITIES" },
+    body: { type: String, default: "Three specialized pillars engineered to design, engineer, and scale custom digital products and growth engines." },
+    cta: { type: String, default: "Explore all services" },
     items: [{
       title: { type: String },
       description: { type: String }
@@ -32,7 +32,7 @@ const contentSchema = new mongoose.Schema({
   // Portfolio Section
   portfolio: {
     headline: { type: String, default: "SELECTED WORK" },
-    body: { type: String, default: "A few recent launches—designed to move fast and feel human." },
+    body: { type: String, default: "Engineered digital flagships, high-conversion growth engines, and verified innovation credentials." },
     cta: { type: String, default: "View all projects" },
     projects: [{
       title: { type: String },
@@ -61,7 +61,7 @@ const contentSchema = new mongoose.Schema({
       label: { type: String }
     }],
     testimonial: {
-      quote: { type: String, default: "XyroSolutions turned our rough idea into a brand we're proud to show investors—in under a month." },
+      quote: { type: String, default: "Xelox Solutions turned our rough idea into a brand we're proud to show investors—in under a month." },
       author: { type: String, default: "Ava R., Founder, Lumen Coffee" }
     }
   },

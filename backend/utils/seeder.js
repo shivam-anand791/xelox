@@ -15,7 +15,7 @@ mongoose.connect(process.env.MONGODB_URI);
 const defaultContent = {
   hero: {
     headline: "We bring brands to life.",
-    subheadline: "XyroSolutions is a creative agency specializing in brand identity, web design, and digital campaigns for ambitious startups and growing businesses."
+    subheadline: "Xelox Solutions is a digital agency specializing in digital marketing, website development, and mobile apps for ambitious startups and growing businesses."
   },
   about: {
     title: "About Us",

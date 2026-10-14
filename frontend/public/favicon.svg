@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <rect width="64" height="64" rx="16" fill="#050608"/>
+  <defs>
+    <linearGradient id="xeloxGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#19D5D0"/>
+      <stop offset="50%" stop-color="#22D3EE"/>
+      <stop offset="100%" stop-color="#B8FF3D"/>
+    </linearGradient>
+  </defs>
+  <!-- Stylized Geometric Quad-Dots -->
+  <circle cx="23" cy="23" r="7" fill="url(#xeloxGlow)"/>
+  <circle cx="41" cy="23" r="7" fill="url(#xeloxGlow)"/>
+  <circle cx="23" cy="41" r="7" fill="url(#xeloxGlow)"/>
+  <circle cx="41" cy="41" r="7" fill="url(#xeloxGlow)"/>
+</svg>

@@ -54,10 +54,8 @@ export default function PortfolioSection({ onNavigate }: { onNavigate?: (page: s
               onClick={() => {
                 if (!onNavigate) return;
                 if (i === 0) onNavigate('work-category', 'web-development');
-                else if (i === 1) {
-                  onNavigate('work');
-                  setTimeout(() => onNavigate('work-category', 'sih-alumni'), 220);
-                } else onNavigate('work');
+                else if (i === 1) onNavigate('work-category', 'digital-marketing');
+                else onNavigate('work-category', 'mobile-apps');
               }}
             >
               <img
@@ -135,15 +133,15 @@ export default function PortfolioSection({ onNavigate }: { onNavigate?: (page: s
               <div className="order-last md:order-first md:w-2/5 bg-gradient-to-r from-black/80 via-black/40 to-transparent backdrop-blur-sm p-6 md:p-8 flex flex-col justify-center">
                 <p className="text-sm text-green-400 font-medium">{content.portfolio.projects[0].subtitle}</p>
                 <h3 className="mt-2 text-2xl md:text-3xl font-extrabold text-white leading-tight">{content.portfolio.projects[0].title}</h3>
-                <p className="mt-3 text-sm text-gray-300 max-w-md">A complete real estate CRM platform for brokers, agents &amp; property management.</p>
-                    <div className="mt-6">
-                      <button
-                        onClick={() => onNavigate ? onNavigate('work-category', 'web-development') : null}
-                        className="inline-flex items-center gap-2 bg-white/6 hover:bg-white/10 text-white px-4 py-2 rounded-md border border-white/10 shadow-sm"
-                      >
-                        View Case Study
-                      </button>
-                    </div>
+                <p className="mt-3 text-sm text-gray-300 max-w-md">Bespoke headless web applications and corporate flagships engineered with Next.js, TypeScript &amp; 99+ Core Web Vitals.</p>
+                <div className="mt-6">
+                  <button
+                    onClick={() => onNavigate ? onNavigate('work-category', 'web-development') : null}
+                    className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white px-4 py-2 rounded-md border border-white/15 shadow-sm text-xs font-mono uppercase tracking-wider"
+                  >
+                    View Case Study
+                  </button>
+                </div>
               </div>
 
               {/* Image column: right on desktop, above content on mobile */}
@@ -163,35 +161,33 @@ export default function PortfolioSection({ onNavigate }: { onNavigate?: (page: s
           <div className="row-start-1 row-end-2 col-start-2 col-end-3 flex flex-col justify-center pr-8 p-6">
             <h2 className="font-display font-bold text-5xl lg:text-6xl leading-[0.95] tracking-tight text-dark dark:text-[#F8FAFC] uppercase mb-4">{content.portfolio.headline}</h2>
             <p className="text-lg text-gray-custom dark:text-slate-300 mb-6 max-w-md">{content.portfolio.body}</p>
-            {/* CTA removed intentionally */}
+            <div>
+              <button
+                onClick={() => onNavigate ? onNavigate('work') : null}
+                className="btn-primary inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider px-5 py-2.5"
+              >
+                <span>Explore All Work</span>
+                <ArrowUpRight size={16} />
+              </button>
+            </div>
           </div>
 
           {/* Bottom-left: second image (square under first) */}
           <div
             className="row-start-2 row-end-3 col-start-1 col-end-2 overflow-hidden rounded-xl shadow-2xl bg-slate-900 border border-white/5 group relative md:max-w-[80%] mx-auto cursor-pointer"
-            onClick={() => {
-              if (onNavigate) {
-                onNavigate('work');
-                setTimeout(() => onNavigate('work-category', 'sih-alumni'), 220);
-              }
-            }}
+            onClick={() => onNavigate ? onNavigate('work-category', 'digital-marketing') : null}
           >
             <div className="w-full h-full md:flex md:items-stretch">
               <div className="order-last md:order-first md:w-2/5 bg-gradient-to-r from-black/80 via-black/40 to-transparent backdrop-blur-sm p-6 md:p-8 flex flex-col justify-center">
-                <p className="text-sm text-green-400 font-medium">{content.portfolio.projects[1].subtitle}</p>
+                <p className="text-sm text-lime font-mono">{content.portfolio.projects[1].subtitle}</p>
                 <h3 className="mt-2 text-2xl md:text-3xl font-extrabold text-white leading-tight">{content.portfolio.projects[1].title}</h3>
-                <p className="mt-3 text-sm text-gray-300 max-w-md">Smart IoT and automation solutions built for real-world innovation.</p>
+                <p className="mt-3 text-sm text-gray-300 max-w-md">Data-driven performance acquisition, conversion rate optimization (CRO) &amp; technical search dominance.</p>
                 <div className="mt-6">
                   <button
-                    onClick={() => {
-                      if (onNavigate) {
-                        onNavigate('work');
-                        setTimeout(() => onNavigate('work-category', 'sih-alumni'), 220);
-                      }
-                    }}
-                    className="inline-flex items-center gap-2 bg-white/6 hover:bg-white/10 text-white px-4 py-2 rounded-md border border-white/10 shadow-sm"
+                    onClick={() => onNavigate ? onNavigate('work-category', 'digital-marketing') : null}
+                    className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white px-4 py-2 rounded-md border border-white/15 shadow-sm text-xs font-mono uppercase tracking-wider"
                   >
-                    View Project
+                    View Case Study
                   </button>
                 </div>
               </div>
@@ -205,16 +201,19 @@ export default function PortfolioSection({ onNavigate }: { onNavigate?: (page: s
           {/* Bottom-right: third image (square right of the second) */}
           <div
             className="row-start-2 row-end-3 col-start-2 col-end-3 overflow-hidden rounded-xl shadow-2xl bg-slate-900 border border-white/5 group relative md:max-w-[80%] md:justify-self-start md:-ml-12 cursor-pointer"
-            onClick={() => onNavigate ? onNavigate('work') : null}
+            onClick={() => onNavigate ? onNavigate('work-category', 'mobile-apps') : null}
           >
             <div className="w-full h-full md:flex md:items-stretch">
               <div className="order-last md:order-first md:w-2/5 bg-gradient-to-r from-black/80 via-black/40 to-transparent backdrop-blur-sm p-6 md:p-8 flex flex-col justify-center">
-                <p className="text-sm text-green-400 font-medium">{content.portfolio.projects[2].subtitle}</p>
+                <p className="text-sm text-cyan-400 font-mono">{content.portfolio.projects[2].subtitle}</p>
                 <h3 className="mt-2 text-2xl md:text-3xl font-extrabold text-white leading-tight">{content.portfolio.projects[2].title}</h3>
-                <p className="mt-3 text-sm text-gray-300 max-w-md">Creating intuitive and high-performance mobile applications with clean UI/UX and real-time functionality.</p>
+                <p className="mt-3 text-sm text-gray-300 max-w-md">Creating fluid, native-level iOS &amp; Android mobile applications with biometric security and offline sync.</p>
                 <div className="mt-6">
-                  <button className="inline-flex items-center gap-2 bg-white/6 hover:bg-white/10 text-white px-4 py-2 rounded-md border border-white/10 shadow-sm">
-                    View Project
+                  <button 
+                    onClick={() => onNavigate ? onNavigate('work-category', 'mobile-apps') : null}
+                    className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white px-4 py-2 rounded-md border border-white/15 shadow-sm text-xs font-mono uppercase tracking-wider"
+                  >
+                    View Case Study
                   </button>
                 </div>
               </div>

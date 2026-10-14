@@ -11,9 +11,19 @@ export function useScrollReveal<T extends HTMLElement>(
 ) {
   const { threshold = 0.2, rootMargin = '0px', triggerOnce = true } = options;
   const ref = useRef<T>(null);
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState(() => {
+    if (typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      return true;
+    }
+    return false;
+  });
 
   useEffect(() => {
+    if (typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      setIsVisible(true);
+      return;
+    }
+
     const element = ref.current;
     if (!element) return;
 
@@ -44,7 +54,12 @@ export function useScrollReveal<T extends HTMLElement>(
 export function useMultipleScrollReveal(count: number, options: UseScrollRevealOptions = {}) {
   const { threshold = 0.2, rootMargin = '0px', triggerOnce = true } = options;
   const refs = useRef<(HTMLElement | null)[]>([]);
-  const [visibleItems, setVisibleItems] = useState<boolean[]>(new Array(count).fill(false));
+  const [visibleItems, setVisibleItems] = useState<boolean[]>(() => {
+    if (typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      return new Array(count).fill(true);
+    }
+    return new Array(count).fill(false);
+  });
 
   useEffect(() => {
     const observers: IntersectionObserver[] = [];

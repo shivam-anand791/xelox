@@ -6,17 +6,19 @@ import { sendContactNotification } from '../utils/email.js';
 // @access  Public
 export const submitContact = async (req, res, next) => {
   try {
-    const { email, message } = req.body;
+    const { name, email, service, budget, message } = req.body;
 
     // Create contact submission
     const contact = await Contact.create({
-      email,
+      name: name ? name.trim() : undefined,
+      email: email ? email.trim() : email,
+      service: service || 'General Inquiry',
+      budget: budget || 'Flexible',
       message,
       ipAddress: req.ip || req.connection.remoteAddress,
       userAgent: req.headers['user-agent']
     });
 
-    // Send notification email in the background so the form responds quickly.
     // Send notification email in the background so the form responds quickly.
     // Use the configured email provider (Brevo) — send unconditionally and log failures.
     sendContactNotification(contact).catch((emailError) => {
@@ -28,7 +30,10 @@ export const submitContact = async (req, res, next) => {
       message: 'Message sent successfully! We\'ll get back to you within 2 business days.',
       data: {
         id: contact._id,
-        email: contact.email
+        email: contact.email,
+        name: contact.name,
+        service: contact.service,
+        budget: contact.budget
       }
     });
   } catch (error) {

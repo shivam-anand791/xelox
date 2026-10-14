@@ -149,7 +149,7 @@ app.get('/api/health', (req, res) => {
 app.get('/', (req, res) => {
   res.status(200).json({
     success: true,
-    message: 'XyroSolutions API',
+    message: 'Xelox Solutions API',
     version: '1.0.0',
     endpoints: {
       health: '/api/health',
