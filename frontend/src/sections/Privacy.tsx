@@ -7,9 +7,9 @@ export default function PrivacyPage({ onBack }: { onBack?: () => void }) {
   const { content } = useContent();
 
   return (
-    <section ref={sectionRef} className="min-h-screen px-6 lg:px-12 py-24 bg-gradient-to-br from-lime-50 via-amber-50 to-sky-50">
+    <section ref={sectionRef} className="min-h-screen px-6 lg:px-12 pt-28 sm:pt-32 pb-24 bg-gradient-to-br from-lime-50 via-amber-50 to-sky-50 dark:from-slate-900 dark:via-[#050608] dark:to-slate-950">
       <div className="max-w-4xl mx-auto">
-        <button onClick={onBack} className="text-sm text-gray-custom mb-6">← Back</button>
+        <button onClick={onBack} className="inline-flex items-center gap-1.5 text-xs font-mono text-gray-custom hover:text-dark dark:hover:text-lime mb-6 transition-colors">← Back to Home</button>
 
         <div className="flex items-center gap-4 mb-6">
           <div className="p-3 rounded-full bg-white shadow-md text-lime">
@@ -37,13 +37,13 @@ export default function PrivacyPage({ onBack }: { onBack?: () => void }) {
           <p className="mb-4 text-gray-700">We use cookies and similar technologies for essential site functionality and analytics. You can control cookies via your browser.</p>
 
           <h2 className="font-semibold mt-6 mb-2 text-dark">5. Your rights</h2>
-          <p className="mb-4 text-gray-700">Depending on your location, you may have the right to access, correct, delete, or export your personal data. Contact us at <a href={`mailto:${content.contact.email}`} className="text-lime hover:underline">{content.contact.email}</a> to exercise these rights.</p>
+          <p className="mb-4 text-gray-700">Depending on your location, you may have the right to access, correct, delete, or export your personal data. Contact us at <a href={`mailto:${content.contact.email}`} className="text-emerald-700 dark:text-lime font-medium hover:underline">{content.contact.email}</a> to exercise these rights.</p>
 
           <h2 className="font-semibold mt-6 mb-2 text-dark">6. Security & retention</h2>
           <p className="mb-4 text-gray-700">We implement reasonable security measures. We retain data only as long as necessary to provide the service or meet legal obligations.</p>
 
           <h2 className="font-semibold mt-6 mb-2 text-dark">Contact</h2>
-          <p className="text-gray-700">If you have questions about this policy, email us at <a href={`mailto:${content.contact.email}`} className="text-lime hover:underline">{content.contact.email}</a>.</p>
+          <p className="text-gray-700">If you have questions about this policy, email us at <a href={`mailto:${content.contact.email}`} className="text-emerald-700 dark:text-lime font-medium hover:underline">{content.contact.email}</a>.</p>
         </div>
       </div>
     </section>

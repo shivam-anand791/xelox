@@ -2,9 +2,8 @@ import { useState, useEffect } from 'react';
 import { 
   ArrowLeft, 
   ExternalLink, 
-  Award, 
+  Award,
   Code2, 
-  Smartphone, 
   TrendingUp, 
   Sparkles, 
   CheckCircle2, 
@@ -38,144 +37,150 @@ export interface WorkItem {
 interface WorkPageProps {
   onBackToHome: () => void;
   onSelectCategory?: (category: string) => void;
+  onNavigateToTeam?: () => void;
+  initialCategory?: string;
 }
 
 // Fallback initial data in case the backend database is still seeding or offline
 const fallbackWorkItems: WorkItem[] = [
   {
-    _id: 'web-1',
-    title: 'Modern E-Commerce Web Flagship',
-    subtitle: 'Website Design & Development',
-    description: 'Engineered a bespoke headless e-commerce web platform built with Next.js, TypeScript, and Tailwind CSS. The platform features sub-second page transitions, dynamic state management, custom checkout integration, and full WCAG AA accessibility compliance.\n\nKey architectural pillars:\n- Headless CMS architecture for real-time inventory and editorial control\n- Optimized Core Web Vitals achieving 99+ Lighthouse performance\n- Responsive design tested across 15+ device viewports\n- Automated CI/CD deployment pipelines on Vercel',
-    shortDescription: 'Custom headless commerce platform built with Next.js & TypeScript, engineered for sub-second performance.',
-    category: 'web-development',
+    _id: 'psb-hackathon-1',
+    title: 'PSB Hackathon Winner',
+    subtitle: 'We have won PSB Hackathon and attended GFF 2026 in Mumbai',
+    description: 'Engineered a hardware-based payment token and cryptographic transaction verification protocol that achieved 1st place in the PSB Hackathon and was showcased at the Global Fintech Fest (GFF) 2026 in Mumbai.\n\nThe system introduces a hardware token for transaction authorization with a custom companion app. Users can configure dynamic payment thresholds (e.g. ₹50,000); transactions exceeding the threshold require physical confirmation by pressing the dedicated button on the tamper-resistant hardware token, drastically reducing payment fraud.',
+    shortDescription: 'We have built a hardware token for successful payment which reduced the rate of fraud.',
+    category: 'hackathons',
     image: 'https://res.cloudinary.com/dr4w6ordx/image/upload/v1779460343/ChatGPT_Image_May_22_2026_07_43_23_PM_gvldqm.png',
-    tags: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Stripe', 'Headless CMS'],
+    tags: ['PSB Hackathon', 'GFF 2026 Mumbai', 'Hardware Token', 'Fraud Prevention', 'FinTech Security', 'IoT'],
     achievements: [
-      'Sub-second page load speeds across all global edge nodes',
-      '99+ Google Lighthouse performance score',
-      'Responsive cross-device testing across 15+ screen sizes',
-      'Secure payment gateway integration'
+      '1st Place Winner at PSB Hackathon',
+      'Showcased at Global Fintech Fest (GFF) 2026 in Mumbai',
+      'Engineered physical hardware payment token with cryptographic handshake',
+      'Configurable transaction threshold security with physical button confirmation'
+    ],
+    links: [],
+    order: 0,
+    isActive: true
+  },
+  {
+    _id: 'client-laptopmitra',
+    title: 'LaptopMitra — Hardware Platform & Marketplace',
+    subtitle: 'Website Design & Development',
+    description: 'Engineered a full-scale B2B/B2C marketplace and catalogue portal for certified pre-owned and refurbished laptops. Built with Next.js, modern typography, dynamic product purpose categorization (Coding, Business, Student, Gaming), and an instant corporate quotation pipeline.\n\nKey execution components:\n- Comprehensive 32-point inspection badge showcase establishing buyer trust\n- Bulk order corporate procurement flow with custom quote dispatch\n- Pan-India logistics coverage integration and warranty verification\n- High-conversion mobile-first responsive architecture',
+    shortDescription: 'India\'s verified refurbished laptop marketplace and corporate procurement platform with 32-point inspection guarantee.',
+    category: 'web-development',
+    image: '/portfolio/laptopmitra-homepage.webp',
+    tags: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Hardware Marketplace', 'B2B Procurement'],
+    achievements: [
+      '32-point hardware inspection certified badging system',
+      'Bulk corporate quote request flow with real-time dispatch',
+      'Pan-India delivery integration across all major metropolitan hubs',
+      'Sub-second page speeds with 99+ Core Web Vitals optimization'
     ],
     links: [
-      { title: 'Technical Architecture', url: 'https://github.com/xelox-solutions/web-architecture' }
+      { title: 'Visit Live Website', url: 'https://laptop-mitra.vercel.app/' }
     ],
     order: 1
   },
   {
-    _id: 'mobile-1',
-    title: 'Multi-Platform Mobile Companion',
-    subtitle: 'Mobile App Design & Development',
-    description: 'Architected an intuitive, high-performance cross-platform mobile application for iOS and Android using React Native and TypeScript. Built with an offline-first data model, biometrics, and instant cloud synchronization.\n\nKey features include:\n- Native touch micro-interactions and gesture-based navigation\n- Offline SQLite persistence with automatic conflict-free cloud sync\n- Push notification pipelines via Firebase Cloud Messaging (FCM)\n- Apple FaceID / Android Biometrics integration',
-    shortDescription: 'Fluid React Native mobile application for iOS & Android featuring biometric security and offline-first sync.',
-    category: 'mobile-apps',
-    image: 'https://res.cloudinary.com/dr4w6ordx/image/upload/v1779559150/nexgen-studio/vksseodnsre0tcepekgh.png',
-    tags: ['React Native', 'Expo', 'TypeScript', 'Firebase', 'SQLite'],
+    _id: 'client-adorca',
+    title: 'Adorca 360 — Performance Growth Studio',
+    subtitle: 'Digital Marketing & Growth',
+    description: 'Architected and developed the global platform for Adorca 360, a performance marketing studio. Integrates an algorithmic search signal crawl architecture, semantic entity clustering for multi-region organic dominance, and an interactive real-time client Growth Diagnostic engine across 50+ international markets.\n\nCore capabilities delivered:\n- Interactive Signal Architecture telemetry visualizing search, intent, acquisition, and compounding revenue\n- Multi-region international market indexation covering 50+ global search ecosystems\n- 100% transparent client attribution with zero proprietary data lock-in\n- High-velocity dark-mode aesthetic with custom SVG interactive diagrams',
+    shortDescription: 'Performance growth marketing studio and technical search optimization platform operating across 50+ international markets.',
+    category: 'digital-marketing',
+    image: '/portfolio/adorca-homepage.webp',
+    tags: ['Technical SEO', 'Signal Architecture', 'Global Indexing', 'CRO', 'Programmatic Media', 'Next.js'],
     achievements: [
-      'Cross-platform deployment to Apple App Store & Google Play',
-      'Biometric security with keychain token encryption',
-      'Offline-first synchronization architecture',
-      'Low-latency push notification pipeline'
+      'Active multi-region search signal crawling across 50+ global markets',
+      'Semantic entity clustering architecture for organic search dominance',
+      'Built-in real-time interactive Growth Diagnostic tool',
+      'Client first-party data ownership and 100% transparent attribution'
     ],
     links: [
-      { title: 'App Architecture', url: 'https://github.com/xelox-solutions/mobile-architecture' }
+      { title: 'Visit Live Website', url: 'https://adorca.vercel.app/' }
     ],
     order: 2
   },
   {
-    _id: 'growth-1',
-    title: 'Full-Funnel Performance Growth System',
-    subtitle: 'Digital Marketing & Growth',
-    description: 'Designed and deployed an integrated growth engine combining technical SEO authority, multi-channel paid acquisition (Meta & Google Ads), and conversion-tested landing pages.\n\nKey execution components:\n- Full technical SEO audit and high-intent keyword clustering\n- Multi-variant ad creative production and algorithmic audience testing\n- High-converting funnel landing pages built for fast conversion\n- Unified GA4 & Looker Studio attribution reporting dashboards',
-    shortDescription: 'Integrated growth marketing system combining technical search dominance with high-ROI paid acquisition.',
-    category: 'digital-marketing',
-    image: 'https://res.cloudinary.com/dr4w6ordx/image/upload/v1779559829/nexgen-studio/wzygtdqcuaakv3nsytsb.png',
-    tags: ['Technical SEO', 'Paid Acquisition', 'CRO', 'GA4 Analytics', 'Email Funnels'],
+    _id: 'client-touristpalace',
+    title: 'Tourist Palace — Hotel & Room Booking Portal',
+    subtitle: 'Website Design & Development',
+    description: 'Designed and deployed a modern hotel reservation and direct room booking platform for Tourist Palace Hotel in Mahipalpur near Delhi Airport & Aerocity. Eliminates third-party OTA middleman commissions through direct WhatsApp room inquiries and verified room showcase galleries.\n\nKey features engineered:\n- High-fidelity visual showcase of Deluxe Double AC rooms, amenities, and transit distance badges (5 min from T1/T2/T3, Aerocity Metro)\n- Zero-friction one-tap WhatsApp concierge booking channel\n- Multilingual transit traveler guides with interactive directions and airport transfer assistance\n- Responsive mobile booking layout optimized for travelers on the go',
+    shortDescription: 'Hospitality showcase and direct room reservation portal near Delhi IGI Airport and Aerocity.',
+    category: 'web-development',
+    image: '/portfolio/touristpalace-homepage.webp',
+    tags: ['Hospitality UI', 'Next.js', 'WhatsApp Booking', 'Tailwind CSS', 'Local SEO', 'Aerocity'],
     achievements: [
-      'End-to-end attribution tracking architecture setup',
-      'Multi-variant landing page A/B testing framework',
-      'Bi-weekly transparent client performance reporting',
-      'Automated lead qualification and nurture sequences'
+      'Direct zero-commission WhatsApp reservation pipeline',
+      'Optimized local SEO visibility for Delhi Airport & Aerocity transit travelers',
+      'High-resolution double AC room gallery and amenities guide',
+      '24/7 reception and airport transfer inquiry flow'
     ],
     links: [
-      { title: 'Growth Framework', url: 'https://github.com/xelox-solutions/growth-framework' }
+      { title: 'Visit Live Website', url: 'https://touristpalace.vercel.app/' }
     ],
     order: 3
   },
   {
-    _id: 'innov-1',
-    title: 'Smart India Hackathon 2023',
-    subtitle: 'National Winner — Healthcare Innovation',
-    description: 'Developed an AI-powered healthcare diagnostics prototype that uses computer vision to analyze medical scans and assist clinicians with preliminary triage. Secured first place in the healthcare category of Smart India Hackathon 2023, competing against over 500 engineering teams nationwide.\n\nSystem capabilities demonstrated:\n- Medical image analysis prototype using convolutional computer vision\n- Secure patient record interface with role-based access\n- Edge-compatible diagnostic triage pipeline\n- Mobile clinician companion prototype',
-    shortDescription: 'National 1st Place Winner at Smart India Hackathon 2023 in Healthcare Innovation Category.',
-    category: 'innovation',
-    image: 'https://res.cloudinary.com/dr4w6ordx/image/upload/v1773202634/group-photo.png',
-    tags: ['Smart India Hackathon', 'National Winner', 'Healthcare AI', 'Python', 'React'],
+    _id: 'client-esailor',
+    title: 'eSailor — Global B2B Jute Trade & Export Portal',
+    subtitle: 'Website Design & Development',
+    description: 'Engineered an international trade and B2B export flagship for eSailor, an established manufacturer and global exporter of sustainable jute bags, tote bags, shopping bags, and industrial burlap sacks.\n\nKey deliverables:\n- International buyer trust system highlighting RCMC, IEC, GST, and Udyam trade accreditations\n- Direct B2B wholesale quotation flow tailored for container-load and custom branding requests\n- High-resolution product catalogue PDF downloads with instant spec sheets\n- Export credibility metrics highlighting 50+ countries served and 2M+ bags/month manufacturing capacity',
+    shortDescription: 'International B2B manufacturing and export platform for sustainable jute products with verified trade accreditations.',
+    category: 'web-development',
+    image: '/portfolio/esailor-homepage.webp',
+    tags: ['B2B Export', 'Global Trade', 'Next.js', 'Catalogue Engine', 'Industrial Packaging', 'Sustainability'],
     achievements: [
-      '1st Place in Healthcare Innovation Category',
-      'Selected among Top 10 from 500+ nationwide teams',
-      'Mentored by senior healthcare technology leaders',
-      'Demonstrated live at national grand finale'
+      'Verified international trade accreditations (RCMC, IEC, GST, Udyam)',
+      'Global B2B wholesale quotation inquiry dispatch pipeline',
+      'One-click high-resolution product catalogue PDF downloads',
+      'Serving international wholesale buyers across 50+ countries'
     ],
     links: [
-      { title: 'Competition Archive', url: 'https://sih.gov.in' }
+      { title: 'Visit Live Website', url: 'https://esailor-ectg.vercel.app/' }
     ],
     order: 4
   },
   {
-    _id: 'innov-2',
-    title: 'Cybercubs National Championship',
-    subtitle: '1st Place — Ethical Hacking & Cybersecurity',
-    description: 'Achieved first place in the Cybercubs National Championship 2023, a premier cybersecurity competition evaluating ethical hacking, application security auditing, and penetration testing.\n\nKey challenge areas conquered:\n- Web application vulnerability discovery and patch demonstration\n- Network penetration testing and perimeter defenses\n- Cryptographic challenge resolution\n- Digital forensics and incident response reporting',
-    shortDescription: '1st Place Winner in Cybercubs National Championship for ethical hacking and web application security.',
-    category: 'innovation',
-    image: 'https://res.cloudinary.com/dr4w6ordx/image/upload/v1773596421/f48bf7a6-fd0e-4e29-89fb-5d425336f46b_ukczim.png',
-    tags: ['Cybersecurity', 'Ethical Hacking', 'Penetration Testing', 'App Security'],
+    _id: 'client-properties-professor',
+    title: 'Properties Professor — Premium Real Estate Portal',
+    subtitle: 'Website Design & Development',
+    description: 'Engineered a modern Indian property discovery engine featuring verified luxury residential and commercial listings across Mumbai, Bangalore, and Gurgaon. Equipped with multi-city search filters, transparent INR pricing valuations, and direct broker contact channels.\n\nArchitectural highlights:\n- Interactive location search with voice input, city switching, and buy/rent/commercial toggles\n- Verified property badges with transparent INR crore valuations (e.g. Bandra West, Whitefield, DLF Cyber City)\n- Direct high-intent consultation lead generation pipeline with instant broker callouts\n- Mobile-responsive layout for property seekers on smartphone devices',
+    shortDescription: 'Verified real estate discovery and luxury property marketplace with multi-city search and transparent pricing.',
+    category: 'web-development',
+    image: '/portfolio/properties-professor-homepage.webp',
+    tags: ['Real Estate', 'Next.js', 'Verified Listings', 'Property Valuation', 'Interactive Maps', 'FinTech/PropTech'],
     achievements: [
-      'National Champions in ethical hacking challenge',
-      'Zero-day vulnerability discovery simulation winner',
-      'Comprehensive audit reporting commendation',
-      'Certified technical recognition'
+      'Multi-city search filters across Mumbai, Bangalore, and Gurgaon',
+      'Verified property badges with transparent INR crore valuations',
+      'Residential and commercial multi-category filtering',
+      'Direct high-intent consultation lead generation pipeline'
     ],
     links: [
-      { title: 'Competition Archive', url: 'https://cybercubs.org' }
+      { title: 'Visit Live Website', url: 'https://propertiesprofessor.com/' }
     ],
     order: 5
-  },
-  {
-    _id: 'innov-3',
-    title: 'Amity Innovation Cell Collaboration',
-    subtitle: 'Incubated Project — EdTech Platform',
-    description: 'Collaborated with Amity Innovation Cell to engineer an interactive digital education platform with modular content delivery and student progress telemetry.\n\nPlatform components built:\n- Modular video delivery with responsive playback controls\n- Real-time formative quizzes and comprehension checks\n- Student analytics telemetry and educator dashboard',
-    shortDescription: 'Interactive digital learning platform developed in collaboration with Amity Innovation Cell.',
-    category: 'innovation',
-    image: 'https://res.cloudinary.com/dr4w6ordx/image/upload/v1779559829/nexgen-studio/wzygtdqcuaakv3nsytsb.png',
-    tags: ['EdTech', 'Amity Innovation Cell', 'React', 'Node.js', 'MongoDB'],
-    achievements: [
-      'Selected for Amity Innovation Cell incubation',
-      'Interactive student learning pipeline completed',
-      'Demonstrated at university innovation showcase'
-    ],
-    links: [
-      { title: 'Innovation Cell Showcase', url: 'https://amity.edu/innovation' }
-    ],
-    order: 6
   }
 ];
 
 const categoryTabs = [
   { id: 'all', label: 'All Projects', icon: Layers },
   { id: 'web-development', label: 'Web Development', icon: Code2 },
-  { id: 'mobile-apps', label: 'Mobile Apps', icon: Smartphone },
-  { id: 'digital-marketing', label: 'Digital Marketing', icon: TrendingUp },
-  { id: 'innovation', label: 'Awards & Credentials', icon: Trophy }
+  { id: 'digital-marketing', label: 'Digital Marketing', icon: TrendingUp }
 ];
 
-export default function WorkPage({ onBackToHome, onSelectCategory }: WorkPageProps) {
-  const [activeCategory, setActiveCategory] = useState<string>('all');
+export default function WorkPage({ onBackToHome, onSelectCategory, onNavigateToTeam, initialCategory }: WorkPageProps) {
+  const [activeCategory, setActiveCategory] = useState<string>(initialCategory || 'all');
   const [workItems, setWorkItems] = useState<WorkItem[]>(fallbackWorkItems);
   const [selectedWork, setSelectedWork] = useState<WorkItem | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
+
+  useEffect(() => {
+    if (initialCategory) {
+      setActiveCategory(initialCategory);
+    }
+  }, [initialCategory]);
 
   useEffect(() => {
     fetchWorkItems();
@@ -224,9 +229,9 @@ export default function WorkPage({ onBackToHome, onSelectCategory }: WorkPagePro
       case 'web-development':
         return { label: 'Web Platform', color: 'text-cyan-600 dark:text-cyan-400 bg-cyan-50 dark:bg-cyan-950/40 border-cyan-400/30' };
       case 'mobile-apps':
-        return { label: 'Mobile Product', color: 'text-lime dark:text-lime bg-lime/10 border-lime/30' };
+        return { label: 'Mobile Product', color: 'text-emerald-700 dark:text-lime bg-emerald-50 dark:bg-lime/10 border-emerald-500/30 dark:border-lime/30' };
       case 'digital-marketing':
-        return { label: 'Growth System', color: 'text-lime dark:text-lime bg-lime/10 border-lime/30' };
+        return { label: 'Growth System', color: 'text-emerald-700 dark:text-lime bg-emerald-50 dark:bg-lime/10 border-emerald-500/30 dark:border-lime/30' };
       case 'innovation':
       case 'sih-alumni':
       case 'cybercubs':
@@ -240,45 +245,24 @@ export default function WorkPage({ onBackToHome, onSelectCategory }: WorkPagePro
 
   return (
     <div className="min-h-screen bg-[#F6F6F2] dark:bg-[#050608] x-pattern relative text-dark dark:text-white transition-colors duration-300">
-      {/* Subtle Grain Overlay */}
-      <div className="grain-overlay pointer-events-none" />
-
-      {/* Top Navbar */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-[#F6F6F2]/90 dark:bg-[#050608]/90 backdrop-blur-md border-b border-black/10 dark:border-white/10 py-3.5 transition-colors">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between">
-          <button
-            onClick={onBackToHome}
-            className="flex items-center gap-2 text-sm font-mono uppercase tracking-wider text-dark/80 hover:text-dark dark:text-slate-300 dark:hover:text-lime transition-colors"
-          >
-            <ArrowLeft className="w-4 h-4" />
-            <span>Back to Home</span>
-          </button>
-          
-          <button
-            onClick={onBackToHome}
-            className="flex items-center gap-2 select-none hover:opacity-85 transition-opacity"
-            title="Xelox Solutions"
-          >
-            <span className="font-display font-extrabold text-xl text-[#19D5D0]">Xelox</span>
-            <span className="font-display font-extrabold text-xl text-dark dark:text-white">Solutions</span>
-          </button>
-
-          <button
-            onClick={onBackToHome}
-            className="btn-primary hidden sm:inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider px-4 py-2"
-          >
-            <span>Start a project</span>
-            <ArrowRight className="w-3.5 h-3.5" />
-          </button>
-        </div>
-      </nav>
-
       {/* Page Hero Header */}
-      <header className="pt-32 pb-12 px-6 lg:px-12 border-b border-black/5 dark:border-white/5 relative z-10">
+      <header className="pt-28 sm:pt-32 pb-12 px-6 lg:px-12 border-b border-black/5 dark:border-white/5 relative z-10">
         <div className="max-w-7xl mx-auto">
+          {/* Contextual Breadcrumb */}
+          <nav aria-label="Breadcrumb" className="flex items-center gap-2 mb-5 text-xs font-mono">
+            <button
+              onClick={onBackToHome}
+              className="inline-flex items-center gap-1.5 text-gray-custom hover:text-dark dark:hover:text-lime transition-colors"
+            >
+              <ArrowLeft className="w-3.5 h-3.5" />
+              <span>Home</span>
+            </button>
+            <span className="text-gray-400 dark:text-slate-600">/</span>
+            <span className="text-dark dark:text-white font-semibold">Selected Work</span>
+          </nav>
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-50 dark:bg-cyan-950/60 border border-cyan-400/30 text-cyan-700 dark:text-cyan-400 font-mono text-xs uppercase tracking-widest mb-4">
-            <Sparkles className="w-3.5 h-3.5 text-lime" />
-            <span>Selected Work &amp; Innovation Credentials — 2026</span>
+            <Sparkles className="w-3.5 h-3.5 text-cyan-600 dark:text-cyan-400" />
+            <span>Production Client Showcase — 2026</span>
           </div>
 
           <h1 className="font-display font-bold text-4xl sm:text-5xl lg:text-6xl tracking-tight text-dark dark:text-white mb-6 max-w-4xl leading-[1.08]">
@@ -286,8 +270,34 @@ export default function WorkPage({ onBackToHome, onSelectCategory }: WorkPagePro
           </h1>
 
           <p className="text-base sm:text-lg lg:text-xl text-gray-700 dark:text-slate-300 max-w-3xl leading-relaxed">
-            A curated record of production web flagships, mobile applications, and national hackathon championships. We strictly build systems that withstand scale, convert visitors, and earn national recognition.
+            A curated record of production client platforms, high-conversion web applications, and international trade portals. Engineered with sub-second performance and direct business impact.
           </p>
+
+          {/* Dedicated Team & National Honors Banner */}
+          {onNavigateToTeam && (
+            <div className="mt-8 p-4 sm:p-5 rounded-2xl border border-amber-400/30 bg-amber-500/10 dark:bg-amber-950/20 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+              <div className="flex items-center gap-3.5">
+                <div className="w-10 h-10 rounded-xl bg-amber-500/20 border border-amber-400/40 text-amber-500 flex items-center justify-center shrink-0">
+                  <Trophy className="w-5 h-5" />
+                </div>
+                <div>
+                  <h4 className="font-display font-bold text-sm text-dark dark:text-white">
+                    Looking for our National Championships &amp; Hackathon Honors?
+                  </h4>
+                  <p className="text-xs text-gray-700 dark:text-slate-300">
+                    Smart India Hackathon '23 (1st), Cybercubs National Championship (1st), PSB Hackathon &amp; GFF '26 Mumbai.
+                  </p>
+                </div>
+              </div>
+              <button
+                onClick={onNavigateToTeam}
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-mono font-bold uppercase tracking-wider bg-dark text-white dark:bg-lime dark:text-dark hover:opacity-90 transition-all shrink-0 shadow-sm"
+              >
+                <span>View Team &amp; Achievements</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </button>
+            </div>
+          )}
 
           {/* Filter Tabs */}
           <div className="flex flex-wrap items-center gap-2 mt-8 pt-6 border-t border-black/5 dark:border-white/5">
@@ -300,6 +310,8 @@ export default function WorkPage({ onBackToHome, onSelectCategory }: WorkPagePro
                   key={tab.id}
                   onClick={() => {
                     setActiveCategory(tab.id);
+                    const newUrl = tab.id === 'all' ? '/work' : `/work?category=${encodeURIComponent(tab.id)}`;
+                    window.history.pushState({ page: 'work', category: tab.id }, '', newUrl);
                     onSelectCategory?.(tab.id);
                   }}
                   className={`inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-mono tracking-wider transition-all duration-200 border ${
@@ -321,7 +333,7 @@ export default function WorkPage({ onBackToHome, onSelectCategory }: WorkPagePro
       <main className="max-w-7xl mx-auto px-6 lg:px-12 py-16 relative z-10">
         {loading ? (
           <div className="py-24 text-center">
-            <div className="inline-block w-8 h-8 border-2 border-lime border-t-transparent rounded-full animate-spin mb-4" />
+            <div className="inline-block w-8 h-8 border-2 border-emerald-600 dark:border-lime border-t-transparent rounded-full animate-spin mb-4" />
             <p className="font-mono text-xs uppercase tracking-wider text-gray-600 dark:text-slate-400">Loading Case Studies...</p>
           </div>
         ) : workItems.length === 0 ? (
@@ -349,7 +361,7 @@ export default function WorkPage({ onBackToHome, onSelectCategory }: WorkPagePro
                     <img
                       src={item.image || 'https://res.cloudinary.com/dr4w6ordx/image/upload/v1779460343/ChatGPT_Image_May_22_2026_07_43_23_PM_gvldqm.png'}
                       alt={item.title}
-                      className="w-full h-full object-cover img-mono group-hover:scale-105 transition-transform duration-700"
+                      className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700 block"
                       loading="lazy"
                       decoding="async"
                     />
@@ -364,7 +376,7 @@ export default function WorkPage({ onBackToHome, onSelectCategory }: WorkPagePro
                   <div className="p-6 flex-1 flex flex-col justify-between">
                     <div>
                       {item.subtitle && (
-                        <p className="font-mono text-xs uppercase tracking-wider text-lime dark:text-lime font-semibold mb-2">
+                        <p className="font-mono text-xs uppercase tracking-wider text-emerald-700 dark:text-[#B8FF3D] font-bold mb-2">
                           {item.subtitle}
                         </p>
                       )}
@@ -455,7 +467,7 @@ export default function WorkPage({ onBackToHome, onSelectCategory }: WorkPagePro
                   <img
                     src={selectedWork.image}
                     alt={selectedWork.title}
-                    className="w-full h-full object-cover img-mono"
+                    className="w-full h-full object-cover object-top block"
                     loading="lazy"
                     decoding="async"
                   />
@@ -480,7 +492,7 @@ export default function WorkPage({ onBackToHome, onSelectCategory }: WorkPagePro
               {selectedWork.achievements && selectedWork.achievements.length > 0 && (
                 <div className="p-6 rounded-2xl bg-black/[0.03] dark:bg-black/30 border border-black/5 dark:border-white/5 space-y-3">
                   <div className="flex items-center gap-2">
-                    <Award className="w-4 h-4 text-lime" />
+                    <Award className="w-4 h-4 text-emerald-600 dark:text-lime" />
                     <span className="font-display font-bold text-sm text-dark dark:text-white uppercase tracking-wider">
                       Verified Credentials &amp; Execution Highlights
                     </span>
@@ -488,7 +500,7 @@ export default function WorkPage({ onBackToHome, onSelectCategory }: WorkPagePro
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                     {selectedWork.achievements.map((item, idx) => (
                       <div key={idx} className="flex items-start gap-2 text-xs text-dark/90 dark:text-slate-300">
-                        <CheckCircle2 className="w-4 h-4 text-lime shrink-0 mt-0.5" />
+                        <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-lime shrink-0 mt-0.5" />
                         <span>{item}</span>
                       </div>
                     ))}

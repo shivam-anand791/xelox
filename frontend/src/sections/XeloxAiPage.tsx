@@ -75,8 +75,8 @@ function createReply(question: string, email: string, location: string) {
     return 'Xelox Solutions is a digital agency delivering high-craft digital marketing, custom website engineering, and mobile applications.';
   }
 
-  if (normalized.includes('pricing') || normalized.includes('cost') || normalized.includes('budget')) {
-    return 'Pricing depends on the scope, timeline, and features. Send us a short brief via the inquiry form and we’ll respond with the best next step.';
+  if (normalized.includes('pricing') || normalized.includes('cost') || normalized.includes('budget') || normalized.includes('package')) {
+    return 'We offer three transparent service packages: 1) Starter Presence (₹5,000–₹12,000 · One-time setup), 2) Business Growth (₹15,000–₹35,000 · One-time setup with optional monthly services), and 3) Digital Growth Partner (₹8,000–₹25,000/month · Recurring service contract). You can choose any package directly from our Pricing section to start an enquiry.';
   }
 
   if (normalized.includes('social') || normalized.includes('instagram') || normalized.includes('linkedin')) {
@@ -180,7 +180,7 @@ export default function XeloxAiPage({ onBack }: { onBack: () => void }) {
             <div className="border-b border-black/5 bg-gradient-to-r from-white/80 via-white/60 to-transparent px-3 py-3 dark:border-white/10 dark:from-white/8 dark:via-white/5 dark:to-transparent sm:px-4">
               <div className="flex items-center justify-between gap-3">
                 <div>
-                  <p className="font-mono text-[10px] tracking-[0.18em] text-lime uppercase">Ask Xelox AI</p>
+                  <p className="font-mono text-[10px] tracking-[0.18em] text-emerald-700 dark:text-lime uppercase font-semibold">Ask Xelox AI</p>
                 </div>
               </div>
 
@@ -192,7 +192,7 @@ export default function XeloxAiPage({ onBack }: { onBack: () => void }) {
                     onClick={() => sendQuestion(suggestion)}
                     className="inline-flex items-center gap-1.5 rounded-full border border-black/10 bg-white/68 px-1.5 py-1 text-[9px] font-medium text-dark transition-all hover:-translate-y-0.5 hover:border-lime/40 dark:border-white/10 dark:bg-white/5 dark:text-white sm:px-2.5 sm:py-1.5 sm:text-[11px]"
                   >
-                    <Sparkles size={10} className="text-lime" />
+                    <Sparkles size={10} className="text-emerald-600 dark:text-lime" />
                     {suggestion}
                   </button>
                 ))}

@@ -1,0 +1,72 @@
+[
+  {
+    "id": "laptopmitra",
+    "name": "LaptopMitra",
+    "url": "https://laptop-mitra.vercel.app/",
+    "desktopFilename": "laptopmitra-homepage.webp",
+    "mobileFilename": "laptopmitra-mobile.webp",
+    "category": "web-development",
+    "success": true,
+    "title": "LaptopMitra | Certified Pre-Owned & Refurbished Laptops",
+    "h1Text": "Certified Laptops\nfor Your Business.",
+    "metaDesc": "India's #1 marketplace for certified refurbished laptops. 32-point inspection, 1-year warranty, free express delivery, and flat ₹500 discounts with Mitra codes.",
+    "desktopPath": "x:\\downloadss\\app\\app\\frontend\\public\\portfolio\\laptopmitra-homepage.webp",
+    "mobilePath": "x:\\downloadss\\app\\app\\frontend\\public\\portfolio\\laptopmitra-mobile.webp"
+  },
+  {
+    "id": "touristpalace",
+    "name": "Tourist Palace",
+    "url": "https://touristpalace.vercel.app/",
+    "desktopFilename": "touristpalace-homepage.webp",
+    "mobileFilename": "touristpalace-mobile.webp",
+    "category": "web-development",
+    "success": true,
+    "title": "Hotel near Delhi Airport, Aerocity & Mahipalpur | Double Rooms & Stays | Tourist Palace Hotel New Delhi",
+    "h1Text": "A comfortable stop, close to Delhi Airport.",
+    "metaDesc": "Stay at Tourist Palace Hotel in Mahipalpur, New Delhi near Delhi Airport. Clean, comfortable double AC rooms, 24-hour reception, free Wi-Fi, and convenient access to IGI Airport & Aerocity.",
+    "desktopPath": "x:\\downloadss\\app\\app\\frontend\\public\\portfolio\\touristpalace-homepage.webp",
+    "mobilePath": "x:\\downloadss\\app\\app\\frontend\\public\\portfolio\\touristpalace-mobile.webp"
+  },
+  {
+    "id": "adorca",
+    "name": "Adorca 360",
+    "url": "https://adorca.vercel.app/",
+    "desktopFilename": "adorca-homepage.webp",
+    "mobileFilename": "adorca-mobile.webp",
+    "category": "digital-marketing",
+    "success": true,
+    "title": "Adorca 360 | Performance Growth Studio & Technical Search Marketing",
+    "h1Text": "TURN DIGITAL\nATTENTION\nINTO GROWTH.",
+    "metaDesc": "Adorca 360 combines technical SEO, programmatic media, content architecture, and international market intelligence to help ambitious brands acquire high-value customers across 50+ markets.",
+    "desktopPath": "x:\\downloadss\\app\\app\\frontend\\public\\portfolio\\adorca-homepage.webp",
+    "mobilePath": "x:\\downloadss\\app\\app\\frontend\\public\\portfolio\\adorca-mobile.webp"
+  },
+  {
+    "id": "esailor",
+    "name": "eSailor",
+    "url": "https://esailor-ectg.vercel.app/",
+    "desktopFilename": "esailor-homepage.webp",
+    "mobileFilename": "esailor-mobile.webp",
+    "category": "web-development",
+    "success": true,
+    "title": "eSailor.in | B2B Jute Bag Manufacturer & Global Exporter",
+    "h1Text": "Jute Products,\nMade for Global Supply",
+    "metaDesc": "Direct manufacturer and global exporter of eco-friendly jute bags, tote bags, shopping bags, and industrial burlap sacks. Registered with RCMC, IEC, GST, and Udyam for international B2B trade.",
+    "desktopPath": "x:\\downloadss\\app\\app\\frontend\\public\\portfolio\\esailor-homepage.webp",
+    "mobilePath": "x:\\downloadss\\app\\app\\frontend\\public\\portfolio\\esailor-mobile.webp"
+  },
+  {
+    "id": "properties-professor",
+    "name": "Properties Professor",
+    "url": "https://propertiesprofessor.com/",
+    "desktopFilename": "properties-professor-homepage.webp",
+    "mobileFilename": "properties-professor-mobile.webp",
+    "category": "web-development",
+    "success": true,
+    "title": "Properties Professor",
+    "h1Text": "Find Your\nPerfect Home",
+    "metaDesc": "",
+    "desktopPath": "x:\\downloadss\\app\\app\\frontend\\public\\portfolio\\properties-professor-homepage.webp",
+    "mobilePath": "x:\\downloadss\\app\\app\\frontend\\public\\portfolio\\properties-professor-mobile.webp"
+  }
+]

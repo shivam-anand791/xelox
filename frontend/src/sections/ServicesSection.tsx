@@ -257,7 +257,7 @@ export default function ServicesSection({ onStartInquiry, onNavigate, showDeepDi
                   <div className="space-y-2.5 pt-4 border-t border-black/5 dark:border-white/10 mb-8">
                     {pillar.bullets.map((bullet, idx) => (
                       <div key={idx} className="flex items-start gap-2.5 text-xs font-medium text-dark/90 dark:text-slate-300">
-                        <CheckCircle2 className="w-4 h-4 text-lime shrink-0 mt-0.5" />
+                        <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-lime shrink-0 mt-0.5" />
                         <span>{bullet}</span>
                       </div>
                     ))}
@@ -267,25 +267,75 @@ export default function ServicesSection({ onStartInquiry, onNavigate, showDeepDi
                 {/* Card CTAs */}
                 <div className="pt-4 border-t border-black/5 dark:border-white/10 flex flex-col gap-3">
                   <button
+                    type="button"
                     onClick={() => handleInquiryClick(pillar.id)}
-                    className="btn-primary w-full justify-center text-xs tracking-wider uppercase font-semibold py-3"
+                    className="btn-primary group relative w-full h-11 flex items-center justify-center px-10 rounded-xl text-xs tracking-wider uppercase font-semibold border-2 border-transparent transition-all duration-300"
                   >
-                    <span>Start Project Inquiry</span>
-                    <ArrowRight className="w-4 h-4 ml-1" />
+                    <span 
+                      aria-hidden="true"
+                      className="absolute left-4 top-1/2 -translate-y-1/2 flex items-center justify-center pointer-events-none text-current transition-transform duration-200 group-hover:translate-x-0.5"
+                    >
+                      <ArrowRight className="w-4 h-4 shrink-0 block" strokeWidth={2} />
+                    </span>
+                    <span className="truncate text-center">Start Project Inquiry</span>
                   </button>
 
                   <button
+                    type="button"
                     onClick={() => handleCardDeepDive(pillar.id)}
-                    className="btn-outline w-full justify-center text-xs tracking-wider uppercase font-medium py-2.5"
+                    className="btn-outline group relative w-full h-11 flex items-center justify-center px-10 rounded-xl text-xs tracking-wider uppercase font-semibold border-2 transition-all duration-300"
                   >
-                    <span>{showDeepDive ? (isSelected ? 'Viewing Full Scope' : 'Explore Full Scope') : 'Explore Full Scope'}</span>
-                    <ChevronRight className="w-3.5 h-3.5 ml-1" />
+                    <span 
+                      aria-hidden="true"
+                      className="absolute left-4 top-1/2 -translate-y-1/2 flex items-center justify-center pointer-events-none text-current transition-transform duration-200 group-hover:translate-x-0.5"
+                    >
+                      <ArrowRight className="w-4 h-4 shrink-0 block" strokeWidth={2} />
+                    </span>
+                    <span className="truncate text-center">
+                      {showDeepDive ? (isSelected ? 'Viewing Full Scope' : 'Explore Full Scope') : 'Explore Full Scope'}
+                    </span>
                   </button>
                 </div>
               </div>
             );
           })}
         </div>
+
+        {/* Homepage Preview Banner linking to dedicated Services & Pricing pages */}
+        {!showDeepDive && (
+          <div className="rounded-2xl border border-black/10 dark:border-white/10 bg-white/80 dark:bg-white/5 p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-sm">
+            <div className="flex items-start sm:items-center gap-4">
+              <div className="w-10 h-10 rounded-xl bg-lime/15 border border-lime/30 flex items-center justify-center text-dark dark:text-lime shrink-0">
+                <Sparkles className="w-5 h-5" />
+              </div>
+              <div>
+                <h4 className="font-display font-bold text-base text-dark dark:text-white">
+                  Need in-depth specifications, technical architectures, or pricing?
+                </h4>
+                <p className="text-xs sm:text-sm text-gray-600 dark:text-slate-300 leading-relaxed mt-0.5">
+                  Explore full deliverables for all three pillars, along with predictable packages starting from ₹5,000.
+                </p>
+              </div>
+            </div>
+
+            <div className="flex flex-wrap items-center gap-3 shrink-0">
+              <button
+                onClick={() => onNavigate ? onNavigate('services') : null}
+                className="btn-primary text-xs font-bold uppercase tracking-wider px-5 py-2.5 inline-flex items-center gap-2 shadow-sm"
+              >
+                <span>Full Services Matrix</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </button>
+              <button
+                onClick={() => onNavigate ? onNavigate('pricing') : null}
+                className="btn-outline text-xs font-mono font-bold uppercase tracking-wider px-4 py-2.5 inline-flex items-center gap-1.5"
+              >
+                <span>Pricing Guide</span>
+                <ChevronRight className="w-3.5 h-3.5" />
+              </button>
+            </div>
+          </div>
+        )}
 
         {/* Deep Dive Section */}
         {showDeepDive && (
@@ -379,7 +429,7 @@ export default function ServicesSection({ onStartInquiry, onNavigate, showDeepDi
                   {/* Deliverables Checklist */}
                   <div>
                     <div className="flex items-center gap-2 mb-4">
-                      <Layers className="w-4 h-4 text-lime" />
+                      <Layers className="w-4 h-4 text-emerald-600 dark:text-lime" />
                       <h5 className="font-display font-bold text-lg text-dark dark:text-white uppercase tracking-tight">
                         Standard Deliverables Scope
                       </h5>
@@ -390,7 +440,7 @@ export default function ServicesSection({ onStartInquiry, onNavigate, showDeepDi
                           key={idx}
                           className="p-3.5 rounded-xl border border-black/5 dark:border-white/5 bg-white/50 dark:bg-black/20 flex items-start gap-2.5"
                         >
-                          <CheckCircle2 className="w-4 h-4 text-lime shrink-0 mt-0.5" />
+                          <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-lime shrink-0 mt-0.5" />
                           <span className="text-xs text-dark/90 dark:text-slate-300 leading-snug">
                             {item}
                           </span>

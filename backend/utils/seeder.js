@@ -30,9 +30,11 @@ const defaultContent = {
   },
   portfolio: {
     projects: [
-      { title: "Lumen Coffee", subtitle: "Brand + Site", image: "/portfolio_top_left.jpg" },
-      { title: "North Supply", subtitle: "Packaging", image: "/portfolio_bottom_left.jpg" },
-      { title: "Daybreak App", subtitle: "UI Kit", image: "/portfolio_bottom_right.jpg" }
+      { title: "LaptopMitra", subtitle: "Website Design & Development", image: "/portfolio/laptopmitra-homepage.webp" },
+      { title: "Adorca 360", subtitle: "Digital Marketing & Growth", image: "/portfolio/adorca-homepage.webp" },
+      { title: "Tourist Palace", subtitle: "Hospitality & Booking Engine", image: "/portfolio/touristpalace-homepage.webp" },
+      { title: "eSailor", subtitle: "B2B Global Trade & Export", image: "/portfolio/esailor-homepage.webp" },
+      { title: "Properties Professor", subtitle: "Verified Real Estate Portal", image: "/portfolio/properties-professor-homepage.webp" }
     ]
   },
   process: {

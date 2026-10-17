@@ -22,7 +22,7 @@ export default function ContactSection({ onNavigate }: { onNavigate?: (page: str
     name: '',
     email: '',
     service: 'Website Design & Development',
-    budget: '$2,500 – $5,000',
+    budget: '₹15,000–₹35,000',
     message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -41,7 +41,7 @@ export default function ContactSection({ onNavigate }: { onNavigate?: (page: str
           name: '',
           email: '',
           service: 'Website Design & Development',
-          budget: '$2,500 – $5,000',
+          budget: '₹15,000–₹35,000',
           message: ''
         });
       }
@@ -278,6 +278,15 @@ export default function ContactSection({ onNavigate }: { onNavigate?: (page: str
                         <option value="Digital Marketing & Growth" className="bg-[#121722] text-white">
                           Digital Marketing & Growth
                         </option>
+                        <option value="Package: Starter Presence (₹5,000–₹12,000)" className="bg-[#121722] text-white">
+                          Package: Starter Presence (₹5,000–₹12,000)
+                        </option>
+                        <option value="Package: Business Growth (₹15,000–₹35,000)" className="bg-[#121722] text-white">
+                          Package: Business Growth (₹15,000–₹35,000)
+                        </option>
+                        <option value="Package: Digital Growth Partner (₹8,000–₹25,000/mo)" className="bg-[#121722] text-white">
+                          Package: Digital Growth Partner (₹8,000–₹25,000/mo)
+                        </option>
                         <option value="Full-Funnel Solution (Web + Mobile + Growth)" className="bg-[#121722] text-white">
                           Full-Funnel (Web + Mobile + Growth)
                         </option>
@@ -300,10 +309,12 @@ export default function ContactSection({ onNavigate }: { onNavigate?: (page: str
                         onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
                         className="w-full bg-[#121722] border border-slate-700/60 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[#B8FF3D] focus:ring-2 focus:ring-[#B8FF3D]/25 transition-all text-sm appearance-none cursor-pointer pr-10"
                       >
-                        <option value="< $2,500" className="bg-[#121722] text-white">&lt; $2,500 (Kickoff / Audit)</option>
-                        <option value="$2,500 – $5,000" className="bg-[#121722] text-white">$2,500 – $5,000 (Core MVP)</option>
-                        <option value="$5,000 – $10,000" className="bg-[#121722] text-white">$5,000 – $10,000 (Complete Platform)</option>
-                        <option value="$10,000+" className="bg-[#121722] text-white">$10,000+ (Full Enterprise / Scale)</option>
+                        <option value="₹5,000–₹12,000" className="bg-[#121722] text-white">₹5,000–₹12,000 (Starter Presence)</option>
+                        <option value="₹15,000–₹35,000" className="bg-[#121722] text-white">₹15,000–₹35,000 (Business Growth)</option>
+                        <option value="₹8,000–₹25,000/month" className="bg-[#121722] text-white">₹8,000–₹25,000 / month (Digital Growth Partner)</option>
+                        <option value="₹35,000–₹75,000" className="bg-[#121722] text-white">₹35,000–₹75,000 (Custom Web & App Platform)</option>
+                        <option value="₹75,000–₹1,50,000" className="bg-[#121722] text-white">₹75,000–₹1,50,000 (Full-Stack / AI Solution)</option>
+                        <option value="₹1,50,000+" className="bg-[#121722] text-white">₹1,50,000+ (Enterprise / Scale)</option>
                         <option value="Flexible / Let's Discuss" className="bg-[#121722] text-white">Flexible / Let's Discuss</option>
                       </select>
                       <ChevronDown size={16} className="absolute right-3.5 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none" />
@@ -450,21 +461,28 @@ export default function ContactSection({ onNavigate }: { onNavigate?: (page: str
                   </button>
                 </li>
                 <li>
+                  <button 
+                    onClick={() => handleNavClick('pricing')}
+                    className="hover:text-white transition-colors text-left"
+                  >
+                    Pricing Packages
+                  </button>
+                </li>
+                <li>
+                  <button 
+                    onClick={() => handleNavClick('team')}
+                    className="hover:text-white transition-colors text-left"
+                  >
+                    Team &amp; Honors
+                  </button>
+                </li>
+                <li>
                   <a 
                     href="#process"
                     onClick={(e) => handleAnchorClick(e, '#process')}
                     className="hover:text-white transition-colors"
                   >
                     How We Work
-                  </a>
-                </li>
-                <li>
-                  <a 
-                    href="#results"
-                    onClick={(e) => handleAnchorClick(e, '#results')}
-                    className="hover:text-white transition-colors"
-                  >
-                    Delivery Benchmarks
                   </a>
                 </li>
                 <li>

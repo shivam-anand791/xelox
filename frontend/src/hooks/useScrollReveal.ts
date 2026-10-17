@@ -9,7 +9,7 @@ interface UseScrollRevealOptions {
 export function useScrollReveal<T extends HTMLElement>(
   options: UseScrollRevealOptions = {}
 ) {
-  const { threshold = 0.2, rootMargin = '0px', triggerOnce = true } = options;
+  const { threshold = 0.05, rootMargin = '80px 0px 40px 0px', triggerOnce = true } = options;
   const ref = useRef<T>(null);
   const [isVisible, setIsVisible] = useState(() => {
     if (typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
@@ -27,10 +27,32 @@ export function useScrollReveal<T extends HTMLElement>(
     const element = ref.current;
     if (!element) return;
 
+    // Immediate check if element is already in the viewport on mount or anchor jump
+    const checkImmediateVisibility = () => {
+      const rect = element.getBoundingClientRect();
+      const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+      const inView = rect.top <= windowHeight + 100 && rect.bottom >= -50;
+      if (inView) {
+        setIsVisible(true);
+        return true;
+      }
+      return false;
+    };
+
+    if (checkImmediateVisibility() && triggerOnce) {
+      return;
+    }
+
+    // Safety fallback timer: guarantee elements are revealed even if IntersectionObserver is delayed or missed
+    const safetyTimer = setTimeout(() => {
+      setIsVisible(true);
+    }, 900);
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true);
+          clearTimeout(safetyTimer);
           if (triggerOnce) {
             observer.unobserve(element);
           }
@@ -44,6 +66,7 @@ export function useScrollReveal<T extends HTMLElement>(
     observer.observe(element);
 
     return () => {
+      clearTimeout(safetyTimer);
       observer.disconnect();
     };
   }, [threshold, rootMargin, triggerOnce]);
@@ -52,7 +75,7 @@ export function useScrollReveal<T extends HTMLElement>(
 }
 
 export function useMultipleScrollReveal(count: number, options: UseScrollRevealOptions = {}) {
-  const { threshold = 0.2, rootMargin = '0px', triggerOnce = true } = options;
+  const { threshold = 0.05, rootMargin = '80px 0px 40px 0px', triggerOnce = true } = options;
   const refs = useRef<(HTMLElement | null)[]>([]);
   const [visibleItems, setVisibleItems] = useState<boolean[]>(() => {
     if (typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
@@ -62,10 +85,30 @@ export function useMultipleScrollReveal(count: number, options: UseScrollRevealO
   });
 
   useEffect(() => {
+    if (typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      setVisibleItems(new Array(count).fill(true));
+      return;
+    }
+
+    const safetyTimer = setTimeout(() => {
+      setVisibleItems(new Array(count).fill(true));
+    }, 1000);
+
     const observers: IntersectionObserver[] = [];
 
     refs.current.forEach((element, index) => {
       if (!element) return;
+
+      const rect = element.getBoundingClientRect();
+      const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+      if (rect.top <= windowHeight + 100 && rect.bottom >= -50) {
+        setVisibleItems(prev => {
+          const newState = [...prev];
+          newState[index] = true;
+          return newState;
+        });
+        if (triggerOnce) return;
+      }
 
       const observer = new IntersectionObserver(
         ([entry]) => {
@@ -94,6 +137,7 @@ export function useMultipleScrollReveal(count: number, options: UseScrollRevealO
     });
 
     return () => {
+      clearTimeout(safetyTimer);
       observers.forEach(observer => observer.disconnect());
     };
   }, [count, threshold, rootMargin, triggerOnce]);

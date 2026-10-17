@@ -603,7 +603,7 @@ export default function AdminDashboard({ onLogout, onViewSite }: AdminDashboardP
                   <label className="block text-sm font-medium text-dark">Service Items</label>
                   <button
                     onClick={() => addArrayItem('services', 'items', { title: 'New Service', description: 'Description here' })}
-                    className="flex items-center gap-1 text-sm text-lime hover:text-dark transition-colors"
+                    className="flex items-center gap-1 text-sm text-emerald-600 hover:text-dark font-medium transition-colors"
                   >
                     <Plus size={16} />
                     Add Service
@@ -1968,7 +1968,7 @@ function ServiceItemForm({
               value={formData.pricing}
               onChange={(e) => setFormData(prev => ({ ...prev, pricing: e.target.value }))}
               className="w-full"
-              placeholder="Starting from $500"
+              placeholder="Starting from ₹5,000"
             />
           </div>
           

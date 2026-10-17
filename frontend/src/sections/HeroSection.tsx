@@ -279,7 +279,7 @@ export default function HeroSection({ onNavigate }: HeroSectionProps) {
                   </div>
                 </div>
 
-                {/* Performance Stat Metric Pill */}
+                {/* Engineering Standard Pill */}
                 <div
                   className={`hidden sm:flex absolute -top-3 -right-3 z-20 items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/85 border border-[#19D5D0]/30 backdrop-blur-md shadow-xl transition-all duration-800 ${
                     loaded ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'
@@ -288,7 +288,7 @@ export default function HeroSection({ onNavigate }: HeroSectionProps) {
                 >
                   <TrendingUp className="w-3.5 h-3.5 text-lime" />
                   <span className="font-mono text-[10px] uppercase tracking-wider text-white">
-                    +142% Avg. Conversion
+                    Sub-Second TTFB • 99+ Vitals
                   </span>
                 </div>
 

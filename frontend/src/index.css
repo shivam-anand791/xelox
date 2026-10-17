@@ -55,6 +55,7 @@
   }
   html {
     scroll-behavior: smooth;
+    scroll-padding-top: 5.5rem;
     color-scheme: light;
   }
 
@@ -571,20 +572,25 @@ input:focus, textarea:focus {
 
 /* Navigation */
 .nav-link {
-  @apply relative text-[#111111] font-medium transition-colors duration-300;
+  @apply relative text-[#111111] dark:text-[#F5F7FB] font-medium transition-colors duration-200 py-1;
 }
 
 .nav-link::after {
   content: '';
-  @apply absolute bottom-0 left-0 w-0 h-0.5 bg-[#B8FF3D] transition-all duration-300;
+  @apply absolute -bottom-0.5 left-0 w-0 h-0.5 bg-[#B8FF3D] transition-all duration-300;
 }
 
 .dark .nav-link::after {
   background-color: #B8FF3D;
 }
 
-.nav-link:hover::after {
+.nav-link:hover::after,
+.nav-link.active::after {
   @apply w-full;
+}
+
+.nav-link.active {
+  @apply font-bold text-[#111111] dark:text-[#B8FF3D];
 }
 
 /* Admin Styles */

@@ -1,8 +1,53 @@
 import { useState } from 'react';
-import { ArrowLeft, ArrowRight, Check, Send, Globe, Smartphone, Brain, Users, Palette, Cpu, HelpCircle, TrendingUp } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Check, Send, Globe, Smartphone, Brain, Users, Palette, Cpu, HelpCircle, TrendingUp, Sparkles } from 'lucide-react';
 import { toast } from 'sonner';
 
 const API_URL = import.meta.env.VITE_API_URL || 'https://xyrosolutions.onrender.com/api';
+
+const getPackageDefaults = (pkgName?: string, catName?: string) => {
+  if (pkgName === 'Starter Presence') {
+    return {
+      category: 'web-development',
+      projectType: 'corporate',
+      budget: '₹5,000–₹12,000',
+      timeline: '1-2-weeks',
+      features: ['responsive', 'seo', 'payment'],
+      projectDescription: 'Inquiry for Starter Presence package (₹5,000–₹12,000 · One-time setup). Need a simple, mobile-friendly business website, domain & hosting setup assistance, WhatsApp contact button and enquiry form, basic on-page SEO, and Google Business Profile setup or optimisation.',
+      additionalNotes: 'Selected Package: Starter Presence (₹5,000–₹12,000 · One-time setup)'
+    };
+  }
+  if (pkgName === 'Business Growth') {
+    return {
+      category: 'web-development',
+      projectType: 'corporate',
+      budget: '₹15,000–₹35,000',
+      timeline: '2-3-months',
+      features: ['responsive', 'seo', 'cms', 'analytics'],
+      projectDescription: 'Inquiry for Business Growth package (₹15,000–₹35,000 · One-time setup · Optional monthly services). Need a custom multi-page website, professional branding elements, local SEO foundations, analytics and Google Search Console setup, lead capture and enquiry tracking, and social media profile setup.',
+      additionalNotes: 'Selected Package: Business Growth (₹15,000–₹35,000 · One-time setup · Optional monthly services)'
+    };
+  }
+  if (pkgName === 'Digital Growth Partner') {
+    return {
+      category: 'digital-marketing',
+      projectType: 'growth-retainer',
+      budget: '₹8,000–₹25,000/month',
+      timeline: 'flexible',
+      features: ['seo-audit', 'keyword-research', 'ad-creatives', 'tracking-analytics', 'monthly-reporting'],
+      projectDescription: 'Inquiry for Digital Growth Partner package (₹8,000–₹25,000/month · Recurring service contract). Seeking ongoing digital marketing, website optimisation, SEO and content updates, social media content management, monthly performance reports, lead generation improvements, and basic automation.',
+      additionalNotes: 'Selected Package: Digital Growth Partner (₹8,000–₹25,000/month · Recurring service contract)'
+    };
+  }
+  return {
+    category: catName || 'digital-marketing',
+    projectType: '',
+    projectDescription: '',
+    budget: '',
+    timeline: '',
+    features: [] as string[],
+    additionalNotes: ''
+  };
+};
 
 // Category configurations with icons and project types
 const categoryConfig: Record<string, {
@@ -196,24 +241,33 @@ const timelineOptions = [
 
 interface ServiceInquiryPageProps {
   category?: string;
+  initialPackage?: string;
   onBackToServices: () => void;
   onGoHome: () => void;
 }
 
-export default function ServiceInquiryPage({ category: initialCategory, onBackToServices, onGoHome }: ServiceInquiryPageProps) {
-  // Start at step 2 since category is already selected from Services page
+export default function ServiceInquiryPage({ 
+  category: initialCategory, 
+  initialPackage,
+  onBackToServices, 
+  onGoHome 
+}: ServiceInquiryPageProps) {
+  const pkgDefaults = getPackageDefaults(initialPackage, initialCategory);
+  const [selectedPackage] = useState(initialPackage || '');
+  
+  // Start at step 2 since category is already selected
   const [currentStep, setCurrentStep] = useState(2);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   
-  // Form data
+  // Form data initialized with package defaults if present
   const [formData, setFormData] = useState({
-    category: initialCategory || 'digital-marketing',
-    projectType: '',
-    projectDescription: '',
-    budget: '',
-    timeline: '',
-    features: [] as string[],
+    category: pkgDefaults.category,
+    projectType: pkgDefaults.projectType,
+    projectDescription: pkgDefaults.projectDescription,
+    budget: pkgDefaults.budget,
+    timeline: pkgDefaults.timeline,
+    features: pkgDefaults.features,
     references: '',
     contactInfo: {
       name: '',
@@ -222,7 +276,7 @@ export default function ServiceInquiryPage({ category: initialCategory, onBackTo
       company: '',
       preferredContact: 'email'
     },
-    additionalNotes: ''
+    additionalNotes: pkgDefaults.additionalNotes
   });
 
   // Total steps is 6 (skip category selection as it's already done)
@@ -331,34 +385,34 @@ export default function ServiceInquiryPage({ category: initialCategory, onBackTo
   }
 
   return (
-    <div className="min-h-screen bg-off-white">
-      {/* Header */}
-      <header className="bg-white border-b border-gray-200 sticky top-0 z-50">
+    <div className="min-h-screen bg-[#F6F6F2] dark:bg-[#050608] text-dark dark:text-white transition-colors pt-16 sm:pt-20 pb-16">
+      {/* Wizard Contextual Sub-Header (Sticky below global navigation) */}
+      <div className="bg-white/90 dark:bg-[#111827]/90 backdrop-blur-md border-b border-black/10 dark:border-white/10 sticky top-[53px] sm:top-[61px] z-40 transition-colors">
         <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between h-16">
+          <div className="flex items-center justify-between h-14">
             <button
               onClick={onBackToServices}
-              className="flex items-center gap-2 text-dark hover:text-lime transition-colors"
+              className="flex items-center gap-2 text-xs sm:text-sm font-mono text-dark/80 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-lime transition-colors"
             >
-              <ArrowLeft size={20} />
+              <ArrowLeft size={16} />
               <span>Back to Services</span>
             </button>
             <div className="flex items-center gap-2">
-              <CategoryIcon size={24} className="text-lime" />
-              <span className="font-display font-bold text-dark">{config.label}</span>
+              <CategoryIcon size={18} className="text-emerald-600 dark:text-lime" />
+              <span className="font-display font-bold text-xs sm:text-sm text-dark dark:text-white">{config.label}</span>
             </div>
           </div>
         </div>
-      </header>
+      </div>
 
       {/* Progress Bar */}
-      <div className="bg-white border-b border-gray-200">
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex items-center justify-between mb-2">
-            <span className="text-sm text-gray-custom">Step {displayStep} of {totalSteps}</span>
-            <span className="text-sm text-gray-custom">{Math.round((displayStep / totalSteps) * 100)}% Complete</span>
+      <div className="bg-white/70 dark:bg-[#111827]/70 border-b border-black/10 dark:border-white/10">
+        <div className="container mx-auto px-4 py-3">
+          <div className="flex items-center justify-between mb-1.5">
+            <span className="text-xs font-mono text-gray-custom dark:text-slate-400">Step {displayStep} of {totalSteps}</span>
+            <span className="text-xs font-mono text-gray-custom dark:text-slate-400">{Math.round((displayStep / totalSteps) * 100)}% Complete</span>
           </div>
-          <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
+          <div className="h-1.5 bg-gray-200 dark:bg-white/10 rounded-full overflow-hidden">
             <div 
               className="h-full bg-lime transition-all duration-500 ease-out"
               style={{ width: `${(displayStep / totalSteps) * 100}%` }}
@@ -369,8 +423,35 @@ export default function ServiceInquiryPage({ category: initialCategory, onBackTo
 
       {/* Form Content */}
       <main className="container mx-auto px-4 py-8 max-w-3xl">
-        <div className="bg-white rounded-2xl shadow-lg p-6 md:p-10">
+        <div className="bg-white dark:bg-[#111827] rounded-2xl shadow-lg border border-black/10 dark:border-white/10 p-6 md:p-10 text-dark dark:text-white">
           
+          {/* Pre-Selected Service Package Banner */}
+          {selectedPackage && (
+            <div className="mb-8 p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-cyan-50 via-emerald-50 to-white border border-cyan-400/30 shadow-sm flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-400/30 flex items-center justify-center text-cyan-700 shrink-0">
+                  <Sparkles className="w-5 h-5 text-cyan-600" />
+                </div>
+                <div>
+                  <span className="font-mono text-[10px] uppercase tracking-wider text-cyan-700 font-bold block">
+                    Pre-Selected Service Package
+                  </span>
+                  <span className="font-display font-bold text-lg text-dark">
+                    {selectedPackage}
+                  </span>
+                </div>
+              </div>
+              <div className="text-left sm:text-right">
+                <span className="font-display font-bold text-base text-dark block">
+                  {selectedPackage === 'Digital Growth Partner' ? '₹8,000–₹25,000/mo' : selectedPackage === 'Business Growth' ? '₹15,000–₹35,000' : '₹5,000–₹12,000'}
+                </span>
+                <span className="font-mono text-[11px] text-emerald-700 font-bold uppercase tracking-wider">
+                  {selectedPackage === 'Digital Growth Partner' ? 'Per month contract' : 'One-time setup'}
+                </span>
+              </div>
+            </div>
+          )}
+
           {/* Step 1: Project Type (was Step 2, but we skip category selection) */}
           {currentStep === 2 && (
             <div className="space-y-6">
@@ -455,7 +536,7 @@ export default function ServiceInquiryPage({ category: initialCategory, onBackTo
                   type="text"
                   value={formData.budget}
                   onChange={(e) => setFormData(prev => ({ ...prev, budget: e.target.value }))}
-                  placeholder="e.g., $5,000, ₹50,000, or flexible"
+                  placeholder="e.g., ₹15,000, ₹50,000, or flexible"
                   className="w-full p-4 border border-gray-200 rounded-xl focus:ring-2 focus:ring-lime focus:border-transparent text-lg"
                 />
                 <p className="text-sm text-gray-custom mt-2">

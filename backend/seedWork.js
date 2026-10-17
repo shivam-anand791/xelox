@@ -10,136 +10,115 @@ const seedWorkData = async () => {
     await Work.deleteMany({});
     console.log('Cleared existing work data');
 
-    // Seed data structured around Xelox Solutions 3 Core Pillars + Innovation Credentials
+    // Seed data structured strictly around verified production client platforms
     const workItems = [
-      // 1. Web Development Case Study
+      // 0. Client Platform: LaptopMitra
       {
-        title: 'Modern E-Commerce Web Flagship',
+        title: 'LaptopMitra — Hardware Platform & Marketplace',
         subtitle: 'Website Design & Development',
-        description: 'Engineered a bespoke headless e-commerce web platform built with Next.js, TypeScript, and Tailwind CSS. The platform features sub-second page transitions, dynamic state management, custom checkout integration, and full WCAG AA accessibility compliance.\n\nKey architectural pillars:\n- Headless CMS architecture for real-time inventory and editorial control\n- Optimized Core Web Vitals achieving 99+ Lighthouse performance\n- Responsive design tested across 15+ device viewports\n- Automated CI/CD deployment pipelines on Vercel',
-        shortDescription: 'Custom headless commerce platform built with Next.js & TypeScript, engineered for sub-second performance.',
+        description: 'Engineered a full-scale B2B/B2C marketplace and catalogue portal for certified pre-owned and refurbished laptops. Built with Next.js, modern typography, dynamic product purpose categorization (Coding, Business, Student, Gaming), and an instant corporate quotation pipeline.\n\nKey execution components:\n- Comprehensive 32-point inspection badge showcase establishing buyer trust\n- Bulk order corporate procurement flow with custom quote dispatch\n- Pan-India logistics coverage integration and warranty verification\n- High-conversion mobile-first responsive architecture',
+        shortDescription: 'India\'s verified refurbished laptop marketplace and corporate procurement platform with 32-point inspection guarantee.',
         category: 'web-development',
-        image: 'https://res.cloudinary.com/dr4w6ordx/image/upload/v1779460343/ChatGPT_Image_May_22_2026_07_43_23_PM_gvldqm.png',
-        tags: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Stripe', 'Headless CMS', 'Vercel'],
+        image: '/portfolio/laptopmitra-homepage.webp',
+        tags: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Hardware Marketplace', 'B2B Procurement'],
         achievements: [
-          'Sub-second page load speeds across all global edge nodes',
-          '99+ Google Lighthouse performance score',
-          'Responsive cross-device testing across 15+ screen sizes',
-          'Secure payment gateway integration'
+          '32-point hardware inspection certified badging system',
+          'Bulk corporate quote request flow with real-time dispatch',
+          'Pan-India delivery integration across all major metropolitan hubs',
+          'Sub-second page speeds with 99+ Core Web Vitals optimization'
         ],
         links: [
-          { title: 'Technical Architecture', url: 'https://github.com/xelox-solutions/web-architecture' }
+          { title: 'Visit Live Website', url: 'https://laptop-mitra.vercel.app/' }
+        ],
+        order: 0,
+        isActive: true
+      },
+
+      // 1. Client Platform: Adorca 360
+      {
+        title: 'Adorca 360 — Performance Growth Studio',
+        subtitle: 'Digital Marketing & Growth',
+        description: 'Architected and developed the global platform for Adorca 360, a performance marketing studio. Integrates an algorithmic search signal crawl architecture, semantic entity clustering for multi-region organic dominance, and an interactive real-time client Growth Diagnostic engine across 50+ international markets.\n\nCore capabilities delivered:\n- Interactive Signal Architecture telemetry visualizing search, intent, acquisition, and compounding revenue\n- Multi-region international market indexation covering 50+ global search ecosystems\n- 100% transparent client attribution with zero proprietary data lock-in\n- High-velocity dark-mode aesthetic with custom SVG interactive diagrams',
+        shortDescription: 'Performance growth marketing studio and technical search optimization platform operating across 50+ international markets.',
+        category: 'digital-marketing',
+        image: '/portfolio/adorca-homepage.webp',
+        tags: ['Technical SEO', 'Signal Architecture', 'Global Indexing', 'CRO', 'Programmatic Media', 'Next.js'],
+        achievements: [
+          'Active multi-region search signal crawling across 50+ global markets',
+          'Semantic entity clustering architecture for organic search dominance',
+          'Built-in real-time interactive Growth Diagnostic tool',
+          'Client first-party data ownership and 100% transparent attribution'
+        ],
+        links: [
+          { title: 'Visit Live Website', url: 'https://adorca.vercel.app/' }
         ],
         order: 1,
         isActive: true
       },
 
-      // 2. Mobile App Case Study
+      // 2. Client Platform: Tourist Palace
       {
-        title: 'Multi-Platform Mobile Companion',
-        subtitle: 'Mobile App Design & Development',
-        description: 'Architected an intuitive, high-performance cross-platform mobile application for iOS and Android using React Native and TypeScript. Built with an offline-first data model, biometrics, and instant cloud synchronization.\n\nKey features include:\n- Native touch micro-interactions and gesture-based navigation\n- Offline SQLite persistence with automatic conflict-free cloud sync\n- Push notification pipelines via Firebase Cloud Messaging (FCM)\n- Apple FaceID / Android Biometrics integration',
-        shortDescription: 'Fluid React Native mobile application for iOS & Android featuring biometric security and offline-first sync.',
-        category: 'mobile-apps',
-        image: 'https://res.cloudinary.com/dr4w6ordx/image/upload/v1779559150/nexgen-studio/vksseodnsre0tcepekgh.png',
-        tags: ['React Native', 'Expo', 'TypeScript', 'Firebase', 'SQLite', 'iOS & Android'],
+        title: 'Tourist Palace — Hotel & Room Booking Portal',
+        subtitle: 'Website Design & Development',
+        description: 'Designed and deployed a modern hotel reservation and direct room booking platform for Tourist Palace Hotel in Mahipalpur near Delhi Airport & Aerocity. Eliminates third-party OTA middleman commissions through direct WhatsApp room inquiries and verified room showcase galleries.\n\nKey features engineered:\n- High-fidelity visual showcase of Deluxe Double AC rooms, amenities, and transit distance badges (5 min from T1/T2/T3, Aerocity Metro)\n- Zero-friction one-tap WhatsApp concierge booking channel\n- Multilingual transit traveler guides with interactive directions and airport transfer assistance\n- Responsive mobile booking layout optimized for travelers on the go',
+        shortDescription: 'Hospitality showcase and direct room reservation portal near Delhi IGI Airport and Aerocity.',
+        category: 'web-development',
+        image: '/portfolio/touristpalace-homepage.webp',
+        tags: ['Hospitality UI', 'Next.js', 'WhatsApp Booking', 'Tailwind CSS', 'Local SEO', 'Aerocity'],
         achievements: [
-          'Cross-platform deployment to Apple App Store & Google Play',
-          'Biometric security with keychain token encryption',
-          'Offline-first synchronization architecture',
-          'Low-latency push notification pipeline'
+          'Direct zero-commission WhatsApp reservation pipeline',
+          'Optimized local SEO visibility for Delhi Airport & Aerocity transit travelers',
+          'High-resolution double AC room gallery and amenities guide',
+          '24/7 reception and airport transfer inquiry flow'
         ],
         links: [
-          { title: 'App Architecture', url: 'https://github.com/xelox-solutions/mobile-architecture' }
+          { title: 'Visit Live Website', url: 'https://touristpalace.vercel.app/' }
         ],
         order: 2,
         isActive: true
       },
 
-      // 3. Digital Marketing & Growth Case Study
+      // 3. Client Platform: eSailor
       {
-        title: 'Full-Funnel Performance Growth System',
-        subtitle: 'Digital Marketing & Growth',
-        description: 'Designed and deployed an integrated growth engine combining technical SEO authority, multi-channel paid acquisition (Meta & Google Ads), and conversion-tested landing pages.\n\nKey execution components:\n- Full technical SEO audit and high-intent keyword clustering\n- Multi-variant ad creative production and algorithmic audience testing\n- High-converting funnel landing pages built for fast conversion\n- Unified GA4 & Looker Studio attribution reporting dashboards',
-        shortDescription: 'Integrated growth marketing system combining technical search dominance with high-ROI paid acquisition.',
-        category: 'digital-marketing',
-        image: 'https://res.cloudinary.com/dr4w6ordx/image/upload/v1779559829/nexgen-studio/wzygtdqcuaakv3nsytsb.png',
-        tags: ['Technical SEO', 'Performance Paid Ads', 'CRO', 'GA4 Analytics', 'Funnel Design'],
+        title: 'eSailor — Global B2B Jute Trade & Export Portal',
+        subtitle: 'Website Design & Development',
+        description: 'Engineered an international trade and B2B export flagship for eSailor, an established manufacturer and global exporter of sustainable jute bags, tote bags, shopping bags, and industrial burlap sacks.\n\nKey deliverables:\n- International buyer trust system highlighting RCMC, IEC, GST, and Udyam trade accreditations\n- Direct B2B wholesale quotation flow tailored for container-load and custom branding requests\n- High-resolution product catalogue PDF downloads with instant spec sheets\n- Export credibility metrics highlighting 50+ countries served and 2M+ bags/month manufacturing capacity',
+        shortDescription: 'International B2B manufacturing and export platform for sustainable jute products with verified trade accreditations.',
+        category: 'web-development',
+        image: '/portfolio/esailor-homepage.webp',
+        tags: ['B2B Export', 'Global Trade', 'Next.js', 'Catalogue Engine', 'Industrial Packaging', 'Sustainability'],
         achievements: [
-          'End-to-end attribution tracking architecture setup',
-          'Multi-variant landing page A/B testing framework',
-          'Bi-weekly transparent client performance reporting',
-          'Automated lead qualification and nurture sequences'
+          'Verified international trade accreditations (RCMC, IEC, GST, Udyam)',
+          'Global B2B wholesale quotation inquiry dispatch pipeline',
+          'One-click high-resolution product catalogue PDF downloads',
+          'Serving international wholesale buyers across 50+ countries'
         ],
         links: [
-          { title: 'Growth Framework', url: 'https://github.com/xelox-solutions/growth-framework' }
+          { title: 'Visit Live Website', url: 'https://esailor-ectg.vercel.app/' }
         ],
         order: 3,
         isActive: true
       },
 
-      // 4. Innovation Award: SIH 2023
+      // 4. Client Platform: Properties Professor
       {
-        title: 'Smart India Hackathon 2023',
-        subtitle: 'National Winner — Healthcare Innovation',
-        description: 'Developed an AI-powered healthcare diagnostics prototype that uses computer vision to analyze medical scans and assist clinicians with preliminary triage. Secured first place in the healthcare category of Smart India Hackathon 2023, competing against over 500 engineering teams nationwide.\n\nSystem capabilities demonstrated:\n- Medical image analysis prototype using convolutional computer vision\n- Secure patient record interface with role-based access\n- Edge-compatible diagnostic triage pipeline\n- Mobile clinician companion prototype',
-        shortDescription: 'National 1st Place Winner at Smart India Hackathon 2023 in Healthcare Innovation Category.',
-        category: 'innovation',
-        image: 'https://res.cloudinary.com/dr4w6ordx/image/upload/v1773202634/group-photo.png',
-        tags: ['Smart India Hackathon', 'National Winner', 'Healthcare AI', 'Computer Vision', 'Python', 'React'],
+        title: 'Properties Professor — Premium Real Estate Portal',
+        subtitle: 'Website Design & Development',
+        description: 'Engineered a modern Indian property discovery engine featuring verified luxury residential and commercial listings across Mumbai, Bangalore, and Gurgaon. Equipped with multi-city search filters, transparent INR pricing valuations, and direct broker contact channels.\n\nArchitectural highlights:\n- Interactive location search with voice input, city switching, and buy/rent/commercial toggles\n- Verified property badges with transparent INR crore valuations (e.g. Bandra West, Whitefield, DLF Cyber City)\n- Direct high-intent consultation lead generation pipeline with instant broker callouts\n- Mobile-responsive layout for property seekers on smartphone devices',
+        shortDescription: 'Verified real estate discovery and luxury property marketplace with multi-city search and transparent pricing.',
+        category: 'web-development',
+        image: '/portfolio/properties-professor-homepage.webp',
+        tags: ['Real Estate', 'Next.js', 'Verified Listings', 'Property Valuation', 'Interactive Maps', 'FinTech/PropTech'],
         achievements: [
-          '1st Place in Healthcare Innovation Category',
-          'Selected among Top 10 from 500+ nationwide teams',
-          'Mentored by senior healthcare technology leaders',
-          'Demonstrated live at national grand finale'
+          'Multi-city search filters across Mumbai, Bangalore, and Gurgaon',
+          'Verified property badges with transparent INR crore valuations',
+          'Residential and commercial multi-category filtering',
+          'Direct high-intent consultation lead generation pipeline'
         ],
         links: [
-          { title: 'Competition Archive', url: 'https://sih.gov.in' }
+          { title: 'Visit Live Website', url: 'https://propertiesprofessor.com/' }
         ],
         order: 4,
-        isActive: true
-      },
-
-      // 5. Innovation Award: Cybercubs Championship
-      {
-        title: 'Cybercubs National Championship',
-        subtitle: '1st Place — Ethical Hacking & Cybersecurity',
-        description: 'Achieved first place in the Cybercubs National Championship 2023, a premier cybersecurity competition evaluating ethical hacking, application security auditing, and penetration testing.\n\nKey challenge areas conquered:\n- Web application vulnerability discovery and patch demonstration\n- Network penetration testing and perimeter defenses\n- Cryptographic challenge resolution\n- Digital forensics and incident response reporting',
-        shortDescription: '1st Place Winner in Cybercubs National Championship for ethical hacking and web application security.',
-        category: 'innovation',
-        image: 'https://res.cloudinary.com/dr4w6ordx/image/upload/v1773596421/f48bf7a6-fd0e-4e29-89fb-5d425336f46b_ukczim.png',
-        tags: ['Cybersecurity', 'Ethical Hacking', 'Penetration Testing', 'Application Security', 'Digital Forensics'],
-        achievements: [
-          'National Champions in ethical hacking challenge',
-          'Zero-day vulnerability discovery simulation winner',
-          'Comprehensive audit reporting commendation',
-          'Certified technical recognition'
-        ],
-        links: [
-          { title: 'Competition Archive', url: 'https://cybercubs.org' }
-        ],
-        order: 5,
-        isActive: true
-      },
-
-      // 6. Innovation Credential: Amity Innovation Cell
-      {
-        title: 'Amity Innovation Cell Collaboration',
-        subtitle: 'Incubated Project — EdTech Platform',
-        description: 'Collaborated with Amity Innovation Cell to engineer an interactive digital education platform with modular content delivery and student progress telemetry.\n\nPlatform components built:\n- Modular video delivery with responsive playback controls\n- Real-time formative quizzes and comprehension checks\n- Student analytics telemetry and educator dashboard',
-        shortDescription: 'Interactive digital learning platform developed in collaboration with Amity Innovation Cell.',
-        category: 'innovation',
-        image: 'https://res.cloudinary.com/dr4w6ordx/image/upload/v1779559829/nexgen-studio/wzygtdqcuaakv3nsytsb.png',
-        tags: ['EdTech', 'Amity Innovation Cell', 'React', 'Node.js', 'MongoDB'],
-        achievements: [
-          'Selected for Amity Innovation Cell incubation',
-          'Interactive student learning pipeline completed',
-          'Demonstrated at university innovation showcase'
-        ],
-        links: [
-          { title: 'Innovation Cell Showcase', url: 'https://amity.edu/innovation' }
-        ],
-        order: 6,
         isActive: true
       }
     ];

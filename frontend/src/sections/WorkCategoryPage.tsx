@@ -123,21 +123,72 @@ const defaultCategoryMeta: WorkCategoryMeta = {
 const fallbackItemsByCategory: Record<string, WorkItem[]> = {
   'web-development': [
     {
-      _id: 'web-1',
-      title: 'Modern E-Commerce Web Flagship',
+      _id: 'client-laptopmitra',
+      title: 'LaptopMitra — Hardware Platform & Marketplace',
       subtitle: 'Website Design & Development',
-      description: 'Engineered a bespoke headless e-commerce web platform built with Next.js, TypeScript, and Tailwind CSS. The platform features sub-second page transitions, dynamic state management, custom checkout integration, and full WCAG AA accessibility compliance.',
-      shortDescription: 'Custom headless commerce platform built with Next.js & TypeScript, engineered for sub-second performance.',
+      description: 'Engineered a full-scale B2B/B2C marketplace and catalogue portal for certified pre-owned and refurbished laptops. Built with Next.js, modern typography, dynamic product purpose categorization, and an instant corporate quotation pipeline.',
+      shortDescription: 'India\'s verified refurbished laptop marketplace and corporate procurement platform with 32-point inspection guarantee.',
       category: 'web-development',
-      image: 'https://res.cloudinary.com/dr4w6ordx/image/upload/v1779460343/ChatGPT_Image_May_22_2026_07_43_23_PM_gvldqm.png',
-      tags: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Stripe', 'Headless CMS'],
+      image: '/portfolio/laptopmitra-homepage.webp',
+      tags: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Hardware Marketplace', 'B2B Procurement'],
       achievements: [
-        'Sub-second page load speeds across all global edge nodes',
-        '99+ Google Lighthouse performance score',
-        'Responsive cross-device testing across 15+ screen sizes',
-        'Secure payment gateway integration'
+        '32-point hardware inspection certified badging system',
+        'Bulk corporate quote request flow with real-time dispatch',
+        'Pan-India delivery integration across all major metropolitan hubs',
+        'Sub-second page speeds with 99+ Core Web Vitals optimization'
       ],
-      links: [{ title: 'Technical Architecture', url: 'https://github.com/xelox-solutions/web-architecture' }]
+      links: [{ title: 'Visit Live Website', url: 'https://laptop-mitra.vercel.app/' }]
+    },
+    {
+      _id: 'client-touristpalace',
+      title: 'Tourist Palace — Hotel & Room Booking Portal',
+      subtitle: 'Website Design & Development',
+      description: 'Designed and deployed a modern hotel reservation and direct room booking platform for Tourist Palace Hotel in Mahipalpur near Delhi Airport & Aerocity. Eliminates third-party OTA middleman commissions through direct WhatsApp room inquiries and verified room showcase galleries.',
+      shortDescription: 'Hospitality showcase and direct room reservation portal near Delhi IGI Airport and Aerocity.',
+      category: 'web-development',
+      image: '/portfolio/touristpalace-homepage.webp',
+      tags: ['Hospitality UI', 'Next.js', 'WhatsApp Booking', 'Tailwind CSS', 'Local SEO', 'Aerocity'],
+      achievements: [
+        'Direct zero-commission WhatsApp reservation pipeline',
+        'Optimized local SEO visibility for Delhi Airport & Aerocity transit travelers',
+        'High-resolution double AC room gallery and amenities guide',
+        '24/7 reception and airport transfer inquiry flow'
+      ],
+      links: [{ title: 'Visit Live Website', url: 'https://touristpalace.vercel.app/' }]
+    },
+    {
+      _id: 'client-esailor',
+      title: 'eSailor — Global B2B Jute Trade & Export Portal',
+      subtitle: 'Website Design & Development',
+      description: 'Engineered an international trade and B2B export flagship for eSailor, an established manufacturer and global exporter of sustainable jute bags, tote bags, shopping bags, and industrial burlap sacks.',
+      shortDescription: 'International B2B manufacturing and export platform for sustainable jute products with verified trade accreditations.',
+      category: 'web-development',
+      image: '/portfolio/esailor-homepage.webp',
+      tags: ['B2B Export', 'Global Trade', 'Next.js', 'Catalogue Engine', 'Industrial Packaging'],
+      achievements: [
+        'Verified international trade accreditations (RCMC, IEC, GST, Udyam)',
+        'Global B2B wholesale quotation inquiry dispatch pipeline',
+        'One-click high-resolution product catalogue PDF downloads',
+        'Serving international wholesale buyers across 50+ countries'
+      ],
+      links: [{ title: 'Visit Live Website', url: 'https://esailor-ectg.vercel.app/' }]
+    },
+    {
+      _id: 'client-properties-professor',
+      title: 'Properties Professor — Premium Real Estate Portal',
+      subtitle: 'Website Design & Development',
+      description: 'Engineered a modern Indian property discovery engine featuring verified luxury residential and commercial listings across Mumbai, Bangalore, and Gurgaon. Equipped with multi-city search filters, transparent INR pricing valuations, and direct broker contact channels.',
+      shortDescription: 'Verified real estate discovery and luxury property marketplace with multi-city search and transparent pricing.',
+      category: 'web-development',
+      image: '/portfolio/properties-professor-homepage.webp',
+      tags: ['Real Estate', 'Next.js', 'Verified Listings', 'Property Valuation', 'Interactive Maps'],
+      achievements: [
+        'Multi-city search filters across Mumbai, Bangalore, and Gurgaon',
+        'Verified property badges with transparent INR crore valuations',
+        'Residential and commercial multi-category filtering',
+        'Direct high-intent consultation lead generation pipeline'
+      ],
+      links: [{ title: 'Visit Live Website', url: 'https://propertiesprofessor.com/' }]
     }
   ],
   'mobile-apps': [
@@ -161,21 +212,21 @@ const fallbackItemsByCategory: Record<string, WorkItem[]> = {
   ],
   'digital-marketing': [
     {
-      _id: 'growth-1',
-      title: 'Full-Funnel Performance Growth System',
+      _id: 'client-adorca',
+      title: 'Adorca 360 — Performance Growth Studio',
       subtitle: 'Digital Marketing & Growth',
-      description: 'Designed and deployed an integrated growth engine combining technical SEO authority, multi-channel paid acquisition (Meta & Google Ads), and conversion-tested landing pages.',
-      shortDescription: 'Integrated growth marketing system combining technical search dominance with high-ROI paid acquisition.',
+      description: 'Architected and developed the global platform for Adorca 360, a performance marketing studio. Integrates an algorithmic search signal crawl architecture, semantic entity clustering for multi-region organic dominance, and an interactive real-time client Growth Diagnostic engine across 50+ international markets.',
+      shortDescription: 'Performance growth marketing studio and technical search optimization platform operating across 50+ international markets.',
       category: 'digital-marketing',
-      image: 'https://res.cloudinary.com/dr4w6ordx/image/upload/v1779559829/nexgen-studio/wzygtdqcuaakv3nsytsb.png',
-      tags: ['Technical SEO', 'Paid Acquisition', 'CRO', 'GA4 Analytics', 'Email Funnels'],
+      image: '/portfolio/adorca-homepage.webp',
+      tags: ['Technical SEO', 'Signal Architecture', 'Global Indexing', 'CRO', 'Programmatic Media', 'Next.js'],
       achievements: [
-        'End-to-end attribution tracking architecture setup',
-        'Multi-variant landing page A/B testing framework',
-        'Bi-weekly transparent client performance reporting',
-        'Automated lead qualification and nurture sequences'
+        'Active multi-region search signal crawling across 50+ global markets',
+        'Semantic entity clustering architecture for organic search dominance',
+        'Built-in real-time interactive Growth Diagnostic tool',
+        'Client first-party data ownership and 100% transparent attribution'
       ],
-      links: [{ title: 'Growth Framework', url: 'https://github.com/xelox-solutions/growth-framework' }]
+      links: [{ title: 'Visit Live Website', url: 'https://adorca.vercel.app/' }]
     }
   ],
   'innovation': [
@@ -252,44 +303,23 @@ export default function WorkCategoryPage({ category, onBackToWork, onGoHome }: W
 
   return (
     <div className="min-h-screen bg-[#F6F6F2] dark:bg-[#050608] x-pattern relative text-dark dark:text-white transition-colors duration-300">
-      {/* Subtle Grain Overlay */}
-      <div className="grain-overlay pointer-events-none" />
-
-      {/* Top Navbar */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-[#F6F6F2]/90 dark:bg-[#050608]/90 backdrop-blur-md border-b border-black/10 dark:border-white/10 py-3.5 transition-colors">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between">
-          <button
-            onClick={onBackToWork}
-            className="flex items-center gap-2 text-sm font-mono uppercase tracking-wider text-dark/80 hover:text-dark dark:text-slate-300 dark:hover:text-lime transition-colors"
-          >
-            <ArrowLeft className="w-4 h-4" />
-            <span>All Case Studies</span>
-          </button>
-          
-          <button
-            onClick={onGoHome}
-            className="flex items-center gap-2 select-none hover:opacity-85 transition-opacity"
-            title="Xelox Solutions"
-          >
-            <span className="font-display font-extrabold text-xl text-[#19D5D0]">Xelox</span>
-            <span className="font-display font-extrabold text-xl text-dark dark:text-white">Solutions</span>
-          </button>
-
-          <button
-            onClick={onGoHome}
-            className="btn-primary hidden sm:inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider px-4 py-2"
-          >
-            <span>Start a project</span>
-            <ArrowRight className="w-3.5 h-3.5" />
-          </button>
-        </div>
-      </nav>
-
       {/* Hero Header */}
-      <header className="pt-32 pb-12 px-6 lg:px-12 border-b border-black/5 dark:border-white/5 relative z-10">
+      <header className="pt-28 sm:pt-32 pb-12 px-6 lg:px-12 border-b border-black/5 dark:border-white/5 relative z-10">
         <div className="max-w-7xl mx-auto">
+          {/* Contextual Breadcrumb */}
+          <nav aria-label="Breadcrumb" className="flex items-center gap-2 mb-5 text-xs font-mono">
+            <button
+              onClick={onBackToWork}
+              className="inline-flex items-center gap-1.5 text-cyan-600 dark:text-cyan-400 hover:text-dark dark:hover:text-lime transition-colors"
+            >
+              <ArrowLeft className="w-3.5 h-3.5" />
+              <span>All Case Studies</span>
+            </button>
+            <span className="text-gray-400 dark:text-slate-600">/</span>
+            <span className="text-dark/80 dark:text-slate-300 font-semibold">{categoryMeta.title}</span>
+          </nav>
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-50 dark:bg-cyan-950/60 border border-cyan-400/30 text-cyan-700 dark:text-cyan-400 font-mono text-xs uppercase tracking-widest mb-4">
-            <CategoryIcon className="w-3.5 h-3.5 text-lime" />
+            <CategoryIcon className="w-3.5 h-3.5 text-cyan-600 dark:text-cyan-400" />
             <span>{categoryMeta.eyebrow}</span>
           </div>
 
@@ -307,7 +337,7 @@ export default function WorkCategoryPage({ category, onBackToWork, onGoHome }: W
       <main className="max-w-7xl mx-auto px-6 lg:px-12 py-16 relative z-10">
         {loading ? (
           <div className="py-24 text-center">
-            <div className="inline-block w-8 h-8 border-2 border-lime border-t-transparent rounded-full animate-spin mb-4" />
+            <div className="inline-block w-8 h-8 border-2 border-emerald-600 dark:border-lime border-t-transparent rounded-full animate-spin mb-4" />
             <p className="font-mono text-xs uppercase tracking-wider text-gray-600 dark:text-slate-400">Loading Case Studies...</p>
           </div>
         ) : workItems.length === 0 ? (
@@ -331,12 +361,12 @@ export default function WorkCategoryPage({ category, onBackToWork, onGoHome }: W
                   <img
                     src={item.image || 'https://res.cloudinary.com/dr4w6ordx/image/upload/v1779460343/ChatGPT_Image_May_22_2026_07_43_23_PM_gvldqm.png'}
                     alt={item.title}
-                    className="w-full h-full object-cover img-mono group-hover:scale-105 transition-transform duration-700"
+                    className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700 block"
                     loading="lazy"
                     decoding="async"
                   />
                   <div className="absolute top-3 right-3 z-10">
-                    <span className="inline-flex items-center px-2.5 py-1 rounded-full font-mono text-[10px] uppercase font-bold tracking-wider border backdrop-blur-md shadow-sm bg-lime/10 text-lime border-lime/30">
+                    <span className="inline-flex items-center px-2.5 py-1 rounded-full font-mono text-[10px] uppercase font-bold tracking-wider border backdrop-blur-md shadow-sm bg-emerald-50 text-emerald-700 border-emerald-500/30 dark:bg-lime/10 dark:text-lime dark:border-lime/30">
                       {categoryMeta.title.split('&')[0].trim()}
                     </span>
                   </div>
@@ -345,7 +375,7 @@ export default function WorkCategoryPage({ category, onBackToWork, onGoHome }: W
                 <div className="p-6 flex-1 flex flex-col justify-between">
                   <div>
                     {item.subtitle && (
-                      <p className="font-mono text-xs uppercase tracking-wider text-lime dark:text-lime font-semibold mb-2">
+                      <p className="font-mono text-xs uppercase tracking-wider text-emerald-700 dark:text-[#B8FF3D] font-bold mb-2">
                         {item.subtitle}
                       </p>
                     )}
@@ -423,7 +453,7 @@ export default function WorkCategoryPage({ category, onBackToWork, onGoHome }: W
                   <img
                     src={selectedWork.image}
                     alt={selectedWork.title}
-                    className="w-full h-full object-cover img-mono"
+                    className="w-full h-full object-cover object-top block"
                     loading="lazy"
                     decoding="async"
                   />
@@ -447,7 +477,7 @@ export default function WorkCategoryPage({ category, onBackToWork, onGoHome }: W
               {selectedWork.achievements && selectedWork.achievements.length > 0 && (
                 <div className="p-6 rounded-2xl bg-black/[0.03] dark:bg-black/30 border border-black/5 dark:border-white/5 space-y-3">
                   <div className="flex items-center gap-2">
-                    <Award className="w-4 h-4 text-lime" />
+                    <Award className="w-4 h-4 text-emerald-600 dark:text-lime" />
                     <span className="font-display font-bold text-sm text-dark dark:text-white uppercase tracking-wider">
                       Verified Credentials &amp; Execution Highlights
                     </span>
@@ -455,7 +485,7 @@ export default function WorkCategoryPage({ category, onBackToWork, onGoHome }: W
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                     {selectedWork.achievements.map((item, idx) => (
                       <div key={idx} className="flex items-start gap-2 text-xs text-dark/90 dark:text-slate-300">
-                        <CheckCircle2 className="w-4 h-4 text-lime shrink-0 mt-0.5" />
+                        <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-lime shrink-0 mt-0.5" />
                         <span>{item}</span>
                       </div>
                     ))}

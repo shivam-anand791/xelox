@@ -45,10 +45,12 @@ In [ContactSection.tsx](file:///X:/downloadss/app/app/frontend/src/sections/Cont
      - Full-Funnel Solution (Web + Mobile + Growth)
      - Technical Advisory / Custom AI
   4. **Estimated Budget (`budget` dropdown):**
-     - `< $2,500 (Kickoff / Audit)`
-     - `$2,500 – $5,000 (Core MVP)`
-     - `$5,000 – $10,000 (Complete Platform)`
-     - `$10,000+ (Full Enterprise / Scale)`
+     - `₹5,000–₹12,000 (Starter Presence)`
+     - `₹15,000–₹35,000 (Business Growth)`
+     - `₹8,000–₹25,000 / month (Digital Growth Partner)`
+     - `₹35,000–₹75,000 (Custom Web & App Platform)`
+     - `₹75,000–₹1,50,000 (Full-Stack / AI Solution)`
+     - `₹1,50,000+ (Enterprise / Scale)`
      - `Flexible / Let's Discuss`
   5. **Project Brief & Objectives (`message` textarea):**
      - Multiline input for timeline, key deliverables, and technical challenges.

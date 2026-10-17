@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import Navigation from './components/Navigation';
+import SiteLayout from './components/SiteLayout';
 import HeroSection from './sections/HeroSection';
 import AboutSection from './sections/AboutSection';
 import PortfolioSection from './sections/PortfolioSection';
@@ -11,107 +11,70 @@ import ServiceInquiryPage from './sections/ServiceInquiryPage';
 import PrivacyPage from './sections/Privacy';
 import TermsPage from './sections/Terms';
 import ProcessSection from './sections/ProcessSection';
-import ResultsSection from './sections/ResultsSection';
 import BlogSection from './sections/BlogSection';
 import ContactSection from './sections/ContactSection';
 import AdminLogin from './sections/AdminLogin';
 import AdminDashboard from './sections/AdminDashboard';
 import XeloxAiPage from './sections/XeloxAiPage';
+import TeamPage from './sections/TeamPage';
+import PricingPage from './sections/PricingPage';
 import { ContentProvider } from './context/ContentContext';
 import { useContent } from './hooks/useContent';
 import { authApi } from './lib/api';
 
-type Page = 'home' | 'work' | 'work-category' | 'services' | 'service-inquiry' | 'admin-login' | 'admin-dashboard' | 'privacy' | 'terms' | 'xelox-ai' | 'xyro-ai';
-
-function MainWebsite({ 
-  onAdminClick, 
-  onPageChange, 
-  onAiClick,
-  currentPage 
-}: { 
-  onAdminClick: () => void;
-  onPageChange: (page: string, category?: string) => void;
-  onAiClick: () => void;
-  currentPage: string;
-}) {
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 100);
-    };
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  return (
-    <div className="relative">
-      {/* Grain Overlay */}
-      <div className="grain-overlay" />
-      
-      {/* Navigation */}
-      <Navigation 
-        scrolled={scrolled} 
-        onAdminClick={onAdminClick} 
-        onPageChange={onPageChange}
-        currentPage={currentPage}
-      />
-
-      <button
-        type="button"
-        onClick={onAiClick}
-        className="fixed bottom-4 right-4 z-40 inline-flex items-center gap-2 rounded-full border border-white/20 bg-gradient-to-r from-fuchsia-500 via-amber-400 to-cyan-400 px-3 py-2 text-xs font-semibold text-white shadow-[0_14px_36px_rgba(236,72,153,0.24)] backdrop-blur-md transition-transform hover:-translate-y-0.5 hover:shadow-[0_18px_44px_rgba(34,211,238,0.24)] dark:border-white/10 dark:text-white sm:px-4 sm:py-2.5 sm:text-sm"
-        aria-label="Open Xelox AI"
-      >
-        <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-white/25 text-white shadow-sm backdrop-blur-sm sm:h-8 sm:w-8">
-          <BotIcon />
-        </span>
-        <span className="hidden sm:inline">Xelox AI</span>
-      </button>
-      
-      {/* Main Content */}
-      <main>
-        <HeroSection onNavigate={onPageChange} />
-        <AboutSection />
-        <ServicesSection 
-          onStartInquiry={(category: string) => onPageChange('service-inquiry', category)}
-          onNavigate={onPageChange}
-          showDeepDive={false}
-        />
-        <PortfolioSection onNavigate={onPageChange} />
-        <ProcessSection />
-        <ResultsSection />
-        <BlogSection />
-        <ContactSection onNavigate={onPageChange} />
-      </main>
-    </div>
-  );
-}
+import { parseRoute, buildUrl, scrollToHash, type RouteState, type Page } from './lib/router';
+import NotFoundPage from './sections/NotFoundPage';
 
 function AppContent() {
-  const [currentPage, setCurrentPage] = useState<Page>('home');
-  const [selectedCategory, setSelectedCategory] = useState<string>('web-development');
-  const [selectedWorkCategory, setSelectedWorkCategory] = useState<string>('sih-alumni');
+  const [route, setRoute] = useState<RouteState>(() => parseRoute());
   const { isAdmin, setIsAdmin } = useContent();
 
-  const navigateTo = (page: Page) => {
-    setCurrentPage(page);
-    window.scrollTo(0, 0);
+  // Listen for browser back / forward navigation (popstate)
+  useEffect(() => {
+    const handlePopState = () => {
+      const parsed = parseRoute();
+      setRoute(parsed);
+      if (parsed.hash) {
+        setTimeout(() => scrollToHash(parsed.hash), 80);
+      }
+    };
+
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
+
+  // Handle deep-link section hash on initial load (e.g. /#pricing, /#about, /#contact, /#insights)
+  useEffect(() => {
+    if (route.hash) {
+      setTimeout(() => scrollToHash(route.hash), 120);
+    }
+  }, []);
+
+  const navigateTo = (
+    page: Page | string, 
+    category?: string, 
+    packageName?: string, 
+    hash?: string,
+    replace: boolean = false
+  ) => {
+    const targetUrl = buildUrl(page as Page, category, packageName, hash);
+    if (replace) {
+      window.history.replaceState({ page, category, packageName, hash }, '', targetUrl);
+    } else {
+      window.history.pushState({ page, category, packageName, hash }, '', targetUrl);
+    }
+    const newRoute = parseRoute(window.location.pathname, window.location.search, window.location.hash);
+    setRoute(newRoute);
+
+    if (newRoute.hash) {
+      setTimeout(() => scrollToHash(newRoute.hash), 80);
+    } else {
+      window.scrollTo(0, 0);
+    }
   };
 
-  const handlePageChange = (page: string, category?: string) => {
-    if (page === 'service-inquiry' && category) {
-      setSelectedCategory(category);
-    }
-    if (page === 'work-category' && category) {
-      setSelectedWorkCategory(category);
-    }
-    navigateTo(page as Page);
-  };
-
-  const handleWorkCategorySelect = (category: string) => {
-    setSelectedWorkCategory(category);
-    navigateTo('work-category');
+  const handlePageChange = (page: string, category?: string, packageName?: string, hash?: string) => {
+    navigateTo(page as Page, category, packageName, hash);
   };
 
   const handleAdminLogin = () => {
@@ -125,45 +88,110 @@ function AppContent() {
     navigateTo('home');
   };
 
-  switch (currentPage) {
-    case 'admin-login':
-      return <AdminLogin onLogin={handleAdminLogin} onBack={() => navigateTo('home')} />;
-    case 'admin-dashboard':
-      return isAdmin ? (
-        <AdminDashboard onLogout={handleLogout} onViewSite={() => navigateTo('home')} />
-      ) : (
-        <AdminLogin onLogin={handleAdminLogin} onBack={() => navigateTo('home')} />
-      );
-    case 'work':
-      return <WorkPage onBackToHome={() => navigateTo('home')} onSelectCategory={handleWorkCategorySelect} />;
-    case 'privacy':
-      return <PrivacyPage onBack={() => navigateTo('home')} />;
-    case 'terms':
-      return <TermsPage onBack={() => navigateTo('home')} />;
-    case 'xelox-ai':
-    case 'xyro-ai':
-      return <XeloxAiPage onBack={() => navigateTo('home')} />;
-    case 'work-category':
-      return <WorkCategoryPage category={selectedWorkCategory} onBackToWork={() => navigateTo('work')} onGoHome={() => navigateTo('home')} />;
-    case 'services':
-      return <ServicesPage onBackToHome={() => navigateTo('home')} onStartInquiry={(category: string) => handlePageChange('service-inquiry', category)} />;
-    case 'service-inquiry':
-      return <ServiceInquiryPage category={selectedCategory} onBackToServices={() => navigateTo('services')} onGoHome={() => navigateTo('home')} />;
-    case 'home':
-    default:
-      return (
-        <MainWebsite 
-          onAdminClick={() => navigateTo('admin-login')} 
-          onPageChange={handlePageChange}
-          onAiClick={() => navigateTo('xelox-ai')}
-          currentPage={currentPage}
-        />
-      );
+  // Dedicated Admin layout views
+  if (route.page === 'admin-login') {
+    return <AdminLogin onLogin={handleAdminLogin} onBack={() => navigateTo('home')} />;
   }
-}
 
-function BotIcon() {
-  return <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2v2M7 4h10a4 4 0 0 1 4 4v6a6 6 0 0 1-6 6H9a6 6 0 0 1-6-6V8a4 4 0 0 1 4-4Zm-1 7h.01M16 11h.01M9 16c.8.7 1.7 1 3 1s2.2-.3 3-1" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/></svg>;
+  if (route.page === 'admin-dashboard') {
+    return isAdmin ? (
+      <AdminDashboard onLogout={handleLogout} onViewSite={() => navigateTo('home')} />
+    ) : (
+      <AdminLogin onLogin={handleAdminLogin} onBack={() => navigateTo('home')} />
+    );
+  }
+
+  // Render content corresponding to active page inside unified SiteLayout
+  const renderPage = () => {
+    switch (route.page) {
+      case 'work':
+        return (
+          <WorkPage 
+            onBackToHome={() => navigateTo('home')} 
+            onSelectCategory={(cat) => navigateTo('work-category', cat)} 
+            onNavigateToTeam={() => navigateTo('team')}
+            initialCategory={route.category}
+          />
+        );
+      case 'team':
+        return (
+          <TeamPage 
+            onBackToHome={() => navigateTo('home')} 
+            onStartProject={() => navigateTo('service-inquiry')} 
+          />
+        );
+      case 'privacy':
+        return <PrivacyPage onBack={() => navigateTo('home')} />;
+      case 'terms':
+        return <TermsPage onBack={() => navigateTo('home')} />;
+      case 'xelox-ai':
+      case 'xyro-ai':
+        return <XeloxAiPage onBack={() => navigateTo('home')} />;
+      case 'work-category':
+        return (
+          <WorkCategoryPage 
+            category={route.category || 'sih-alumni'} 
+            onBackToWork={() => navigateTo('work')} 
+            onGoHome={() => navigateTo('home')} 
+          />
+        );
+      case 'services':
+        return (
+          <ServicesPage 
+            onBackToHome={() => navigateTo('home')} 
+            onStartInquiry={(category: string, packageName?: string) => navigateTo('service-inquiry', category, packageName)} 
+          />
+        );
+      case 'service-inquiry':
+        return (
+          <ServiceInquiryPage 
+            category={route.category || 'web-development'} 
+            initialPackage={route.packageName || ''}
+            onBackToServices={() => navigateTo('services')} 
+            onGoHome={() => navigateTo('home')} 
+          />
+        );
+      case 'pricing':
+        return (
+          <PricingPage 
+            onBackToHome={() => navigateTo('home')} 
+            onSelectPackage={(pkg, cat) => navigateTo('service-inquiry', cat, pkg)} 
+          />
+        );
+      case 'not-found':
+        return <NotFoundPage currentPath={route.rawPath} onNavigate={(p) => navigateTo(p)} />;
+      case 'home':
+      default:
+        return (
+          <main>
+            <HeroSection onNavigate={handlePageChange} />
+            <ServicesSection 
+              onStartInquiry={(category: string) => handlePageChange('service-inquiry', category)}
+              onNavigate={handlePageChange}
+              showDeepDive={false}
+            />
+            <PortfolioSection onNavigate={handlePageChange} />
+            <AboutSection onNavigate={handlePageChange} />
+            <ProcessSection />
+            <BlogSection />
+            <ContactSection onNavigate={handlePageChange} />
+          </main>
+        );
+    }
+  };
+
+  return (
+    <SiteLayout
+      currentPage={route.page}
+      currentHash={route.hash}
+      onPageChange={handlePageChange}
+      onAdminClick={() => navigateTo('admin-login')}
+      onAiClick={() => navigateTo('xelox-ai')}
+      hideAiButton={route.page === 'xelox-ai' || route.page === 'xyro-ai'}
+    >
+      {renderPage()}
+    </SiteLayout>
+  );
 }
 
 function App() {

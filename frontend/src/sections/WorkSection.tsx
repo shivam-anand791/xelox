@@ -183,10 +183,10 @@ export default function WorkSection() {
         {/* Featured / Selected Work — three equal cards */}
         {(() => {
           const featured = (showAllWork ? filteredWorkItems : filteredWorkItems).slice(0, 3);
-          const fallbacks = ['/portfolio_top_left.jpg', '/portfolio_bottom_left.jpg', '/portfolio_bottom_right.jpg'];
+          const fallbacks = ['/portfolio/laptopmitra-homepage.webp', '/portfolio/adorca-homepage.webp', '/portfolio/touristpalace-homepage.webp'];
           const cards = [0, 1, 2].map((i) => ({
-            title: featured[i]?.title || (i === 0 ? 'PropertiesProfessor' : i === 1 ? 'Xelox AI Agent' : 'Daybreak'),
-            subtitle: featured[i]?.subtitle || (i === 0 ? 'Full Stack Platform' : i === 1 ? 'AI Automation' : 'Mobile Application'),
+            title: featured[i]?.title || (i === 0 ? 'LaptopMitra' : i === 1 ? 'Adorca 360' : 'Tourist Palace'),
+            subtitle: featured[i]?.subtitle || (i === 0 ? 'Hardware Marketplace' : i === 1 ? 'Performance Growth Studio' : 'Hospitality & Booking Engine'),
             image: featured[i]?.image || fallbacks[i],
             id: featured[i]?._id || `fallback-${i}`
           }));

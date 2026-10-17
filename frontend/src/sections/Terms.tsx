@@ -7,9 +7,9 @@ export default function TermsPage({ onBack }: { onBack?: () => void }) {
   const { content } = useContent();
 
   return (
-    <section ref={sectionRef} className="min-h-screen px-6 lg:px-12 py-24 bg-gradient-to-br from-sky-50 via-indigo-50 to-purple-50">
+    <section ref={sectionRef} className="min-h-screen px-6 lg:px-12 pt-28 sm:pt-32 pb-24 bg-gradient-to-br from-sky-50 via-indigo-50 to-purple-50 dark:from-slate-900 dark:via-[#050608] dark:to-slate-950">
       <div className="max-w-4xl mx-auto">
-        <button onClick={onBack} className="text-sm text-gray-custom mb-6">← Back</button>
+        <button onClick={onBack} className="inline-flex items-center gap-1.5 text-xs font-mono text-gray-custom hover:text-dark dark:hover:text-lime mb-6 transition-colors">← Back to Home</button>
 
         <div className="flex items-center gap-4 mb-6">
           <div className="p-3 rounded-full bg-white shadow-md text-sky-600">

@@ -65,8 +65,8 @@ function createReply(question: string, email: string, location: string) {
     return 'Xelox Solutions is a digital agency focused on digital marketing, website development, and mobile apps for ambitious startups and growing businesses.';
   }
 
-  if (normalized.includes('pricing') || normalized.includes('cost') || normalized.includes('budget')) {
-    return 'Pricing depends on the scope, timeline, and features. Send us a short brief and we’ll respond with the best next step.';
+  if (normalized.includes('pricing') || normalized.includes('cost') || normalized.includes('budget') || normalized.includes('package')) {
+    return 'We offer three transparent packages: 1) Starter Presence (₹5,000–₹12,000 · One-time setup), 2) Business Growth (₹15,000–₹35,000 · One-time setup with optional monthly services), and 3) Digital Growth Partner (₹8,000–₹25,000/month · Recurring contract). Check our Pricing section to get started!';
   }
 
   if (normalized.includes('social') || normalized.includes('instagram') || normalized.includes('facebook')) {

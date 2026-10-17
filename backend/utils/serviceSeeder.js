@@ -22,7 +22,7 @@ const sampleServices = [
       'Security best practices',
       'Deployment and hosting setup'
     ],
-    pricing: 'Starting from $2,500',
+    pricing: 'Starting from ₹15,000',
     duration: '4-8 weeks',
     tags: ['React', 'Node.js', 'MongoDB', 'TypeScript', 'Tailwind CSS'],
     links: [
@@ -49,7 +49,7 @@ const sampleServices = [
       'Integration with device features',
       'Performance optimization'
     ],
-    pricing: 'Starting from $5,000',
+    pricing: 'Starting from ₹25,000',
     duration: '8-12 weeks',
     tags: ['React Native', 'Flutter', 'iOS', 'Android', 'Firebase'],
     links: [
@@ -76,7 +76,7 @@ const sampleServices = [
       'Model deployment and monitoring',
       'Integration with existing systems'
     ],
-    pricing: 'Starting from $4,000',
+    pricing: 'Starting from ₹20,000',
     duration: '6-10 weeks',
     tags: ['Python', 'TensorFlow', 'OpenAI', 'scikit-learn', 'FastAPI'],
     links: [
@@ -103,7 +103,7 @@ const sampleServices = [
       'Brand identity creation',
       'Accessibility compliance'
     ],
-    pricing: 'Starting from $1,800',
+    pricing: 'Starting from ₹10,000',
     duration: '3-6 weeks',
     tags: ['Figma', 'Adobe Creative Suite', 'Sketch', 'InVision', 'Principle'],
     links: [
@@ -130,7 +130,7 @@ const sampleServices = [
       'Risk assessment and mitigation',
       'Technology roadmap creation'
     ],
-    pricing: 'Starting from $150/hour',
+    pricing: 'Starting from ₹1,500/hour',
     duration: 'Flexible engagement',
     tags: ['Strategy', 'Architecture', 'Best Practices', 'Training', 'Planning'],
     links: [
