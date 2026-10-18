@@ -4,8 +4,8 @@ const contentSchema = new mongoose.Schema({
   // Hero Section
   hero: {
     headline: { type: String, default: "CRAFTING HIGH-PERFORMANCE SITES, APPS & GROWTH SYSTEMS" },
-    subheadline: { type: String, default: "We partner with ambitious founders and businesses to design, engineer, and scale custom web platforms, mobile apps, and high-ROI digital marketing campaigns." },
-    cta: { type: String, default: "Start a project" },
+    subheadline: { type: String, default: "We engineer custom web platforms, native mobile applications, and data-driven growth systems for ambitious brands and growing businesses—eliminating fragmented agency silos to ship faster and scale predictably." },
+    cta: { type: String, default: "Discuss Your Project" },
     microLabel: { type: String, default: "XELOXSOLUTIONS — 2026" }
   },
   
@@ -13,7 +13,7 @@ const contentSchema = new mongoose.Schema({
   about: {
     eyebrow: { type: String, default: "WHO WE ARE — THE XELOX STUDIO" },
     headline: { type: String, default: "A focused crew of senior builders & growth specialists." },
-    body: { type: String, default: "We are an engineering-led digital agency. We partner directly with founders and ambitious brands to architect custom web platforms, mobile applications, and high-ROI acquisition systems—eliminating agency bureaucracy to ship faster and sharper." },
+    body: { type: String, default: "We are an engineering-led digital agency. We partner directly with founders and ambitious brands to architect custom web platforms, mobile applications, and measurable customer acquisition systems—eliminating agency bureaucracy to ship faster and sharper." },
     statement: { type: String, default: "NO ACCOUNT MANAGERS IN THE MIDDLE. SENIOR BUILDERS ONLY." },
     cta: { type: String, default: "Meet the studio" }
   },

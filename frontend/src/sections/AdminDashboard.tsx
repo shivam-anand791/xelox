@@ -454,8 +454,11 @@ export default function AdminDashboard({ onLogout, onViewSite }: AdminDashboardP
         </nav>
 
         <div className="p-4 border-t border-white/10 space-y-2">
-          <button
-            onClick={() => {
+          <a
+            href="/"
+            onClick={(e) => {
+              if (e.metaKey || e.ctrlKey || e.altKey || e.shiftKey || e.button !== 0) return;
+              e.preventDefault();
               setSidebarOpen(false);
               onViewSite();
             }}
@@ -463,7 +466,7 @@ export default function AdminDashboard({ onLogout, onViewSite }: AdminDashboardP
           >
             <ArrowLeft size={18} />
             <span>View Site</span>
-          </button>
+          </a>
           <button
             onClick={() => {
               setSidebarOpen(false);

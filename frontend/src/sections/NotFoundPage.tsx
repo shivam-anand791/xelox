@@ -38,20 +38,32 @@ export default function NotFoundPage({ currentPath = typeof window !== 'undefine
 
         {/* Action Buttons */}
         <div className="flex flex-wrap items-center justify-center gap-3 mb-12">
-          <button
-            onClick={() => onNavigate('home')}
+          <a
+            href="/"
+            onClick={(e) => {
+              if (!e.metaKey && !e.ctrlKey) {
+                e.preventDefault();
+                onNavigate('home');
+              }
+            }}
             className="btn-primary inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider px-6 py-3"
           >
             <Home className="w-3.5 h-3.5" />
             <span>Go to Homepage</span>
-          </button>
-          <button
-            onClick={() => onNavigate('work')}
+          </a>
+          <a
+            href="/work"
+            onClick={(e) => {
+              if (!e.metaKey && !e.ctrlKey) {
+                e.preventDefault();
+                onNavigate('work');
+              }
+            }}
             className="btn-outline inline-flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider px-6 py-3"
           >
             <Compass className="w-3.5 h-3.5" />
             <span>Browse Work</span>
-          </button>
+          </a>
         </div>
 
         {/* Helpful Destinations Box */}
@@ -63,9 +75,15 @@ export default function NotFoundPage({ currentPath = typeof window !== 'undefine
             {quickLinks.map((item) => {
               const Icon = item.icon;
               return (
-                <button
+                <a
                   key={item.page}
-                  onClick={() => onNavigate(item.page)}
+                  href={item.path}
+                  onClick={(e) => {
+                    if (!e.metaKey && !e.ctrlKey) {
+                      e.preventDefault();
+                      onNavigate(item.page);
+                    }
+                  }}
                   className="flex items-start gap-3 p-4 rounded-xl border border-black/5 dark:border-white/5 hover:border-[#19D5D0]/40 bg-white/50 dark:bg-white/5 hover:bg-black/5 dark:hover:bg-white/10 text-left transition-all group"
                 >
                   <div className="w-9 h-9 rounded-lg bg-[#19D5D0]/10 border border-[#19D5D0]/20 text-[#19D5D0] flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
@@ -80,7 +98,7 @@ export default function NotFoundPage({ currentPath = typeof window !== 'undefine
                       {item.desc}
                     </p>
                   </div>
-                </button>
+                </a>
               );
             })}
           </div>

@@ -70,13 +70,19 @@ export default function PortfolioSection({ onNavigate }: { onNavigate?: (page: s
           <p className="text-sm text-gray-custom dark:text-slate-300 leading-relaxed mb-6">
             {content.portfolio.body}
           </p>
-          <button
-            onClick={() => onNavigate ? onNavigate('work') : null}
+          <a
+            href="/work"
+            onClick={(e) => {
+              if (!e.metaKey && !e.ctrlKey) {
+                e.preventDefault();
+                onNavigate?.('work');
+              }
+            }}
             className="btn-primary inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider px-5 py-2.5 shadow-md"
           >
             <span>Explore All Work</span>
             <ArrowUpRight size={16} />
-          </button>
+          </a>
         </div>
 
         {/* Mobile Project Cards */}
@@ -135,13 +141,13 @@ export default function PortfolioSection({ onNavigate }: { onNavigate?: (page: s
           {/* Top-left: Card 0 (LaptopMitra) */}
           <div
             className="overflow-hidden rounded-2xl shadow-xl bg-[#0B0F14] border border-black/10 dark:border-white/10 group cursor-pointer hover:border-lime/40 dark:hover:border-lime/40 transition-all duration-300 card-hover flex flex-col justify-between"
-            onClick={() => onNavigate ? onNavigate('work-category', 'web-development') : null}
+            onClick={() => onNavigate ? onNavigate('work-category', 'ecommerce') : null}
           >
             <div className="w-full h-full md:flex md:items-stretch">
               <div className="order-last md:order-first md:w-2/5 p-6 lg:p-8 flex flex-col justify-between bg-gradient-to-r from-[#07090D] via-[#0B0F14] to-[#0F141C] text-white">
                 <div>
                   <span className="font-mono text-xs uppercase tracking-wider font-semibold text-lime">
-                    {projects[0]?.subtitle || 'Website Design & Development'}
+                    {projects[0]?.subtitle || 'E-Commerce Architecture & Procurement Engine'}
                   </span>
                   <h3 className="mt-2 text-2xl lg:text-3xl font-extrabold text-white group-hover:text-lime transition-colors leading-tight">
                     {projects[0]?.title || 'LaptopMitra'}
@@ -179,24 +185,51 @@ export default function PortfolioSection({ onNavigate }: { onNavigate?: (page: s
             <h2 className="font-display font-bold text-4xl lg:text-5xl xl:text-6xl leading-[0.95] tracking-tight text-dark dark:text-[#F8FAFC] uppercase mb-4">
               {content.portfolio.headline}
             </h2>
-            <p className="text-base lg:text-lg text-gray-custom dark:text-slate-300 mb-8 max-w-md leading-relaxed">
+            <p className="text-base lg:text-lg text-gray-custom dark:text-slate-300 mb-6 max-w-md leading-relaxed">
               {content.portfolio.body}
             </p>
-            <div className="flex flex-wrap items-center gap-4">
-              <button
-                onClick={() => onNavigate ? onNavigate('work') : null}
-                className="btn-primary inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider px-6 py-3 shadow-md"
-              >
-                <span>Explore All Work</span>
-                <ArrowUpRight size={16} />
-              </button>
-              <button
-                onClick={() => onNavigate ? onNavigate('work-category', 'web-development') : null}
-                className="text-xs font-mono uppercase tracking-wider text-dark dark:text-slate-300 hover:text-lime transition-colors inline-flex items-center gap-1.5"
-              >
-                <span>Web Platforms</span>
-                <ArrowRight size={13} />
-              </button>
+            <div className="space-y-4">
+              <div className="flex flex-wrap items-center gap-3">
+                <button
+                  onClick={() => onNavigate ? onNavigate('work') : null}
+                  className="btn-primary inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider px-5 py-2.5 shadow-md"
+                >
+                  <span>Explore All Work</span>
+                  <ArrowUpRight size={15} />
+                </button>
+              </div>
+
+              {/* Balanced Category Filter Pills */}
+              <div className="flex flex-wrap items-center gap-2 pt-2 border-t border-black/5 dark:border-white/10 text-xs font-mono">
+                <button
+                  onClick={() => onNavigate ? onNavigate('work-category', 'web-development') : null}
+                  className="px-2.5 py-1 rounded-md bg-black/5 dark:bg-white/5 text-dark dark:text-slate-300 hover:text-cyan-500 dark:hover:text-cyan-400 transition-colors inline-flex items-center gap-1"
+                >
+                  <span>Web Platforms</span>
+                  <ArrowRight size={11} />
+                </button>
+                <button
+                  onClick={() => onNavigate ? onNavigate('work-category', 'ecommerce') : null}
+                  className="px-2.5 py-1 rounded-md bg-black/5 dark:bg-white/5 text-dark dark:text-slate-300 hover:text-amber-500 dark:hover:text-amber-400 transition-colors inline-flex items-center gap-1"
+                >
+                  <span>E-Commerce</span>
+                  <ArrowRight size={11} />
+                </button>
+                <button
+                  onClick={() => onNavigate ? onNavigate('work-category', 'digital-marketing') : null}
+                  className="px-2.5 py-1 rounded-md bg-black/5 dark:bg-white/5 text-dark dark:text-slate-300 hover:text-lime transition-colors inline-flex items-center gap-1"
+                >
+                  <span>Growth &amp; SEO</span>
+                  <ArrowRight size={11} />
+                </button>
+                <button
+                  onClick={() => onNavigate ? onNavigate('work-category', 'mobile-apps') : null}
+                  className="px-2.5 py-1 rounded-md bg-black/5 dark:bg-white/5 text-dark dark:text-slate-300 hover:text-lime transition-colors inline-flex items-center gap-1"
+                >
+                  <span>Mobile Lab</span>
+                  <ArrowRight size={11} />
+                </button>
+              </div>
             </div>
           </div>
 
@@ -269,7 +302,7 @@ export default function PortfolioSection({ onNavigate }: { onNavigate?: (page: s
                 <img
                   src={projects[2]?.image || '/portfolio/touristpalace-homepage.webp'}
                   alt={projectAlts[projects[2]?.title] || 'Tourist Palace live project'}
-                  className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105 block"
+                  className="w-full h-full object-cover object-left-top transition-transform duration-700 group-hover:scale-105 block"
                   loading="eager"
                   decoding="async"
                 />
@@ -297,13 +330,19 @@ export default function PortfolioSection({ onNavigate }: { onNavigate?: (page: s
                 ))}
               </div>
             </div>
-            <button
-              onClick={() => onNavigate ? onNavigate('work') : null}
+            <a
+              href="/work"
+              onClick={(e) => {
+                if (!e.metaKey && !e.ctrlKey) {
+                  e.preventDefault();
+                  onNavigate?.('work');
+                }
+              }}
               className="text-xs font-mono font-semibold uppercase tracking-wider text-emerald-700 dark:text-lime hover:underline inline-flex items-center gap-1"
             >
-              <span>View All 5 Case Studies</span>
+              <span>Explore Complete Portfolio & Credentials</span>
               <ArrowRight size={14} />
-            </button>
+            </a>
           </div>
         )}
       </div>

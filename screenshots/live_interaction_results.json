@@ -1,0 +1,100 @@
+{
+  "servicesUrl": "https://xelox-pi.vercel.app/services",
+  "servicesH1": "THREE PILLARS OF DIGITAL CRAFT & GROWTH.",
+  "workUrl": "https://xelox-pi.vercel.app/work",
+  "workH1": "ENGINEERED FOR SCALE, SPEED & CRAFT.",
+  "pricingUrl": "https://xelox-pi.vercel.app/pricing",
+  "pricingH1": "CLEAR PRICING PACKAGES. MEASURABLE OUTCOMES.",
+  "formFields": [
+    {
+      "name": "contact-name",
+      "placeholder": "e.g. Alex Carter (Founder)",
+      "type": "text",
+      "required": true
+    },
+    {
+      "name": "contact-email",
+      "placeholder": "alex@company.com",
+      "type": "email",
+      "required": true
+    },
+    {
+      "name": "contact-service",
+      "type": "select-one",
+      "required": false
+    },
+    {
+      "name": "contact-budget",
+      "type": "select-one",
+      "required": false
+    },
+    {
+      "name": "contact-message",
+      "placeholder": "Tell us about what you're launching, key deliverables, target deadline, or current technical bottlenecks...",
+      "type": "textarea",
+      "required": true
+    }
+  ],
+  "ctaLinks": [
+    {
+      "text": "Contact",
+      "tag": "BUTTON",
+      "href": null
+    },
+    {
+      "text": "START A PROJECT",
+      "tag": "BUTTON",
+      "href": null
+    },
+    {
+      "text": "Contact Us",
+      "tag": "BUTTON",
+      "href": null
+    },
+    {
+      "text": "Start a project",
+      "tag": "BUTTON",
+      "href": null
+    },
+    {
+      "text": "Start a project",
+      "tag": "BUTTON",
+      "href": null
+    },
+    {
+      "text": "START PROJECT INQUIRY",
+      "tag": "BUTTON",
+      "href": null
+    },
+    {
+      "text": "START PROJECT INQUIRY",
+      "tag": "BUTTON",
+      "href": null
+    },
+    {
+      "text": "START PROJECT INQUIRY",
+      "tag": "BUTTON",
+      "href": null
+    },
+    {
+      "text": "REQUEST FULL SCOPE CONSULTATION",
+      "tag": "BUTTON",
+      "href": null
+    },
+    {
+      "text": "INITIATE PROJECT BRIEF",
+      "tag": "A",
+      "href": "#contact"
+    },
+    {
+      "text": "Transmit Project Brief",
+      "tag": "BUTTON",
+      "href": null
+    },
+    {
+      "text": "Contact Us",
+      "tag": "A",
+      "href": "#contact"
+    }
+  ]
+}

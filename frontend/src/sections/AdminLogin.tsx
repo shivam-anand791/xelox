@@ -38,13 +38,19 @@ export default function AdminLogin({ onLogin, onBack }: AdminLoginProps) {
       <div className="decor-ring border-dark w-48 h-48 absolute -right-10 -bottom-10 opacity-30 dark:border-white/20 dark:opacity-20" />
       
       {/* Back Button */}
-      <button
-        onClick={onBack}
+      <a
+        href="/"
+        onClick={(e) => {
+          if (!e.metaKey && !e.ctrlKey) {
+            e.preventDefault();
+            onBack();
+          }
+        }}
         className="absolute top-6 left-6 flex items-center gap-2 text-dark hover:text-lime transition-colors dark:text-[#F8FAFC] dark:hover:text-[#B8FF3D]"
       >
         <ArrowLeft size={20} />
         <span>Back to site</span>
-      </button>
+      </a>
 
       {/* Login Card */}
       <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12 w-full max-w-md mx-4 relative z-10 dark:bg-[#111827] dark:border dark:border-white/10 dark:shadow-[0_20px_60px_rgba(0,0,0,0.45)]">

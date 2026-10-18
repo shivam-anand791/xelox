@@ -152,13 +152,19 @@ export default function TeamPage({ onBackToHome, onStartProject }: TeamPageProps
         <div className="max-w-3xl space-y-6">
           {/* Contextual Breadcrumb */}
           <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs font-mono">
-            <button
-              onClick={onBackToHome}
+            <a
+              href="/"
+              onClick={(e) => {
+                if (!e.metaKey && !e.ctrlKey) {
+                  e.preventDefault();
+                  onBackToHome();
+                }
+              }}
               className="inline-flex items-center gap-1.5 text-slate-400 hover:text-white transition-colors"
             >
               <ArrowLeft className="w-3.5 h-3.5" />
               <span>Home</span>
-            </button>
+            </a>
             <span className="text-slate-600">/</span>
             <span className="text-white font-semibold">Team &amp; Honors</span>
           </nav>
@@ -391,13 +397,20 @@ export default function TeamPage({ onBackToHome, onStartProject }: TeamPageProps
             </div>
 
             <div className="pt-4 flex flex-wrap items-center gap-4">
-              <button
-                onClick={onStartProject || onBackToHome}
+              <a
+                href="/service-inquiry"
+                onClick={(e) => {
+                  if (!e.metaKey && !e.ctrlKey) {
+                    e.preventDefault();
+                    if (onStartProject) onStartProject();
+                    else onBackToHome();
+                  }
+                }}
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#B8FF3D] text-black font-mono text-xs uppercase tracking-wider font-bold hover:bg-[#a6ec32] transition-colors shadow-[0_0_24px_rgba(184,255,61,0.3)]"
               >
                 <span>Initiate Project Brief</span>
                 <ArrowRight size={14} />
-              </button>
+              </a>
 
               <a
                 href={siteConfig.contact.whatsappLink}
@@ -419,8 +432,31 @@ export default function TeamPage({ onBackToHome, onStartProject }: TeamPageProps
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
           <p>© {new Date().getFullYear()} Xelox Solutions. All rights reserved.</p>
           <div className="flex items-center gap-6">
-            <button onClick={onBackToHome} className="hover:text-white transition-colors">Home</button>
-            <button onClick={onStartProject || onBackToHome} className="hover:text-white transition-colors">Start a Project</button>
+            <a
+              href="/"
+              onClick={(e) => {
+                if (!e.metaKey && !e.ctrlKey) {
+                  e.preventDefault();
+                  onBackToHome();
+                }
+              }}
+              className="hover:text-white transition-colors"
+            >
+              Home
+            </a>
+            <a
+              href="/service-inquiry"
+              onClick={(e) => {
+                if (!e.metaKey && !e.ctrlKey) {
+                  e.preventDefault();
+                  if (onStartProject) onStartProject();
+                  else onBackToHome();
+                }
+              }}
+              className="hover:text-white transition-colors"
+            >
+              Start a Project
+            </a>
           </div>
         </div>
       </footer>

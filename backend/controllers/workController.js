@@ -11,6 +11,8 @@ export const getWork = async (req, res) => {
     if (category && category !== 'all') {
       if (category === 'innovation') {
         query.category = { $in: ['innovation', 'sih-alumni', 'amity-innovation', 'hackathons', 'cybercubs'] };
+      } else if (category === 'web-development') {
+        query.category = { $in: ['web-development', 'ecommerce'] };
       } else {
         query.category = category;
       }
@@ -42,6 +44,8 @@ export const getWorkByCategory = async (req, res) => {
     
     const categoryQuery = category === 'innovation'
       ? { $in: ['innovation', 'sih-alumni', 'amity-innovation', 'hackathons', 'cybercubs'] }
+      : category === 'web-development'
+      ? { $in: ['web-development', 'ecommerce'] }
       : category;
 
     const work = await Work.find({ 

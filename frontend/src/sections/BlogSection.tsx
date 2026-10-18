@@ -30,6 +30,9 @@ const getArticleImage = (post: { title?: string; image?: string }, index: number
 
 const getArticleAltText = (title: string): string => {
   const lower = title.toLowerCase();
+  if (lower.includes('search') || lower.includes('indexing') || lower.includes('seo')) {
+    return 'Technical architecture diagrams and schema markup for search engine visibility and indexing';
+  }
   if (lower.includes('name') || lower.includes('naming')) {
     return 'Product naming sketchbook and typographic brand identity worksheets on an editorial studio desk';
   }

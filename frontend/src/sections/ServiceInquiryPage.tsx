@@ -366,18 +366,30 @@ export default function ServiceInquiryPage({
             A confirmation email has been sent to <strong>{formData.contactInfo.email}</strong>
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button
-              onClick={onBackToServices}
-              className="btn-outline"
+            <a
+              href="/services"
+              onClick={(e) => {
+                if (!e.metaKey && !e.ctrlKey) {
+                  e.preventDefault();
+                  onBackToServices();
+                }
+              }}
+              className="btn-outline text-center inline-flex items-center justify-center"
             >
               Back to Services
-            </button>
-            <button
-              onClick={onGoHome}
-              className="btn-primary"
+            </a>
+            <a
+              href="/"
+              onClick={(e) => {
+                if (!e.metaKey && !e.ctrlKey) {
+                  e.preventDefault();
+                  onGoHome();
+                }
+              }}
+              className="btn-primary text-center inline-flex items-center justify-center"
             >
               Go to Home
-            </button>
+            </a>
           </div>
         </div>
       </div>
@@ -390,13 +402,19 @@ export default function ServiceInquiryPage({
       <div className="bg-white/90 dark:bg-[#111827]/90 backdrop-blur-md border-b border-black/10 dark:border-white/10 sticky top-[53px] sm:top-[61px] z-40 transition-colors">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-14">
-            <button
-              onClick={onBackToServices}
+            <a
+              href="/services"
+              onClick={(e) => {
+                if (!e.metaKey && !e.ctrlKey) {
+                  e.preventDefault();
+                  onBackToServices();
+                }
+              }}
               className="flex items-center gap-2 text-xs sm:text-sm font-mono text-dark/80 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-lime transition-colors"
             >
               <ArrowLeft size={16} />
               <span>Back to Services</span>
-            </button>
+            </a>
             <div className="flex items-center gap-2">
               <CategoryIcon size={18} className="text-emerald-600 dark:text-lime" />
               <span className="font-display font-bold text-xs sm:text-sm text-dark dark:text-white">{config.label}</span>

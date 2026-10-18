@@ -1,3 +1,50 @@
-﻿<svg viewBox=" 0 0 1200 300\ xmlns=\http://www.w3.org/2000/svg\ preserveAspectRatio=\xMidYMid meet\>
- <image href=\/logo.png\ x=\0\ y=\0\ width=\1200\ height=\300\ preserveAspectRatio=\xMidYMid meet\ />
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 216 48" width="220" height="50" fill="none">
+  <!-- Xelox Modular Pixel X Mark -->
+  <g transform="translate(3, 3)">
+    <!-- Center Core Block -->
+    <rect x="16" y="16" width="10" height="10" rx="2.5" fill="#19D5D0" />
+    
+    <!-- Top-Left Digital Data Stream -->
+    <rect x="9.5" y="9.5" width="7" height="7" rx="2" fill="#19D5D0" />
+    <rect x="3" y="3" width="6" height="6" rx="1.8" fill="#19D5D0" />
+    <rect x="0" y="1" width="3.2" height="3.2" rx="0.9" fill="#B8FF3D" />
+    <rect x="1" y="8" width="3" height="3" rx="0.8" fill="#19D5D0" opacity="0.85" />
+    <rect x="8" y="1" width="3.2" height="3.2" rx="0.9" fill="#19D5D0" />
+
+    <!-- Bottom-Left Digital Data Stream -->
+    <rect x="9.5" y="25.5" width="7" height="7" rx="2" fill="#19D5D0" />
+    <rect x="3" y="33" width="6" height="6" rx="1.8" fill="#19D5D0" />
+    <rect x="0" y="37.8" width="3.2" height="3.2" rx="0.9" fill="#B8FF3D" />
+    <rect x="1" y="31" width="3" height="3" rx="0.8" fill="#19D5D0" opacity="0.85" />
+    <rect x="8" y="37.8" width="3.2" height="3.2" rx="0.9" fill="#19D5D0" />
+
+    <!-- Right-Hand Solid Crossing Modules -->
+    <rect x="25.5" y="7" width="14" height="11" rx="2.6" fill="#19D5D0" />
+    <rect x="25.5" y="24" width="14" height="11" rx="2.6" fill="#19D5D0" />
+    <rect x="36" y="1" width="6" height="6" rx="1.8" fill="#19D5D0" />
+    <rect x="36" y="35" width="6" height="6" rx="1.8" fill="#19D5D0" />
+  </g>
+
+  <!-- Wordmark Lockup -->
+  <g transform="translate(56, 0)">
+    <!-- Primary Brand: Xelox -->
+    <text x="0" y="27" 
+          font-family="'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" 
+          font-size="26" 
+          font-weight="700" 
+          letter-spacing="-0.02em" 
+          fill="#FFFFFF">
+      Xelox
+    </text>
+
+    <!-- Descriptor / Full Name: SOLUTIONS -->
+    <text x="1" y="41" 
+          font-family="'IBM Plex Mono', 'Space Grotesk', monospace" 
+          font-size="8.5" 
+          font-weight="600" 
+          letter-spacing="0.25em" 
+          fill="#19D5D0">
+      SOLUTIONS
+    </text>
+  </g>
 </svg>

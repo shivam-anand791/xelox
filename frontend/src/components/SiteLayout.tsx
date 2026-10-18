@@ -50,9 +50,13 @@ export default function SiteLayout({
 
       {/* Floating AI Assistant Trigger */}
       {!hideAiButton && (
-        <button
-          type="button"
-          onClick={onAiClick}
+        <a
+          href="/xelox-ai"
+          onClick={(e) => {
+            if (e.metaKey || e.ctrlKey || e.altKey || e.shiftKey || e.button !== 0) return;
+            e.preventDefault();
+            onAiClick();
+          }}
           className="fixed bottom-4 right-4 z-40 inline-flex items-center gap-2 rounded-full border border-white/20 bg-gradient-to-r from-fuchsia-500 via-amber-400 to-cyan-400 px-3 py-2 text-xs font-semibold text-white shadow-[0_14px_36px_rgba(236,72,153,0.24)] backdrop-blur-md transition-transform hover:-translate-y-0.5 hover:shadow-[0_18px_44px_rgba(34,211,238,0.24)] dark:border-white/10 dark:text-white sm:px-4 sm:py-2.5 sm:text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B8FF3D]"
           aria-label="Open Xelox AI Assistant"
         >
@@ -60,7 +64,7 @@ export default function SiteLayout({
             <BotIcon />
           </span>
           <span className="hidden sm:inline">Xelox AI</span>
-        </button>
+        </a>
       )}
     </div>
   );

@@ -144,14 +144,19 @@ export default function XeloxAiPage({ onBack }: { onBack: () => void }) {
 
       <div className="relative z-10 mx-auto flex min-h-screen w-full max-w-[430px] flex-col px-2.5 py-2.5 sm:px-4 sm:py-4">
         <header className="mb-3.5 flex items-center justify-between gap-1.5 rounded-[1.35rem] border border-black/5 bg-white/70 px-2.5 py-2 backdrop-blur-xl dark:border-white/10 dark:bg-white/5">
-          <button
-            type="button"
-            onClick={onBack}
+          <a
+            href="/"
+            onClick={(e) => {
+              if (!e.metaKey && !e.ctrlKey) {
+                e.preventDefault();
+                onBack?.();
+              }
+            }}
             className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white/80 px-1.5 py-1 text-[10px] font-medium text-dark transition-all hover:-translate-y-0.5 hover:border-lime/40 hover:text-black dark:border-white/10 dark:bg-white/5 dark:text-white dark:hover:border-lime/40 sm:px-2.5 sm:py-1.5 sm:text-xs"
           >
             <ChevronLeft size={16} />
             Back
-          </button>
+          </a>
 
           <div className="flex items-center gap-3">
             <div className="flex h-8 w-8 items-center justify-center rounded-2xl bg-gradient-to-br from-lime/25 via-cyan-200/30 to-sky-200/30 text-lime ring-1 ring-lime/20 shadow-sm dark:from-lime/20 dark:via-cyan-500/20 dark:to-blue-500/15">

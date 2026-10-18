@@ -4,15 +4,16 @@ import { contentApi, authApi } from '../lib/api';
 // Default content for the website (fallback)
 const defaultContent = {
   hero: {
-    headline: "CRAFTING HIGH-PERFORMANCE SITES, APPS & GROWTH SYSTEMS",
-    subheadline: "We partner with ambitious founders and businesses to design, engineer, and scale custom web platforms, mobile apps, and high-ROI digital marketing campaigns.",
-    cta: "Start a project",
+    headline: "DIGITAL PRODUCTS & GROWTH ENGINES BUILT TO SCALE AMBITIOUS BRANDS",
+    subheadline: "We engineer custom web platforms, native mobile applications, and data-driven growth systems for ambitious brands and growing businesses—eliminating fragmented agency silos to ship faster and scale predictably.",
+    cta: "Discuss Your Project",
+    secondaryCta: "Explore Our Work",
     microLabel: "XELOXSOLUTIONS — 2026"
   },
   about: {
     eyebrow: "WHO WE ARE — THE XELOX STUDIO",
     headline: "A focused crew of senior builders & growth specialists.",
-    body: "We are an engineering-led digital agency. We partner directly with founders and ambitious brands to architect custom web platforms, mobile applications, and high-ROI acquisition systems—eliminating agency bureaucracy to ship faster and sharper.",
+    body: "We are an engineering-led digital agency. We partner directly with founders and ambitious brands to architect custom web platforms, mobile applications, and measurable customer acquisition systems—eliminating agency bureaucracy to ship faster and sharper.",
     statement: "NO ACCOUNT MANAGERS IN THE MIDDLE. SENIOR BUILDERS ONLY.",
     cta: "Meet the studio"
   },
@@ -23,7 +24,7 @@ const defaultContent = {
     items: [
       { 
         title: "Digital Marketing & Growth", 
-        description: "Data-driven SEO, performance marketing, high-ROI paid acquisition, and content systems that convert visitors into revenue." 
+        description: "Targeted organic search visibility, managed Google & Meta paid advertising, conversion landing pages, and transparent analytics reporting." 
       },
       { 
         title: "Website Design & Development", 
@@ -40,11 +41,11 @@ const defaultContent = {
     body: "Engineered digital flagships, high-conversion growth engines, and verified production platforms.",
     cta: "View all projects",
     projects: [
-      { title: "LaptopMitra", subtitle: "Website Design & Development", image: "/portfolio/laptopmitra-homepage.webp" },
-      { title: "Adorca 360", subtitle: "Digital Marketing & Growth", image: "/portfolio/adorca-homepage.webp" },
-      { title: "Tourist Palace", subtitle: "Hospitality & Booking Engine", image: "/portfolio/touristpalace-homepage.webp" },
-      { title: "eSailor", subtitle: "B2B Global Trade & Export", image: "/portfolio/esailor-homepage.webp" },
-      { title: "Properties Professor", subtitle: "Verified Real Estate Portal", image: "/portfolio/properties-professor-homepage.webp" }
+      { title: "LaptopMitra", subtitle: "E-Commerce & Hardware Marketplace", image: "/portfolio/laptopmitra-homepage.webp" },
+      { title: "Adorca 360", subtitle: "Digital Marketing & Technical SEO", image: "/portfolio/adorca-homepage.webp" },
+      { title: "Tourist Palace", subtitle: "Hospitality Web & Direct Booking", image: "/portfolio/touristpalace-homepage.webp" },
+      { title: "eSailor", subtitle: "Global B2B Trade & Export Portal", image: "/portfolio/esailor-homepage.webp" },
+      { title: "Properties Professor", subtitle: "Real Estate Discovery Engine", image: "/portfolio/properties-professor-homepage.webp" }
     ]
   },
   process: {
@@ -70,13 +71,13 @@ const defaultContent = {
     }
   },
   blog: {
-    headline: "Latest notes",
-    body: "Short reads on branding, product design, and shipping fast.",
+    headline: "Insights & Engineering Notes",
+    body: "Practical perspectives on search visibility, conversion architecture, and high-performance shipping.",
     cta: "Read more",
     posts: [
-      { title: "How to name your product without overthinking it", excerpt: "A practical guide to finding a name that sticks.", date: "Feb 10, 2026", readTime: "5 min read", image: "/articles/product-naming-guide.webp" },
-      { title: "The 3-week landing page playbook", excerpt: "Ship fast without sacrificing quality.", date: "Feb 5, 2026", readTime: "7 min read", image: "/articles/landing-page-playbook.webp" },
-      { title: "Design systems for tiny teams", excerpt: "Build consistency without the overhead.", date: "Jan 28, 2026", readTime: "4 min read", image: "/articles/design-systems-guide.webp" }
+      { title: "Structuring Web Platforms for Search Visibility and Fast Indexing", excerpt: "A technical guide to semantic markup, dynamic sitemaps, and entity clustering.", date: "Feb 10, 2026", readTime: "5 min read", image: "/articles/product-naming-guide.webp" },
+      { title: "The 3-week landing page playbook", excerpt: "High-conversion layout systems and sub-second performance without bloated dependencies.", date: "Feb 5, 2026", readTime: "7 min read", image: "/articles/landing-page-playbook.webp" },
+      { title: "Design systems for tiny teams", excerpt: "Build reusable component consistency across web and mobile without architecture overhead.", date: "Jan 28, 2026", readTime: "4 min read", image: "/articles/design-systems-guide.webp" }
     ]
   },
   contact: {

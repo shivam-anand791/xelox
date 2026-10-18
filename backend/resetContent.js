@@ -13,14 +13,15 @@ const resetContent = async () => {
     // Create new content with correct URLs
     const newContent = await Content.create({
       hero: {
-        headline: "CRAFTING HIGH-PERFORMANCE SITES, APPS & GROWTH SYSTEMS",
-        subheadline: "We partner with ambitious founders and businesses to design, engineer, and scale custom web platforms, mobile apps, and high-ROI digital marketing campaigns.",
-        cta: "Start a project",
+        headline: "DIGITAL PRODUCTS & GROWTH ENGINES BUILT TO SCALE AMBITIOUS BRANDS",
+        subheadline: "We engineer custom web platforms, native mobile applications, and data-driven growth systems for ambitious brands and growing businesses—eliminating fragmented agency silos to ship faster and scale predictably.",
+        cta: "Discuss Your Project",
+        secondaryCta: "Explore Our Work",
         microLabel: "XELOXSOLUTIONS — 2026"
       },
       services: {
         items: [
-          { title: "Digital Marketing & Growth", description: "Data-driven SEO, performance marketing, high-ROI paid acquisition, and content systems that convert visitors into revenue." },
+          { title: "Digital Marketing & Growth", description: "Targeted organic search visibility, managed Google & Meta paid advertising, conversion landing pages, and transparent analytics reporting." },
           { title: "Website Design & Development", description: "Ultra-fast, accessible, and responsive custom web applications, SaaS platforms, and modern corporate websites." },
           { title: "Mobile App Design & Development", description: "High-performance iOS and Android applications crafted with seamless UX, robust APIs, and scalable architectures." }
         ]

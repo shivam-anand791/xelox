@@ -14,13 +14,19 @@ export default function PricingPage({ onBackToHome, onSelectPackage }: PricingPa
         <div className="max-w-7xl mx-auto">
           {/* Contextual Breadcrumb */}
           <nav aria-label="Breadcrumb" className="flex items-center gap-2 mb-5 text-xs font-mono">
-            <button
-              onClick={onBackToHome}
+            <a
+              href="/"
+              onClick={(e) => {
+                if (!e.metaKey && !e.ctrlKey) {
+                  e.preventDefault();
+                  onBackToHome();
+                }
+              }}
               className="inline-flex items-center gap-1.5 text-gray-500 hover:text-dark dark:text-slate-400 dark:hover:text-lime transition-colors"
             >
               <ArrowLeft className="w-3.5 h-3.5" />
               <span>Home</span>
-            </button>
+            </a>
             <span className="text-gray-400 dark:text-slate-600">/</span>
             <span className="text-dark dark:text-white font-semibold">Pricing</span>
           </nav>
@@ -62,12 +68,18 @@ export default function PricingPage({ onBackToHome, onSelectPackage }: PricingPa
               <p className="text-sm sm:text-base text-gray-700 dark:text-slate-300 leading-relaxed mb-6">
                 If your requirements exceed our standard packages—such as complex multi-tenant SaaS, proprietary IoT hardware telemetry, custom mobile apps, or dedicated monthly engineering sprints—we provide tailored quotes with weekly milestone delivery.
               </p>
-              <button
-                onClick={() => onSelectPackage ? onSelectPackage('Custom Enterprise', 'web-development') : null}
-                className="btn-primary text-xs font-bold uppercase tracking-wider px-6 py-3"
+              <a
+                href="/service-inquiry?category=web-development&package=Custom+Enterprise"
+                onClick={(e) => {
+                  if (!e.metaKey && !e.ctrlKey) {
+                    e.preventDefault();
+                    if (onSelectPackage) onSelectPackage('Custom Enterprise', 'web-development');
+                  }
+                }}
+                className="btn-primary text-xs font-bold uppercase tracking-wider px-6 py-3 inline-flex items-center justify-center"
               >
                 Request Custom Scoping Brief
-              </button>
+              </a>
             </div>
           </div>
         </div>
@@ -79,12 +91,18 @@ export default function PricingPage({ onBackToHome, onSelectPackage }: PricingPa
           <div>
             &copy; {new Date().getFullYear()} Xelox Solutions. All rights reserved.
           </div>
-          <button
-            onClick={onBackToHome}
+          <a
+            href="/"
+            onClick={(e) => {
+              if (!e.metaKey && !e.ctrlKey) {
+                e.preventDefault();
+                onBackToHome();
+              }
+            }}
             className="hover:text-dark dark:hover:text-white underline underline-offset-4 transition-colors"
           >
             Return to Homepage
-          </button>
+          </a>
         </div>
       </footer>
     </div>

@@ -23,11 +23,15 @@ import { useContent } from './hooks/useContent';
 import { authApi } from './lib/api';
 
 import { parseRoute, buildUrl, scrollToHash, type RouteState, type Page } from './lib/router';
+import { usePageMetadata } from './lib/seo';
 import NotFoundPage from './sections/NotFoundPage';
 
 function AppContent() {
   const [route, setRoute] = useState<RouteState>(() => parseRoute());
   const { isAdmin, setIsAdmin } = useContent();
+
+  // Dynamically update document title, meta descriptions, and OG tags based on active route
+  usePageMetadata(route);
 
   // Listen for browser back / forward navigation (popstate)
   useEffect(() => {

@@ -1,15 +1,27 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
-  <rect width="64" height="64" rx="16" fill="#050608"/>
-  <defs>
-    <linearGradient id="xeloxGlow" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#19D5D0"/>
-      <stop offset="50%" stop-color="#22D3EE"/>
-      <stop offset="100%" stop-color="#B8FF3D"/>
-    </linearGradient>
-  </defs>
-  <!-- Stylized Geometric Quad-Dots -->
-  <circle cx="23" cy="23" r="7" fill="url(#xeloxGlow)"/>
-  <circle cx="41" cy="23" r="7" fill="url(#xeloxGlow)"/>
-  <circle cx="23" cy="41" r="7" fill="url(#xeloxGlow)"/>
-  <circle cx="41" cy="41" r="7" fill="url(#xeloxGlow)"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 46 46" width="46" height="46" fill="none">
+  <!-- Xelox Modular Pixel X Mark -->
+  <g transform="translate(2, 2)">
+    <!-- Center Core Block -->
+    <rect x="16" y="16" width="10" height="10" rx="2.5" fill="#19D5D0" />
+    
+    <!-- Top-Left Digital Data Stream -->
+    <rect x="9.5" y="9.5" width="7" height="7" rx="2" fill="#19D5D0" />
+    <rect x="3" y="3" width="6" height="6" rx="1.8" fill="#19D5D0" />
+    <rect x="0" y="1" width="3.2" height="3.2" rx="0.9" fill="#B8FF3D" />
+    <rect x="1" y="8" width="3" height="3" rx="0.8" fill="#19D5D0" opacity="0.85" />
+    <rect x="8" y="1" width="3.2" height="3.2" rx="0.9" fill="#19D5D0" />
+
+    <!-- Bottom-Left Digital Data Stream -->
+    <rect x="9.5" y="25.5" width="7" height="7" rx="2" fill="#19D5D0" />
+    <rect x="3" y="33" width="6" height="6" rx="1.8" fill="#19D5D0" />
+    <rect x="0" y="37.8" width="3.2" height="3.2" rx="0.9" fill="#B8FF3D" />
+    <rect x="1" y="31" width="3" height="3" rx="0.8" fill="#19D5D0" opacity="0.85" />
+    <rect x="8" y="37.8" width="3.2" height="3.2" rx="0.9" fill="#19D5D0" />
+
+    <!-- Right-Hand Solid Crossing Modules -->
+    <rect x="25.5" y="7" width="14" height="11" rx="2.6" fill="#19D5D0" />
+    <rect x="25.5" y="24" width="14" height="11" rx="2.6" fill="#19D5D0" />
+    <rect x="36" y="1" width="6" height="6" rx="1.8" fill="#19D5D0" />
+    <rect x="36" y="35" width="6" height="6" rx="1.8" fill="#19D5D0" />
+  </g>
 </svg>

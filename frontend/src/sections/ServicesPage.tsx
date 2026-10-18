@@ -15,13 +15,19 @@ export default function ServicesPage({ onBackToHome, onStartInquiry }: ServicesP
         <div className="max-w-7xl mx-auto">
           {/* Contextual Breadcrumb */}
           <nav aria-label="Breadcrumb" className="flex items-center gap-2 mb-5 text-xs font-mono">
-            <button
-              onClick={onBackToHome}
+            <a
+              href="/"
+              onClick={(e) => {
+                if (!e.metaKey && !e.ctrlKey) {
+                  e.preventDefault();
+                  onBackToHome();
+                }
+              }}
               className="inline-flex items-center gap-1.5 text-gray-custom hover:text-dark dark:hover:text-lime transition-colors"
             >
               <ArrowLeft className="w-3.5 h-3.5" />
               <span>Home</span>
-            </button>
+            </a>
             <span className="text-gray-400 dark:text-slate-600">/</span>
             <span className="text-dark dark:text-white font-semibold">Services</span>
           </nav>
@@ -35,7 +41,7 @@ export default function ServicesPage({ onBackToHome, onStartInquiry }: ServicesP
           </h1>
 
           <p className="text-base sm:text-lg lg:text-xl text-gray-700 dark:text-slate-300 max-w-3xl leading-relaxed">
-            We partner with ambitious founders, brands, and modern businesses. Whether you need an acquisition engine, an enterprise-grade web application, or a native mobile product, our team delivers with senior-level craft and verified speed.
+            We provide focused, transparent services across digital marketing, custom website engineering, and cross-platform mobile apps. Every engagement is custom-scoped to your actual stage with clear deliverables and honest measurement.
           </p>
         </div>
       </header>
@@ -52,12 +58,18 @@ export default function ServicesPage({ onBackToHome, onStartInquiry }: ServicesP
           <div>
             &copy; {new Date().getFullYear()} Xelox Solutions. All rights reserved.
           </div>
-          <button
-            onClick={onBackToHome}
+          <a
+            href="/"
+            onClick={(e) => {
+              if (!e.metaKey && !e.ctrlKey) {
+                e.preventDefault();
+                onBackToHome();
+              }
+            }}
             className="hover:text-dark dark:hover:text-white underline underline-offset-4 transition-colors"
           >
             Return to Homepage
-          </button>
+          </a>
         </div>
       </footer>
     </div>

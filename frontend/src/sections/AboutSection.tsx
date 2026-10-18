@@ -144,13 +144,19 @@ export default function AboutSection({ onNavigate }: AboutSectionProps) {
               </div>
 
               {onNavigate && (
-                <button
-                  onClick={() => onNavigate('team')}
+                <a
+                  href="/team"
+                  onClick={(e) => {
+                    if (!e.metaKey && !e.ctrlKey) {
+                      e.preventDefault();
+                      onNavigate('team');
+                    }
+                  }}
                   className="w-full mt-2 py-2.5 px-3 rounded-xl bg-lime/15 hover:bg-lime/25 border border-lime/30 text-dark dark:text-lime font-mono text-xs uppercase tracking-wider font-semibold flex items-center justify-center gap-2 transition-colors shadow-sm"
                 >
                   <span>Explore Full Team &amp; National Honors</span>
                   <ArrowRight className="w-3.5 h-3.5" />
-                </button>
+                </a>
               )}
             </div>
           </div>
@@ -194,13 +200,19 @@ export default function AboutSection({ onNavigate }: AboutSectionProps) {
                   Fixed-scope packages starting from ₹5,000 for local businesses to ₹35,000+ for custom web and mobile platforms.
                 </p>
               </div>
-              <button
-                onClick={() => onNavigate ? onNavigate('pricing') : null}
+              <a
+                href="/pricing"
+                onClick={(e) => {
+                  if (!e.metaKey && !e.ctrlKey) {
+                    e.preventDefault();
+                    onNavigate?.('pricing');
+                  }
+                }}
                 className="btn-outline shrink-0 text-xs font-mono font-bold uppercase tracking-wider px-4 py-2.5 inline-flex items-center gap-2 hover:bg-black/5 dark:hover:bg-white/5"
               >
                 <span>View Pricing Guide</span>
                 <ArrowRight className="w-3.5 h-3.5" />
-              </button>
+              </a>
             </div>
 
           </div>

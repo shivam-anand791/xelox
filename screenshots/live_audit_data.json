@@ -1,0 +1,377 @@
+{
+  "url": "https://xelox-pi.vercel.app/",
+  "timestamp": "2026-10-17T09:46:15.799Z",
+  "viewports": {
+    "mobileOverflow": {
+      "docWidth": 390,
+      "scrollWidth": 390,
+      "hasHorizontalOverflow": false
+    },
+    "narrowMobileOverflow": {
+      "docWidth": 360,
+      "scrollWidth": 360,
+      "hasHorizontalOverflow": false
+    }
+  },
+  "consoleMessages": [
+    {
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 404 ()",
+      "location": {
+        "url": "https://xelox-pi.vercel.app/services"
+      }
+    },
+    {
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 404 ()",
+      "location": {
+        "url": "https://xelox-pi.vercel.app/favicon.ico"
+      }
+    },
+    {
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 404 ()",
+      "location": {
+        "url": "https://xelox-pi.vercel.app/work"
+      }
+    },
+    {
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 404 ()",
+      "location": {
+        "url": "https://xelox-pi.vercel.app/pricing"
+      }
+    },
+    {
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 404 ()",
+      "location": {
+        "url": "https://xelox-pi.vercel.app/team"
+      }
+    },
+    {
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 404 ()",
+      "location": {
+        "url": "https://xelox-pi.vercel.app/service-inquiry"
+      }
+    },
+    {
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 404 ()",
+      "location": {
+        "url": "https://xelox-pi.vercel.app/contact"
+      }
+    }
+  ],
+  "networkErrors": [
+    {
+      "url": "https://xelox-pi.vercel.app/services",
+      "status": 404,
+      "statusText": "",
+      "resourceType": "document"
+    },
+    {
+      "url": "https://xelox-pi.vercel.app/favicon.ico",
+      "status": 404,
+      "statusText": "",
+      "resourceType": "other"
+    },
+    {
+      "url": "https://xelox-pi.vercel.app/work",
+      "status": 404,
+      "statusText": "",
+      "resourceType": "document"
+    },
+    {
+      "url": "https://xelox-pi.vercel.app/pricing",
+      "status": 404,
+      "statusText": "",
+      "resourceType": "document"
+    },
+    {
+      "url": "https://xelox-pi.vercel.app/team",
+      "status": 404,
+      "statusText": "",
+      "resourceType": "document"
+    },
+    {
+      "url": "https://xelox-pi.vercel.app/service-inquiry",
+      "status": 404,
+      "statusText": "",
+      "resourceType": "document"
+    },
+    {
+      "url": "https://xelox-pi.vercel.app/contact",
+      "status": 404,
+      "statusText": "",
+      "resourceType": "document"
+    }
+  ],
+  "sections": [
+    {
+      "index": 1,
+      "id": "(no id)",
+      "tagName": "SECTION",
+      "className": "bg-off-white dark:bg-[#050608] x-pattern relative overflow-hidden min-h-screen m",
+      "heading": "CRAFTING HIGH-PERFORMANCE SITES, APPS & GROWTH SYSTEMS",
+      "buttons": [
+        "Start a project",
+        "Explore work"
+      ],
+      "renderedHeightPx": 900,
+      "renderedWidthPx": 1440
+    },
+    {
+      "index": 2,
+      "id": "services",
+      "tagName": "SECTION",
+      "className": "py-20 px-6 lg:px-12 bg-[#F6F6F2] dark:bg-[#050608] relative",
+      "heading": "ENGINEERED FOR SCALE, SPEED & CRAFT.",
+      "buttons": [
+        "START PROJECT INQUIRY",
+        "EXPLORE FULL SCOPE",
+        "START PROJECT INQUIRY",
+        "EXPLORE FULL SCOPE",
+        "START PROJECT INQUIRY",
+        "EXPLORE FULL SCOPE",
+        "FULL SERVICES MATRIX",
+        "PRICING GUIDE",
+        "REQUEST FULL SCOPE CONSULTATION"
+      ],
+      "renderedHeightPx": 1549,
+      "renderedWidthPx": 1440
+    },
+    {
+      "index": 3,
+      "id": "portfolio",
+      "tagName": "SECTION",
+      "className": "bg-off-white dark:bg-[#050608] relative overflow-hidden py-16 md:py-24",
+      "heading": "SELECTED WORK",
+      "buttons": [
+        "Explore All Work",
+        "EXPLORE ALL WORK",
+        "WEB PLATFORMS",
+        "eSailor",
+        "Properties Professor",
+        "VIEW ALL 5 CASE STUDIES"
+      ],
+      "renderedHeightPx": 1131,
+      "renderedWidthPx": 1440
+    },
+    {
+      "index": 4,
+      "id": "about",
+      "tagName": "SECTION",
+      "className": "bg-[#F6F6F2] dark:bg-[#050608] x-pattern relative overflow-hidden py-20 lg:py-28",
+      "heading": "SENIOR CRAFT. VERIFIED RIGOR. ZERO AGENCY BLOAT.",
+      "buttons": [
+        "EXPLORE FULL TEAM & NATIONAL HONORS",
+        "VIEW PRICING GUIDE"
+      ],
+      "renderedHeightPx": 1512,
+      "renderedWidthPx": 1440
+    },
+    {
+      "index": 5,
+      "id": "process",
+      "tagName": "SECTION",
+      "className": "bg-[#F6F6F2] dark:bg-[#050608] x-pattern py-20 lg:py-28 relative overflow-hidden",
+      "heading": "FROM CONCEPT TO PRODUCTION IN WEEKS, NOT MONTHS.",
+      "buttons": [
+        "INITIATE PROJECT BRIEF"
+      ],
+      "renderedHeightPx": 1109,
+      "renderedWidthPx": 1440
+    },
+    {
+      "index": 6,
+      "id": "insights",
+      "tagName": "SECTION",
+      "className": "bg-off-white py-20 md:py-32 relative overflow-hidden dark:bg-[#050608]",
+      "heading": "Latest notes",
+      "buttons": [
+        "View all articles"
+      ],
+      "renderedHeightPx": 910,
+      "renderedWidthPx": 1440
+    },
+    {
+      "index": 7,
+      "id": "contact",
+      "tagName": "SECTION",
+      "className": "bg-[#050608] text-white pt-24 pb-12 relative overflow-hidden border-t border-whi",
+      "heading": "LET'S BUILD SOMETHING EXTRAORDINARY.",
+      "buttons": [
+        "Transmit Project Brief",
+        "Digital Marketing & Growth",
+        "Website Design & Development",
+        "Mobile App Development",
+        "Innovation & Prototyping",
+        "Selected Work",
+        "Pricing Packages",
+        "Team & Honors",
+        "Privacy Policy",
+        "Terms of Service",
+        "Studio Portal"
+      ],
+      "renderedHeightPx": 1437,
+      "renderedWidthPx": 1440
+    }
+  ],
+  "seo": {
+    "title": "Xelox Solutions — Digital Marketing, Web & Mobile App Agency",
+    "description": "Xelox Solutions is a premier digital agency specializing in Digital Marketing & Growth, Website Design & Development, and Mobile App Development.",
+    "ogTitle": "Xelox Solutions — Digital Marketing, Web & Mobile App Agency",
+    "ogDescription": "Xelox Solutions is a premier digital agency specializing in Digital Marketing & Growth, Website Design & Development, and Mobile App Development.",
+    "ogImage": "https://xeloxsolutions.tech/logo-dark.svg",
+    "canonical": "https://xeloxsolutions.tech/",
+    "headings": {
+      "h1": [
+        "CRAFTING HIGH-PERFORMANCE SITES, APPS & GROWTH SYSTEMS"
+      ],
+      "h2": [
+        "ENGINEERED FOR SCALE, SPEED & CRAFT.",
+        "SELECTED WORK",
+        "SELECTED WORK",
+        "SENIOR CRAFT. VERIFIED RIGOR. ZERO AGENCY BLOAT.",
+        "FROM CONCEPT TO PRODUCTION IN WEEKS, NOT MONTHS.",
+        "Latest notes",
+        "LET'S BUILD SOMETHING EXTRAORDINARY."
+      ],
+      "h3": [
+        "Digital Marketing & Growth",
+        "Website Design & Development",
+        "Mobile App Design & Development",
+        "LaptopMitra",
+        "Adorca 360",
+        "Tourist Palace",
+        "eSailor",
+        "Properties Professor",
+        "LaptopMitra",
+        "Adorca 360",
+        "Tourist Palace",
+        "Architecture & UX Wireframing",
+        "Full-Stack Sprint Engineering",
+        "Production Deployment & Scale",
+        "How to name your product without overthinking it",
+        "The 3-week landing page playbook",
+        "Design systems for tiny teams",
+        "Project Brief"
+      ]
+    },
+    "totalImages": 16,
+    "imagesWithoutAltCount": 2,
+    "imagesWithoutAltSample": [
+      "https://xelox-pi.vercel.app/logo.png",
+      "https://xelox-pi.vercel.app/logo.png"
+    ]
+  },
+  "navigation": {
+    "links": [
+      {
+        "text": "Xelox\nSolutions",
+        "href": null,
+        "tagName": "BUTTON"
+      },
+      {
+        "text": "Home",
+        "href": null,
+        "tagName": "BUTTON"
+      },
+      {
+        "text": "Services",
+        "href": null,
+        "tagName": "BUTTON"
+      },
+      {
+        "text": "Work",
+        "href": null,
+        "tagName": "BUTTON"
+      },
+      {
+        "text": "About",
+        "href": null,
+        "tagName": "BUTTON"
+      },
+      {
+        "text": "Pricing",
+        "href": null,
+        "tagName": "BUTTON"
+      },
+      {
+        "text": "Insights",
+        "href": null,
+        "tagName": "BUTTON"
+      },
+      {
+        "text": "Contact",
+        "href": null,
+        "tagName": "BUTTON"
+      },
+      {
+        "text": "START A PROJECT",
+        "href": null,
+        "tagName": "BUTTON"
+      },
+      {
+        "text": "",
+        "href": null,
+        "tagName": "BUTTON"
+      },
+      {
+        "text": "",
+        "href": null,
+        "tagName": "BUTTON"
+      },
+      {
+        "text": "",
+        "href": null,
+        "tagName": "BUTTON"
+      },
+      {
+        "text": "",
+        "href": null,
+        "tagName": "BUTTON"
+      }
+    ]
+  },
+  "userJourneys": {
+    "journeyA": {
+      "marketingPillarFound": true
+    },
+    "servicesRoute": {
+      "url": "https://xelox-pi.vercel.app/services",
+      "status": 404,
+      "h1": "This page doesn’t exist"
+    },
+    "workRoute": {
+      "url": "https://xelox-pi.vercel.app/work",
+      "status": 404,
+      "h1": "This page doesn’t exist"
+    },
+    "pricingRoute": {
+      "url": "https://xelox-pi.vercel.app/pricing",
+      "status": 404,
+      "h1": "This page doesn’t exist"
+    },
+    "teamRoute": {
+      "url": "https://xelox-pi.vercel.app/team",
+      "status": 404,
+      "h1": "This page doesn’t exist"
+    },
+    "serviceInquiryRoute": {
+      "url": "https://xelox-pi.vercel.app/service-inquiry",
+      "status": 404,
+      "heading": "This page doesn’t exist"
+    },
+    "contactRoute": {
+      "url": "https://xelox-pi.vercel.app/contact",
+      "status": 404
+    }
+  },
+  "technicalMetrics": {
+    "initialLoadTimeMs": 3047,
+    "httpStatus": 200
+  }
+}

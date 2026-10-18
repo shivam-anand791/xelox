@@ -10,7 +10,8 @@ import {
   CheckCircle2, 
   ArrowRight, 
   X,
-  Layers
+  Layers,
+  ShoppingBag
 } from 'lucide-react';
 import axios from 'axios';
 
@@ -48,24 +49,32 @@ const categoryMetadata: Record<string, WorkCategoryMeta> = {
     id: 'web-development',
     title: 'Website Design & Development',
     eyebrow: '01 / WEB ARCHITECTURE & SAAS',
-    description: 'Custom web applications, digital brand flagships, and headless platforms engineered with Next.js, TypeScript, and 99+ Core Web Vitals.',
+    description: 'Custom web applications, digital brand flagships, and full-stack software platforms engineered with Next.js, TypeScript, and 99+ Core Web Vitals.',
     icon: Code2,
     accentColor: '#22D3EE'
   },
-  'mobile-apps': {
-    id: 'mobile-apps',
-    title: 'Mobile App Development',
-    eyebrow: '02 / IOS & ANDROID ECOSYSTEMS',
-    description: 'Native and cross-platform mobile applications engineered with fluid micro-interactions, biometric security, and offline synchronization.',
-    icon: Smartphone,
-    accentColor: '#B8FF3D'
+  'ecommerce': {
+    id: 'ecommerce',
+    title: 'E-Commerce & Digital Marketplaces',
+    eyebrow: '02 / TRANSACTIONAL CATALOGUES',
+    description: 'High-trust digital storefronts, B2B procurement pipelines, product filtering engines, and payment gateway architectures.',
+    icon: ShoppingBag,
+    accentColor: '#F59E0B'
   },
   'digital-marketing': {
     id: 'digital-marketing',
     title: 'Digital Marketing & Growth',
     eyebrow: '03 / PERFORMANCE ACQUISITION',
-    description: 'Data-driven marketing frameworks combining technical search authority, multi-channel performance advertising, and conversion rate optimization.',
+    description: 'Targeted organic search visibility, managed Google & Meta paid advertising, conversion landing pages, and transparent analytics attribution.',
     icon: TrendingUp,
+    accentColor: '#B8FF3D'
+  },
+  'mobile-apps': {
+    id: 'mobile-apps',
+    title: 'Mobile App Architecture & Prototypes',
+    eyebrow: '04 / CROSS-PLATFORM ENGINEERING',
+    description: 'Cross-platform mobile applications engineered with React Native and Expo, featuring touch UI ergonomics, biometric security, and offline SQLite synchronization.',
+    icon: Smartphone,
     accentColor: '#B8FF3D'
   },
   'innovation': {
@@ -121,29 +130,63 @@ const defaultCategoryMeta: WorkCategoryMeta = {
 
 // Fallback initial items
 const fallbackItemsByCategory: Record<string, WorkItem[]> = {
-  'web-development': [
+  'ecommerce': [
     {
       _id: 'client-laptopmitra',
       title: 'LaptopMitra — Hardware Platform & Marketplace',
-      subtitle: 'Website Design & Development',
-      description: 'Engineered a full-scale B2B/B2C marketplace and catalogue portal for certified pre-owned and refurbished laptops. Built with Next.js, modern typography, dynamic product purpose categorization, and an instant corporate quotation pipeline.',
-      shortDescription: 'India\'s verified refurbished laptop marketplace and corporate procurement platform with 32-point inspection guarantee.',
-      category: 'web-development',
+      subtitle: 'E-Commerce Architecture & Procurement Engine',
+      description: `Project Context:
+LaptopMitra is an Indian electronics marketplace specializing in certified pre-owned and enterprise refurbished laptops for software developers, students, and businesses.
+
+Service Delivered:
+Full-stack Website Engineering, E-Commerce Catalogue Architecture, and B2B Procurement Quotation Pipeline.
+
+Challenge Addressed:
+High consumer skepticism regarding refurbished hardware reliability and the lack of an automated procurement quoting flow for bulk enterprise laptop buyers.
+
+Solution Implemented:
+Engineered a fast, responsive storefront featuring a prominent 32-point hardware inspection trust system, dynamic purpose-based categorization (Coding, Business, Student, Gaming), and an instant corporate quotation pipeline with real-time dispatch.
+
+Technology Stack:
+Next.js, React, TypeScript, Tailwind CSS, Vercel Edge Hosting.
+
+Verifiable Outcome:
+Verified 32-point inspection trust system, functional multi-device procurement quoting flow, sub-second page loads, and active live production deployment.`,
+      shortDescription: 'Certified pre-owned and refurbished laptop marketplace engineered with a 32-point inspection trust system and corporate quotation engine.',
+      category: 'ecommerce',
       image: '/portfolio/laptopmitra-homepage.webp',
       tags: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Hardware Marketplace', 'B2B Procurement'],
       achievements: [
         '32-point hardware inspection certified badging system',
         'Bulk corporate quote request flow with real-time dispatch',
         'Pan-India delivery integration across all major metropolitan hubs',
-        'Sub-second page speeds with 99+ Core Web Vitals optimization'
+        'Sub-second page speeds with 99+ Core Web Vitals target'
       ],
       links: [{ title: 'Visit Live Website', url: 'https://laptop-mitra.vercel.app/' }]
-    },
+    }
+  ],
+  'web-development': [
     {
       _id: 'client-touristpalace',
-      title: 'Tourist Palace — Hotel & Room Booking Portal',
-      subtitle: 'Website Design & Development',
-      description: 'Designed and deployed a modern hotel reservation and direct room booking platform for Tourist Palace Hotel in Mahipalpur near Delhi Airport & Aerocity. Eliminates third-party OTA middleman commissions through direct WhatsApp room inquiries and verified room showcase galleries.',
+      title: 'Tourist Palace — Airport Hotel & Direct Booking Portal',
+      subtitle: 'Hospitality Web Platform & Direct Booking Engine',
+      description: `Project Context:
+Tourist Palace Hotel is an established accommodation provider located in Mahipalpur, New Delhi, situated 5 minutes from Delhi IGI Airport (T1/T2/T3) and the Aerocity commercial hub.
+
+Service Delivered:
+Hospitality Website Development, Local SEO Optimization, and Direct Reservation Channel Design.
+
+Challenge Addressed:
+Excessive Online Travel Agency (OTA) commissions (15%–25%) and poor mobile discoverability for airport transit travelers requiring rapid room confirmation.
+
+Solution Implemented:
+Engineered a lightweight, mobile-first booking portal with instant one-tap WhatsApp concierge reservations, verified Double AC room galleries, transparent pricing, and interactive transit distance guides.
+
+Technology Stack:
+Next.js, React, Tailwind CSS, WhatsApp Click-to-Chat API, Schema.org Hotel structured data.
+
+Verifiable Outcome:
+Direct zero-commission WhatsApp reservation pipeline, fast mobile load times for travelers on cellular networks, and structured local search visibility for airport transit queries.`,
       shortDescription: 'Hospitality showcase and direct room reservation portal near Delhi IGI Airport and Aerocity.',
       category: 'web-development',
       image: '/portfolio/touristpalace-homepage.webp',
@@ -158,9 +201,25 @@ const fallbackItemsByCategory: Record<string, WorkItem[]> = {
     },
     {
       _id: 'client-esailor',
-      title: 'eSailor — Global B2B Jute Trade & Export Portal',
-      subtitle: 'Website Design & Development',
-      description: 'Engineered an international trade and B2B export flagship for eSailor, an established manufacturer and global exporter of sustainable jute bags, tote bags, shopping bags, and industrial burlap sacks.',
+      title: 'eSailor — International B2B Jute Trade & Export Portal',
+      subtitle: 'Global Trade & B2B Catalogue Engine',
+      description: `Project Context:
+eSailor is an Indian manufacturer and global exporter of sustainable jute bags, cotton canvas totes, and industrial burlap packaging for international commercial buyers.
+
+Service Delivered:
+B2B Export Website Development, Wholesale Catalogue Architecture, and Trade Accreditation Showcase.
+
+Challenge Addressed:
+Establishing authentic international buyer trust for overseas container-load importers across Europe, North America, and the Middle East, while facilitating wholesale custom-branding quote requests.
+
+Solution Implemented:
+Built a verified trade platform highlighting authentic government and export accreditations (RCMC, IEC, GST, Udyam), one-click downloadable PDF product specification sheets, and a structured wholesale quotation intake flow for container orders.
+
+Technology Stack:
+Next.js, React, Tailwind CSS, Responsive B2B Architecture, PDF spec integration.
+
+Verifiable Outcome:
+Verified export accreditation showcase (RCMC, IEC, GST, Udyam), direct container-load quotation intake pipeline, instant technical spec sheet distribution.`,
       shortDescription: 'International B2B manufacturing and export platform for sustainable jute products with verified trade accreditations.',
       category: 'web-development',
       image: '/portfolio/esailor-homepage.webp',
@@ -177,7 +236,23 @@ const fallbackItemsByCategory: Record<string, WorkItem[]> = {
       _id: 'client-properties-professor',
       title: 'Properties Professor — Premium Real Estate Portal',
       subtitle: 'Website Design & Development',
-      description: 'Engineered a modern Indian property discovery engine featuring verified luxury residential and commercial listings across Mumbai, Bangalore, and Gurgaon. Equipped with multi-city search filters, transparent INR pricing valuations, and direct broker contact channels.',
+      description: `Project Context:
+Properties Professor is an Indian real estate discovery portal showcasing verified luxury residential and commercial listings across Mumbai, Bangalore, and Gurgaon.
+
+Service Delivered:
+Full-Stack Web Development, Multi-City Filter Architecture, and Lead Intake Pipeline.
+
+Challenge Addressed:
+Information asymmetry and unverified pricing in the Indian property market, leading to high friction between property seekers and authorized real estate advisors.
+
+Solution Implemented:
+Developed a responsive discovery portal featuring multi-city filtering (Mumbai, Bangalore, Gurgaon), verified listing badging, clear INR crore valuations, and a direct inquiry routing system connecting prospective buyers to authorized advisors.
+
+Technology Stack:
+Next.js, React, Tailwind CSS, Dynamic Search Filter Components.
+
+Verifiable Outcome:
+Multi-city property search capability (Mumbai, Bangalore, Gurgaon), verified listing badge structure, direct consultation inquiry generation.`,
       shortDescription: 'Verified real estate discovery and luxury property marketplace with multi-city search and transparent pricing.',
       category: 'web-development',
       image: '/portfolio/properties-professor-homepage.webp',
@@ -189,33 +264,101 @@ const fallbackItemsByCategory: Record<string, WorkItem[]> = {
         'Direct high-intent consultation lead generation pipeline'
       ],
       links: [{ title: 'Visit Live Website', url: 'https://propertiesprofessor.com/' }]
+    },
+    {
+      _id: 'client-laptopmitra',
+      title: 'LaptopMitra — Hardware Platform & Marketplace',
+      subtitle: 'E-Commerce Architecture & Procurement Engine',
+      description: `Project Context:
+LaptopMitra is an Indian electronics marketplace specializing in certified pre-owned and enterprise refurbished laptops for software developers, students, and businesses.
+
+Service Delivered:
+Full-stack Website Engineering, E-Commerce Catalogue Architecture, and B2B Procurement Quotation Pipeline.
+
+Challenge Addressed:
+High consumer skepticism regarding refurbished hardware reliability and the lack of an automated procurement quoting flow for bulk enterprise laptop buyers.
+
+Solution Implemented:
+Engineered a fast, responsive storefront featuring a prominent 32-point hardware inspection trust system, dynamic purpose-based categorization (Coding, Business, Student, Gaming), and an instant corporate quotation pipeline with real-time dispatch.
+
+Technology Stack:
+Next.js, React, TypeScript, Tailwind CSS, Vercel Edge Hosting.
+
+Verifiable Outcome:
+Verified 32-point inspection trust system, functional multi-device procurement quoting flow, sub-second page loads, and active live production deployment.`,
+      shortDescription: 'Certified pre-owned and refurbished laptop marketplace engineered with a 32-point inspection trust system and corporate quotation engine.',
+      category: 'ecommerce',
+      image: '/portfolio/laptopmitra-homepage.webp',
+      tags: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Hardware Marketplace', 'B2B Procurement'],
+      achievements: [
+        '32-point hardware inspection certified badging system',
+        'Bulk corporate quote request flow with real-time dispatch',
+        'Pan-India delivery integration across all major metropolitan hubs',
+        'Sub-second page speeds with 99+ Core Web Vitals target'
+      ],
+      links: [{ title: 'Visit Live Website', url: 'https://laptop-mitra.vercel.app/' }]
     }
   ],
   'mobile-apps': [
     {
-      _id: 'mobile-1',
-      title: 'Multi-Platform Mobile Companion',
-      subtitle: 'Mobile App Design & Development',
-      description: 'Architected an intuitive, high-performance cross-platform mobile application for iOS and Android using React Native and TypeScript. Built with an offline-first data model, biometrics, and instant cloud synchronization.',
-      shortDescription: 'Fluid React Native mobile application for iOS & Android featuring biometric security and offline-first sync.',
+      _id: 'proto-mobile-architecture',
+      title: 'Cross-Platform Mobile Application Architecture',
+      subtitle: 'Engineering Prototype & Architectural Reference',
+      description: `Project Context:
+An internal engineering prototype and architectural foundation built by the Xelox team to demonstrate and benchmark cross-platform mobile capabilities.
+
+Service Delivered:
+Cross-Platform Mobile Engineering (React Native & Expo), Touch UI Design, Local Caching Architecture.
+
+Challenge Addressed:
+Startups and expanding businesses often face prohibitive costs when building and maintaining separate native iOS and Android codebases, resulting in fragmented release cycles and uneven user experiences.
+
+Solution Implemented:
+Engineered a unified React Native and Expo codebase utilizing atomic touch UI components, SQLite local caching for offline capability, biometric authentication integration, and automated build configuration for iOS and Android deployment.
+
+Technology Stack:
+React Native, Expo, TypeScript, Tailwind / NativeWind, SQLite, Firebase, REST APIs.
+
+Verifiable Outcome:
+Functional cross-platform prototype codebase tested across physical iOS and Android hardware; benchmarks touch responsive latency under 16ms (60fps).
+
+Status Note:
+Explicitly designated as an internal engineering prototype and reference architecture rather than a commercial client release.`,
+      shortDescription: 'Internal React Native & Expo cross-platform architecture prototype demonstrating touch UI ergonomics, offline SQLite sync, and biometric authentication.',
       category: 'mobile-apps',
       image: 'https://res.cloudinary.com/dr4w6ordx/image/upload/v1779559150/nexgen-studio/vksseodnsre0tcepekgh.png',
-      tags: ['React Native', 'Expo', 'TypeScript', 'Firebase', 'SQLite'],
+      tags: ['React Native', 'Expo', 'TypeScript', 'SQLite', 'Biometrics', 'Mobile Prototype'],
       achievements: [
-        'Cross-platform deployment to Apple App Store & Google Play',
+        'Unified single codebase for iOS and Android via React Native & Expo',
+        'Local SQLite offline-first synchronization architecture',
         'Biometric security with keychain token encryption',
-        'Offline-first synchronization architecture',
-        'Low-latency push notification pipeline'
+        'Physical device testing across iOS and Android hardware'
       ],
-      links: [{ title: 'App Architecture', url: 'https://github.com/xelox-solutions/mobile-architecture' }]
+      links: []
     }
   ],
   'digital-marketing': [
     {
       _id: 'client-adorca',
-      title: 'Adorca 360 — Performance Growth Studio',
-      subtitle: 'Digital Marketing & Growth',
-      description: 'Architected and developed the global platform for Adorca 360, a performance marketing studio. Integrates an algorithmic search signal crawl architecture, semantic entity clustering for multi-region organic dominance, and an interactive real-time client Growth Diagnostic engine across 50+ international markets.',
+      title: 'Adorca 360 — Performance Growth Marketing Studio',
+      subtitle: 'Digital Marketing & Technical Search Platform',
+      description: `Project Context:
+Adorca 360 is a performance marketing studio focused on algorithmic search visibility, content architecture, and international customer acquisition across 50+ global markets.
+
+Service Delivered:
+Digital Marketing Strategy Presentation, Technical SEO Architecture, and Web Platform Engineering.
+
+Challenge Addressed:
+Marketing decision-makers face opaque agency attribution, lack of transparency in paid spend, and fragmented regional data across global search engines.
+
+Solution Implemented:
+Engineered an interactive Signal Architecture visualizer mapping the user journey from search intent to acquisition; established a semantic entity clustering system for multi-region indexing; integrated a real-time Growth Diagnostic tool with 100% first-party transparent attribution.
+
+Technology Stack:
+Next.js, TypeScript, Tailwind CSS, SVG Telemetry, Google Analytics 4 & Search Console signal modeling.
+
+Verifiable Outcome:
+Functional interactive growth diagnostic workflow, indexation architecture for 50+ international search ecosystems, client-owned data reporting with zero lock-in.`,
       shortDescription: 'Performance growth marketing studio and technical search optimization platform operating across 50+ international markets.',
       category: 'digital-marketing',
       image: '/portfolio/adorca-homepage.webp',
@@ -231,14 +374,27 @@ const fallbackItemsByCategory: Record<string, WorkItem[]> = {
   ],
   'innovation': [
     {
-      _id: 'innov-1',
-      title: 'Smart India Hackathon 2023',
-      subtitle: 'National Winner — Healthcare Innovation',
-      description: 'Developed an AI-powered healthcare diagnostics prototype that uses computer vision to analyze medical scans and assist clinicians with preliminary triage. Secured first place in the healthcare category of Smart India Hackathon 2023, competing against over 500 engineering teams nationwide.',
-      shortDescription: 'National 1st Place Winner at Smart India Hackathon 2023 in Healthcare Innovation Category.',
+      _id: 'innov-sih-2023',
+      title: 'Smart India Hackathon 2023 — National 1st Place Winner',
+      subtitle: 'Ministry of Ayush / Healthcare Innovation',
+      description: `Project Context:
+Smart India Hackathon (SIH) is the world's largest open innovation competition organized by the Ministry of Education and AICTE, Government of India.
+
+Engineering Delivered:
+Computer Vision Triage System & Healthcare Diagnostics Prototype.
+
+Challenge Addressed:
+Triage delays in healthcare facilities requiring automated medical scan pre-screening to assist clinicians with preliminary assessment.
+
+Solution Implemented:
+Engineered an AI-assisted diagnostic prototype utilizing computer vision to evaluate medical scans, identify anomalies, and generate structured preliminary reports for medical review.
+
+Verifiable Outcome:
+Secured 1st Place National Championship in Healthcare Innovation, competing against 500+ nationwide university and engineering teams at the National Grand Finale.`,
+      shortDescription: 'National 1st Place Winner in Healthcare Innovation at Smart India Hackathon 2023, competing against 500+ engineering teams nationwide.',
       category: 'innovation',
       image: 'https://res.cloudinary.com/dr4w6ordx/image/upload/v1773202634/group-photo.png',
-      tags: ['Smart India Hackathon', 'National Winner', 'Healthcare AI', 'Python', 'React'],
+      tags: ['Smart India Hackathon', 'National Winner', 'AI Healthcare', 'Python', 'React'],
       achievements: [
         '1st Place in Healthcare Innovation Category',
         'Selected among Top 10 from 500+ nationwide teams',
@@ -248,11 +404,24 @@ const fallbackItemsByCategory: Record<string, WorkItem[]> = {
       links: [{ title: 'Competition Archive', url: 'https://sih.gov.in' }]
     },
     {
-      _id: 'innov-2',
-      title: 'Cybercubs National Championship',
-      subtitle: '1st Place — Ethical Hacking & Cybersecurity',
-      description: 'Achieved first place in the Cybercubs National Championship 2023, a premier cybersecurity competition evaluating ethical hacking, application security auditing, and penetration testing.',
-      shortDescription: '1st Place Winner in Cybercubs National Championship for ethical hacking and web application security.',
+      _id: 'innov-cybercubs',
+      title: 'Cybercubs National Championship — 1st Place',
+      subtitle: 'Application Security & Penetration Testing',
+      description: `Project Context:
+Cybercubs National Championship is a premier cybersecurity competition evaluating ethical hacking, application security auditing, and penetration testing.
+
+Engineering Delivered:
+Application Security Auditing & Zero-Day Simulation.
+
+Challenge Addressed:
+Identifying and mitigating web application vulnerabilities, authentication bypasses, and unauthorized data exposure under timed competitive conditions.
+
+Solution Implemented:
+Conducted rigorous penetration testing across multi-tier test platforms, identifying zero-day vulnerability attack vectors and compiling remediation audit reports.
+
+Verifiable Outcome:
+Awarded 1st Place National Champions in the competitive ethical hacking challenge.`,
+      shortDescription: '1st Place Winner in Cybercubs National Championship for ethical hacking and web application security auditing.',
       category: 'innovation',
       image: 'https://res.cloudinary.com/dr4w6ordx/image/upload/v1773596421/f48bf7a6-fd0e-4e29-89fb-5d425336f46b_ukczim.png',
       tags: ['Cybersecurity', 'Ethical Hacking', 'Penetration Testing', 'App Security'],
@@ -262,6 +431,36 @@ const fallbackItemsByCategory: Record<string, WorkItem[]> = {
         'Comprehensive audit reporting commendation'
       ],
       links: [{ title: 'Competition Archive', url: 'https://cybercubs.org' }]
+    },
+    {
+      _id: 'innov-psb-gff',
+      title: 'PSB Hackathon Winner & Global Fintech Fest 2026',
+      subtitle: 'Hardware Token & Companion FinTech Protocol',
+      description: `Project Context:
+PSB Hackathon evaluates breakthrough engineering prototypes tackling critical banking and financial technology security challenges.
+
+Engineering Delivered:
+Hardware Authentication Token & Companion Transaction Verification App.
+
+Challenge Addressed:
+High rates of digital transaction fraud and unauthorized high-value payment transfers.
+
+Solution Implemented:
+Engineered a physical hardware payment token with cryptographic handshake paired with a mobile companion app. Users configure dynamic payment thresholds; transactions exceeding the threshold require physical confirmation on the tamper-resistant hardware token.
+
+Verifiable Outcome:
+Awarded 1st Place in the PSB Hackathon and officially selected for showcase at the Global Fintech Fest (GFF) 2026 in Mumbai.`,
+      shortDescription: '1st Place at PSB Hackathon & showcased at Global Fintech Fest 2026 in Mumbai for hardware-based transaction security.',
+      category: 'innovation',
+      image: 'https://res.cloudinary.com/dr4w6ordx/image/upload/v1779460343/ChatGPT_Image_May_22_2026_07_43_23_PM_gvldqm.png',
+      tags: ['PSB Hackathon', 'GFF 2026 Mumbai', 'Hardware Security', 'FinTech', 'IoT Prototype'],
+      achievements: [
+        '1st Place Winner at PSB Hackathon',
+        'Showcased at Global Fintech Fest (GFF) 2026 in Mumbai',
+        'Engineered physical hardware payment token with cryptographic handshake',
+        'Configurable transaction threshold security with physical button confirmation'
+      ],
+      links: []
     }
   ]
 };
@@ -308,13 +507,19 @@ export default function WorkCategoryPage({ category, onBackToWork, onGoHome }: W
         <div className="max-w-7xl mx-auto">
           {/* Contextual Breadcrumb */}
           <nav aria-label="Breadcrumb" className="flex items-center gap-2 mb-5 text-xs font-mono">
-            <button
-              onClick={onBackToWork}
+            <a
+              href="/work"
+              onClick={(e) => {
+                if (!e.metaKey && !e.ctrlKey) {
+                  e.preventDefault();
+                  onBackToWork();
+                }
+              }}
               className="inline-flex items-center gap-1.5 text-cyan-600 dark:text-cyan-400 hover:text-dark dark:hover:text-lime transition-colors"
             >
               <ArrowLeft className="w-3.5 h-3.5" />
               <span>All Case Studies</span>
-            </button>
+            </a>
             <span className="text-gray-400 dark:text-slate-600">/</span>
             <span className="text-dark/80 dark:text-slate-300 font-semibold">{categoryMeta.title}</span>
           </nav>
@@ -343,12 +548,18 @@ export default function WorkCategoryPage({ category, onBackToWork, onGoHome }: W
         ) : workItems.length === 0 ? (
           <div className="py-24 text-center rounded-2xl border border-black/10 dark:border-white/10 bg-white/40 dark:bg-white/5 p-8">
             <p className="font-mono text-sm text-gray-700 dark:text-slate-300 mb-4">No projects currently found in this category.</p>
-            <button
-              onClick={onBackToWork}
-              className="btn-outline text-xs uppercase font-mono tracking-wider px-4 py-2"
+            <a
+              href="/work"
+              onClick={(e) => {
+                if (!e.metaKey && !e.ctrlKey) {
+                  e.preventDefault();
+                  onBackToWork();
+                }
+              }}
+              className="btn-outline text-xs uppercase font-mono tracking-wider px-4 py-2 inline-flex items-center justify-center"
             >
               Browse All Projects
-            </button>
+            </a>
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
